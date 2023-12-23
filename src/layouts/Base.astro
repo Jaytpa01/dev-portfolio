@@ -1,12 +1,17 @@
 ---
+import Navbar from "@components/Nav/Navbar.astro";
+import GlobalStyles from "@components/GlobalStyles.astro";
+
 interface Props {
 	title?: string;
 	description?: string;
+	className?: string;
 }
 
 const {
 	title = "Jay Parry | Fullstack Dev",
 	description = "Jay Parry's Software Developer Portfolio",
+	className,
 } = Astro.props;
 ---
 
@@ -18,6 +23,13 @@ const {
 			rel="icon"
 			type="image/svg+xml"
 			href="/favicon.svg"
+		/>
+		<link
+			rel="preload"
+			href="/fonts/reem-kufi-v21-latin-regular.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
 		/>
 		<meta
 			name="viewport"
@@ -76,11 +88,17 @@ const {
 			property="twitter:description"
 			content={description}
 		/>
+
+		<!-- Apply global styles -->
+		<GlobalStyles />
 	</head>
-	<body>
-		<main>
-			<slot />
-		</main>
+	<body class="bg-neo-red min-h-screen">
+		<div>
+			<Navbar />
+			<main class={className}>
+				<slot />
+			</main>
+		</div>
 
 		<script>
 			// extend the window object to keep typescript happy
