@@ -1,0 +1,103 @@
+---
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = "Jay Parry | Fullstack Dev",
+	description = "Jay Parry's Software Developer Portfolio",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="/favicon.svg"
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width"
+		/>
+		<meta
+			name="generator"
+			content={Astro.generator}
+		/>
+		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+		></script>
+
+		<!-- Primary Meta Tags -->
+		<title>{title}</title>
+		<meta
+			name="title"
+			content={title}
+		/>
+		<meta
+			name="description"
+			content={description}
+		/>
+
+		<!-- Open Graph / Facebook -->
+		<meta
+			property="og:type"
+			content="website"
+		/>
+		<meta
+			property="og:url"
+			content={Astro.url}
+		/>
+		<meta
+			property="og:title"
+			content={title}
+		/>
+		<meta
+			property="og:description"
+			content={description}
+		/>
+
+		<!-- Twitter -->
+		<meta
+			property="twitter:card"
+			content="summary"
+		/>
+		<meta
+			property="twitter:url"
+			content={Astro.url}
+		/>
+		<meta
+			property="twitter:title"
+			content={title}
+		/>
+		<meta
+			property="twitter:description"
+			content={description}
+		/>
+	</head>
+	<body>
+		<main>
+			<slot />
+		</main>
+
+		<script>
+			// extend the window object to keep typescript happy
+			declare global {
+				interface Window {
+					netlifyIdentity: any;
+				}
+			}
+			if (window.netlifyIdentity) {
+				window.netlifyIdentity.on("init", (user: any) => {
+					if (!user) {
+						window.netlifyIdentity.on("login", () => {
+							document.location.href = "/admin/";
+						});
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

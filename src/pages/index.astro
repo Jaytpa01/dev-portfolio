@@ -1,47 +1,7 @@
 ---
-
+import BaseLayout from "@layouts/Base.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link
-			rel="icon"
-			type="image/svg+xml"
-			href="/favicon.svg"
-		/>
-		<meta
-			name="viewport"
-			content="width=device-width"
-		/>
-		<meta
-			name="generator"
-			content={Astro.generator}
-		/>
-		<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-		></script>
-
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-
-		<script>
-			// extend the window object to keep typescript happy
-			declare global {
-				interface Window {
-					netlifyIdentity: any;
-				}
-			}
-			if (window.netlifyIdentity) {
-				window.netlifyIdentity.on("init", (user: any) => {
-					if (!user) {
-						window.netlifyIdentity.on("login", () => {
-							document.location.href = "/admin/";
-						});
-					}
-				});
-			}
-		</script>
-	</body>
-</html>
+<BaseLayout>
+	<h1>Hello, world</h1>
+</BaseLayout>
