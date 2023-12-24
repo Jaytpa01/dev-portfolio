@@ -11,6 +11,7 @@ export default {
 			colors: {
 				"neo-red": "#ff7a64",
 				"neo-yellow": "#ffef6b",
+				"neo-neutral": "#fffeec",
 			},
 		},
 	},

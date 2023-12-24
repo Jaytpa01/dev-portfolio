@@ -2,13 +2,13 @@
 import { links } from "./links";
 ---
 
-<nav class="bg-neo-red sticky top-0 z-50 min-h-16 w-full">
+<nav class="sticky top-0 z-50 min-h-16 w-full bg-neo-red">
 	<div class="mx-auto flex h-16 max-w-[1440px] justify-between">
-		<div class="bg-neo-yellow flex h-16 w-fit items-center px-3">
-			<h1 class="text-center text-xl font-bold underline">
-				<a href="/">JAY PARRY</a>
-			</h1>
-		</div>
+		<a href="/">
+			<div class="flex h-16 w-fit items-center bg-neo-yellow px-3">
+				<h1 class="text-center text-xl font-bold underline">JAY PARRY</h1>
+			</div>
+		</a>
 
 		<button
 			aria-label="Toggle Mobile Navigation"
@@ -35,7 +35,7 @@ import { links } from "./links";
 </nav>
 
 <div
-	class="bg-green bg-neo-yellow fixed inset-y-16 z-10 hidden h-full w-full md:hidden"
+	class="bg-green fixed inset-y-16 z-10 hidden h-full w-full bg-neo-yellow md:hidden"
 	id="mobile-nav-modal"
 	aria-hidden="true"
 >
