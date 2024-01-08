@@ -1,0 +1,20 @@
+---
+interface Props {
+	icon: string;
+	name: string;
+}
+
+const { icon, name } = Astro.props;
+---
+
+<div class="skill embla__slide">
+	<i class={`${icon} colored text-7xl`}></i>
+	<p>{name}</p>
+</div>
+
+<style>
+	.embla__slide {
+		flex: 0 0 100%;
+		min-width: 0;
+	}
+</style>
