@@ -5,12 +5,16 @@ interface link {
 
 export const links: link[] = [
 	{
-		label: "Resume",
-		href: "/resume",
+		label: "Home",
+		href: "/",
 	},
 	{
 		label: "Projects",
 		href: "/projects",
+	},
+	{
+		label: "Resume",
+		href: "/resume",
 	},
 	{
 		label: "Blog",
