@@ -1,7 +1,19 @@
 ---
 import BaseLayout from "@layouts/Base.astro";
+import TypingRat from "src/assets/typing-rat.gif";
 ---
 
 <BaseLayout>
-	<h1>My Projects</h1>
+	<h1>some things i've cobbled together</h1>
+
+	<img
+		src={TypingRat.src}
+		width={TypingRat.width / 3}
+		alt="Cartoon rat quickly typing"
+		class="rounded-full"
+	/>
+
+	<h2>Contributions</h2>
+
+	<h2>Projects</h2>
 </BaseLayout>
