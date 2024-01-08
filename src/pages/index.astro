@@ -1,17 +1,89 @@
 ---
+import SkillsCarousel from "@components/Skills/SkillsCarousel.astro";
 import BaseLayout from "@layouts/Base.astro";
-
-const lorem =
-	"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sed aliquam odio, in porttitor est. Nunc nec metus orci. Nam commodo nunc eu facilisis maximus. Maecenas efficitur risus sem, vitae finibus elit ornare in. In porttitor tempus mi, eget vestibulum mi semper vitae. Fusce in ullamcorper orci. In hac habitasse platea dictumst. Sed a fringilla mauris. Vivamus pulvinar, enim id mollis molestie, elit sapien vulputate mi, ut sagittis diam dui imperdiet urna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur finibus, est eget condimentum fringilla, nisl lectus euismod nisl, at pharetra libero nibh a felis. Etiam luctus ligula et tempus tincidunt.";
-
-const placeHolder = [];
-for (let i = 0; i < 9; i++) {
-	placeHolder.push(lorem);
-}
 ---
 
-<BaseLayout className="mx-auto max-w-7xl">
-	<h1>Hello, world</h1>
+<BaseLayout>
+	<section class="flex min-h-80 flex-col justify-center text-center">
+		<h1 class="text-5xl">Jay Parry</h1>
+		<h2 class="text-5xl">Fullstack Developer</h2>
+	</section>
+	<section class="space-y-3 pb-6">
+		<h2 class="font-bold underline">About</h2>
+		<p>
+			Hey there! I'm Jay, a fullstack developer
+			<span class="text-xs">
+				(although I think the hero section might've given that away)
+			</span>
+		</p>
 
-	{placeHolder.map((p) => <p>{p}</p>)}
+		<div class="space-y-1 italic">
+			<p>Growing up, I always had a passion for everything tech.</p>
+
+			<p>
+				From figuring out how to open a zip file to use Pivot Animator on my
+				mum's work laptop at like 7 years old, to writing an awful text
+				adventure using a batch file, modding just about every game I got my
+				hands on (I'm talking about you Skyrim and Minecraft), and Jailbreaking
+				iPhones for my friends and I in highschool.
+			</p>
+			<p>
+				These are just some of the things that developed my problem solving
+				skills and generally fostered my passion for tech and the experiences it
+				can give us.
+			</p>
+		</div>
+
+		<hr />
+
+		<h2 class="font-bold underline">Work</h2>
+
+		<p>
+			These days I'm still just as passionate about tech, but I now come with
+			experience professionally building applications with Golang, Node.js,
+			React, and Postgres.
+		</p>
+
+		<p>
+			I'm currently working as a Fullstack Developer at
+			<a
+				href="https://wearewelcome.com.au/"
+				class="underline"
+			>
+				welcome.
+			</a>
+
+			 If you wanna know more, take a look at
+			<a
+				href="/resume"
+				class="underline"
+			>
+				my resume.
+			</a>
+		</p>
+
+		<hr />
+
+		<h2 class="font-bold underline">A bit more about me</h2>
+		<p>
+			Other technologies I like using include Astro, TypeScript, and Tailwind!
+		</p>
+
+		<hr />
+
+		<p>The tech I've built with memtioned (now in fun swipey carousel form):</p>
+		<SkillsCarousel />
+
+		<hr />
+
+		<h2 class="font-bold underline">Pinned Projects</h2>
+
+		<div>
+			<p>↓</p>
+			<p>checkout the rest of my</p>
+			<a href="/projects">
+				<button class="bg-zinc-900 text-white">PROJECTS</button>
+			</a>
+		</div>
+	</section>
 </BaseLayout>
