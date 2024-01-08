@@ -5,13 +5,11 @@ import GlobalStyles from "@components/GlobalStyles.astro";
 interface Props {
 	title?: string;
 	description?: string;
-	className?: string;
 }
 
 const {
 	title = "Jay Parry | Fullstack Dev",
 	description = "Jay Parry's Software Developer Portfolio",
-	className,
 } = Astro.props;
 ---
 
@@ -91,14 +89,17 @@ const {
 
 		<!-- Apply global styles -->
 		<GlobalStyles />
+
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+		/>
 	</head>
-	<body class="bg-neo-neutral min-h-screen">
-		<div>
-			<Navbar />
-			<main class={className}>
-				<slot />
-			</main>
-		</div>
+	<body class="mx-auto min-h-screen max-w-3xl bg-neo-neutral">
+		<Navbar />
+		<main class="md:text-sm">
+			<slot />
+		</main>
 
 		<script>
 			// extend the window object to keep typescript happy
