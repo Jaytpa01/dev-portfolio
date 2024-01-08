@@ -2,7 +2,7 @@
 import { links } from "./links";
 ---
 
-<nav class="sticky top-0 z-50 min-h-16 w-full bg-neo-red">
+<!-- <nav class="sticky top-0 z-50 min-h-16 w-full bg-neo-red">
 	<div class="mx-auto flex h-16 max-w-[1440px] justify-between">
 		<a href="/">
 			<div class="flex h-16 w-fit items-center bg-neo-yellow px-3">
@@ -66,4 +66,22 @@ import { links } from "./links";
 	}
 
 	mobileNavToggle?.addEventListener("click", toggleMobileModal);
-</script>
+</script> -->
+<div class="mx-auto max-w-3xl md:flex md:justify-between">
+	<a
+		href="/"
+		class="hover:translate-y-1"
+	>
+		<h1 class="text-xl font-bold underline">JAY PARRY</h1>
+	</a>
+
+	<ul class="flex space-x-2">
+		{
+			links.map((link) => (
+				<li class="hover:translate-y-1 hover:underline">
+					<a href={link.href}>{link.label}</a>
+				</li>
+			))
+		}
+	</ul>
+</div>
