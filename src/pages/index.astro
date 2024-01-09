@@ -8,39 +8,13 @@ import BaseLayout from "@layouts/Base.astro";
 		<h1 class="text-5xl">Jay Parry</h1>
 		<h2 class="text-5xl">Fullstack Developer</h2>
 	</section>
-	<section class="space-y-3 pb-6">
-		<h2 class="font-bold underline">About</h2>
+	<section class="space-y-3 pb-36">
+		<h2 class="font-bold underline">about</h2>
 		<p>
 			Hey there! I'm Jay, a fullstack developer
 			<span class="text-xs">
 				(although I think the hero section might've given that away)
-			</span>
-		</p>
-
-		<div class="space-y-1 italic">
-			<p>Growing up, I always had a passion for everything tech.</p>
-
-			<p>
-				From figuring out how to open a zip file to use Pivot Animator on my
-				mum's work laptop at like 7 years old, to writing an awful text
-				adventure using a batch file, modding just about every game I got my
-				hands on (I'm talking about you Skyrim and Minecraft), and Jailbreaking
-				iPhones for my friends and I in highschool.
-			</p>
-			<p>
-				These are just some of the things that developed my problem solving
-				skills and generally fostered my passion for tech and the experiences it
-				can give us.
-			</p>
-		</div>
-
-		<hr />
-
-		<h2 class="font-bold underline">Work</h2>
-
-		<p>
-			These days I'm still just as passionate about tech, but I now come with
-			experience professionally building applications with Golang, Node.js,
+			</span> with experience building applications using Golang, Node.js,
 			React, and Postgres.
 		</p>
 
@@ -53,7 +27,7 @@ import BaseLayout from "@layouts/Base.astro";
 				welcome.
 			</a>
 
-			 If you wanna know more, take a look at
+			 If you wanna know more, feel free to take a look at
 			<a
 				href="/resume"
 				class="underline"
@@ -64,20 +38,8 @@ import BaseLayout from "@layouts/Base.astro";
 
 		<hr />
 
-		<h2 class="font-bold underline">A bit more about me</h2>
-		<p>
-			Other technologies I like using include Astro, TypeScript, and Tailwind!
-		</p>
-
-		<hr />
-
-		<p>The tech I've built with memtioned (now in fun swipey carousel form):</p>
-		<SkillsCarousel />
-
-		<hr />
-
-		<h2 class="font-bold underline">Pinned Projects</h2>
-
+		<h2 class="font-bold underline">pinned projects</h2>
+		<p>.....</p>
 		<div>
 			<p>↓</p>
 			<p>checkout the rest of my</p>
@@ -85,5 +47,48 @@ import BaseLayout from "@layouts/Base.astro";
 				<button class="bg-zinc-900 text-white">PROJECTS</button>
 			</a>
 		</div>
+
+		<h2 class="font-bold underline">a bit more about me</h2>
+		<div class="space-y-1">
+			<p>Growing up, I always had a passion for everything tech.</p>
+
+			<p>
+				There are a few core memories that developed my problem solving skills
+				and generally fostered my passion for tech and the experiences it can
+				give us:
+
+				<ul class="list-disc">
+					<li>
+						Being like 7 years old figuring out how to open a zip file on my
+						Mum's work laptop so I could use Pivot Animator
+					</li>
+					<li>
+						googling "how to program", resulting in an awful text adventure
+						written using a batch file
+					</li>
+					<li>
+						modding just about every game I got my hands on (I'm talking about
+						you Skyrim and Minecraft)
+					</li>
+					<li>Jailbreaking iPhones for my friends and I in highschool</li>
+				</ul>
+			</p>
+		</div>
+
+		<hr />
+
+		<SkillsCarousel />
+
+		<p>
+			These days I'm still just as passionate about tech, but I now come with
+			experience professionally building applications with Golang, Node.js,
+			React, and Postgres.
+		</p>
+
+		<p>
+			Other technologies I like using include Astro, TypeScript, and Tailwind!
+		</p>
+
+		<hr />
 	</section>
 </BaseLayout>
