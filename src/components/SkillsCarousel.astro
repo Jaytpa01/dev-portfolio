@@ -41,12 +41,15 @@ const skills = [
 	}
 </style>
 
-<script>
-	import EmblaCarousel from "embla-carousel";
+<script
+	is:inline
+	src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"
+></script>
 
-	const emblaNode = document.querySelector(".embla")!;
+<script is:inline>
+	const emblaNode = document.querySelector(".embla");
 	const options = { loop: true, dragFree: true };
-	const emblaApi = EmblaCarousel(emblaNode as HTMLElement, options);
+	const emblaApi = EmblaCarousel(emblaNode, options);
 
 	console.log(emblaApi.slideNodes()); // Access API
 </script>
