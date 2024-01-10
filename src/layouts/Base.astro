@@ -1,5 +1,5 @@
 ---
-import Navbar from "@components/Nav/Navbar.astro";
+import Header from "@components/Header/Header.astro";
 import GlobalStyles from "@components/GlobalStyles.astro";
 
 interface Props {
@@ -95,9 +95,11 @@ const {
 			href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
 		/>
 	</head>
-	<body class="mx-auto min-h-screen max-w-3xl bg-neo-neutral">
-		<Navbar />
-		<main class="md:text-sm">
+	<body class="mx-auto min-h-screen max-w-xl bg-neo-neutral px-4">
+		<div class="sm:pt-12">{/* spacer element */}</div>
+		<Header />
+		<div class="pt-2">{/* spacer element */}</div>
+		<main class="text-sm sm:text-xs">
 			<slot />
 		</main>
 
