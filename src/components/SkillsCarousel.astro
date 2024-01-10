@@ -1,5 +1,4 @@
 ---
-import Skill from "./Skill.astro";
 const skills = [
 	{ name: "react", icon: "devicon-react-original" },
 	{ name: "nextjs", icon: "devicon-nextjs-line" },
@@ -19,10 +18,10 @@ const skills = [
 	<div class="embla__container">
 		{
 			skills.map((s) => (
-				<Skill
-					icon={s.icon}
-					name={s.name}
-				/>
+				<div class="skill embla__slide text-center">
+					<i class={`${s.icon} colored text-4xl`} />
+					<p>{s.name}</p>
+				</div>
 			))
 		}
 	</div>
@@ -34,6 +33,11 @@ const skills = [
 	}
 	.embla__container {
 		display: flex;
+	}
+
+	.embla__slide {
+		flex: 0 0 12%;
+		min-width: 0;
 	}
 </style>
 
