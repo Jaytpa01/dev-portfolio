@@ -15,10 +15,10 @@ const skills = [
 ---
 
 <div class="embla">
-	<div class="embla__container">
+	<div class="embla__container gap-4">
 		{
 			skills.map((s) => (
-				<div class="skill embla__slide text-center">
+				<div class="embla__slide min-w-fit text-center">
 					<i class={`${s.icon} colored text-4xl`} />
 					<p>{s.name}</p>
 				</div>
@@ -37,7 +37,7 @@ const skills = [
 
 	.embla__slide {
 		flex: 0 0 12%;
-		min-width: 0;
+		/* min-width: fit-content; */
 	}
 </style>
 
@@ -46,10 +46,22 @@ const skills = [
 	src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"
 ></script>
 
+<script
+	is:inline
+	src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"
+></script>
+
 <script is:inline>
 	const emblaNode = document.querySelector(".embla");
 	const options = { loop: true, dragFree: true };
-	const emblaApi = EmblaCarousel(emblaNode, options);
+	const emblaApi = EmblaCarousel(emblaNode, options, [
+		EmblaCarouselAutoplay({
+			delay: 2000,
+			// containScroll: "trimSnaps",
+		}),
+	]);
+
+	console.log(emblaApi);
 
 	console.log(emblaApi.slideNodes()); // Access API
 </script>
