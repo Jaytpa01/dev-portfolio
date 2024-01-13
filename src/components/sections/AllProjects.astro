@@ -1,4 +1,5 @@
 ---
+import ArticleCard from "@components/ArticleCard.astro";
 import { getAllProjects } from "src/utils/article";
 
 const projects = await getAllProjects();
@@ -11,7 +12,7 @@ const projects = await getAllProjects();
 		{
 			projects.map((proj) => (
 				<li>
-					<p>{proj.slug}</p>
+					<ArticleCard article={proj} />
 				</li>
 			))
 		}
