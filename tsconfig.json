@@ -6,7 +6,8 @@
 			"@components/*": ["src/components/*"],
 			"@layouts/*": ["src/layouts/*"],
 			"@content/*": ["src/content/*"],
-			"@assets/*": ["src/assets/*"]
+			"@assets/*": ["src/assets/*"],
+			"@utils/*": ["src/utils/*"]
 		},
 		"allowJs": true
 	}
