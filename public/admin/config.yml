@@ -26,3 +26,22 @@ collections:
           options: ["blog", "project"],
         }
       - { label: "Tags", name: "tags", widget: "list" }
+  - name: "contribution"
+    label: "Contribution"
+    folder: "src/content/contributions"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: json
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Project", name: "projectName", widget: "string" }
+      - { label: "Project URL", name: "projectUrl", widget: "string" }
+      - { label: "Publish Date", name: "publishDate", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text" }
+      - {
+          label: "URL",
+          name: "url",
+          widget: "string",
+          hint: "This can be an issue, pull request, etc.",
+        }
+      - { label: "Tags", name: "tags", widget: "list" }
