@@ -2,6 +2,8 @@
 import Card from "@components/Card.astro";
 import { getCollection } from "astro:content";
 
+type ContributionURLDestination = "pull-request" | "issue" | "other";
+
 const contributions = await getCollection("contributions");
 contributions.sort(
 	(a, b) => a.data.publishDate.getTime() - b.data.publishDate.getTime(),
@@ -18,6 +20,13 @@ contributions.sort(
 			contributions.map((contribution) => {
 				const { projectName, projectUrl, description, url } = contribution.data;
 
+				let urlDestinationType: ContributionURLDestination = "other";
+				if (url.includes("/pull/")) {
+					urlDestinationType = "pull-request";
+				} else if (url.includes("/issues/")) {
+					urlDestinationType = "issue";
+				}
+
 				return (
 					<li>
 						<Card>
@@ -33,7 +42,7 @@ contributions.sort(
 									href={url}
 									class="flex align-middle"
 								>
-									<button class="my-auto text-nowrap rounded-full border-2 border-b-4 border-r-4 border-black bg-red-400 px-2 hover:bg-red-500 active:border-b-2 active:border-r-2">
+									<button class="my-auto text-nowrap rounded-full border border-b-4 border-r-4 border-black bg-neo-red px-2 hover:bg-red-500 active:border-b-2 active:border-r-2">
 										goto pr
 									</button>
 								</a>
