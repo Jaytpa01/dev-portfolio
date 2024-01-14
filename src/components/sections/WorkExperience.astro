@@ -1,4 +1,6 @@
 ---
+import Card from "@components/Card.astro";
+
 interface Job {
 	employer: string;
 	role: string;
@@ -22,20 +24,24 @@ const jobs: Job[] = [
 ---
 
 <section>
-	<h2 class="pb-2 font-bold underline">Work Experience</h2>
+	<h2 class="pb-2 text-lg font-bold before:pr-1 before:content-['#']">
+		Work Experience
+	</h2>
 
-	<ul class="list-inside list-disc">
+	<ul class="space-y-3">
 		{
 			jobs.map((job) => (
 				<li>
-					<a
-						href={job.companySite}
-						class="underline"
-						rel="noreferrer noopener"
-					>
-						{job.employer}
-					</a>{" "}
-					(<time>{job.period}</time>): {job.role}
+					<Card>
+						<a
+							href={job.companySite}
+							class="underline"
+							rel="noreferrer noopener"
+						>
+							{job.employer}
+						</a>{" "}
+						(<time>{job.period}</time>): {job.role}
+					</Card>
 				</li>
 			))
 		}
