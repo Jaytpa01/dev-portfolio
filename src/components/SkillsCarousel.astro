@@ -1,14 +1,12 @@
 ---
 const skills = [
-	{ name: "react", icon: "devicon-react-original" },
-	{ name: "javascript", icon: "devicon-javascript-plain" },
-	{ name: "typescript", icon: "devicon-typescript-original" },
-	{ name: "tailwind", icon: "devicon-tailwindcss-plain" },
-	{ name: "git", icon: "devicon-git-plain" },
-	{ name: "npm", icon: "devicon-npm-original-wordmark" },
-	{ name: "postgres", icon: "devicon-postgresql-plain" },
-	{ name: "nodejs", icon: "devicon-nodejs-plain" },
-	{ name: "go", icon: "devicon-go-original-wordmark" },
+	{ name: "React", icon: "devicon-react-original" },
+	{ name: "Go", icon: "devicon-go-original-wordmark" },
+	{ name: "TypeScript", icon: "devicon-typescript-original" },
+	{ name: "JavaScript", icon: "devicon-javascript-plain" },
+	{ name: "Tailwind", icon: "devicon-tailwindcss-plain" },
+	{ name: "Postgres", icon: "devicon-postgresql-plain" },
+	{ name: "Node.js", icon: "devicon-nodejs-plain" },
 ];
 ---
 
@@ -16,7 +14,7 @@ const skills = [
 	<div class="embla__container gap-4">
 		{
 			skills.map((s) => (
-				<div class="embla__slide min-w-fit text-center">
+				<div class="embla__slide min-w-fit rounded-lg border border-b-4 border-r-4 border-black p-3 text-center hover:bg-zinc-200">
 					<i class={`${s.icon} colored text-4xl`} />
 					<p>{s.name}</p>
 				</div>
@@ -34,7 +32,7 @@ const skills = [
 	}
 
 	.embla__slide {
-		flex: 0 0 12%;
+		flex: 0 0 20%;
 		/* min-width: fit-content; */
 	}
 
@@ -58,7 +56,8 @@ const skills = [
 	const options = { loop: true, dragFree: true };
 	const emblaApi = EmblaCarousel(emblaNode, options, [
 		EmblaCarouselAutoplay({
-			delay: 2000,
+			delay: 2500,
+			stopOnInteraction: false,
 			// containScroll: "trimSnaps",
 		}),
 	]);
