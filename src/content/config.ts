@@ -36,5 +36,5 @@ const contributionCollection = defineCollection({
 
 export const collections = {
 	article: articleCollection,
-	contribution: contributionCollection,
+	contributions: contributionCollection,
 };

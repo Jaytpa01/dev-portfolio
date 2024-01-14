@@ -1,12 +1,10 @@
 ---
 import SkillsCarousel from "@components/SkillsCarousel.astro";
 import BaseLayout from "@layouts/Base.astro";
-import TypingRat from "@assets/typing-rat.gif";
+import Profile from "@assets/profile.jpg";
 
 import WorkExperience from "@components/sections/WorkExperience.astro";
 import Contributions from "@components/sections/Contributions.astro";
-import PinnedProjects from "@components/sections/PinnedProjects.astro";
-import About from "@components/sections/About.astro";
 import AllProjects from "@components/sections/AllProjects.astro";
 import Blog from "@components/sections/Blog.astro";
 ---
@@ -14,35 +12,36 @@ import Blog from "@components/sections/Blog.astro";
 <BaseLayout>
 	<div class="space-y-3">
 		<section class="flex justify-between gap-x-3">
-			<div>
+			<div class="max-w-44">
 				<img
-					src={TypingRat.src}
+					src={Profile.src}
 					alt="Cartoon rat quickly typing"
-					class="rounded-3xl"
+					class="rounded-3xl border-4 border-black"
 				/>
 			</div>
 			<div class="space-y-2">
 				<p>
-					Hey there! I'm Jay, a fullstack developer with experience building
-					applications using Golang, Node.js, React, and Postgres.
+					Hello! I'm Jay, a fullstack developer with experience building
+					applications using React, Go, Node.js, and Postgres.
 				</p>
 
 				<p>
-					I'm currently a Fullstack Developer at
+					I'm currently a dev at
 					<a
 						href="https://wearewelcome.com.au/"
-						class="underline"
+						class="font-semibold underline"
 						rel="noreferrer noopener"
 					>
-						welcome.
-					</a> working on a Node API and React application. If you wanna know
-					more, feel free to take a look at
-					<a
-						href="/resume"
-						class="underline"
-					>
-						my resume.
-					</a>
+						welcome
+					</a> working on a REST API built with Express.js and a React
+					application.
+				</p>
+
+				<p>
+					Get to know me a bit better <a
+						href="/about"
+						class="font-bold italic"
+						>here.</a>
 				</p>
 			</div>
 		</section>
@@ -51,9 +50,7 @@ import Blog from "@components/sections/Blog.astro";
 
 		<Contributions />
 
-		<PinnedProjects />
-
-		<About />
+		<!-- <PinnedProjects /> -->
 
 		<AllProjects />
 

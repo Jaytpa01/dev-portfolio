@@ -1,17 +1,20 @@
 ---
+import ArticleCard from "@components/ArticleCard.astro";
 import { getAllProjects } from "src/utils/article";
 
 const projects = await getAllProjects();
 ---
 
 <section>
-	<h2 class="pb-2 font-bold underline">All Projects</h2>
+	<h2 class="pb-2 text-lg font-bold before:pr-1 before:content-['#']">
+		Projects
+	</h2>
 
 	<ul>
 		{
 			projects.map((proj) => (
 				<li>
-					<p>{proj.slug}</p>
+					<ArticleCard article={proj} />
 				</li>
 			))
 		}

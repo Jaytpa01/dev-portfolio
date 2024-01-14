@@ -6,7 +6,7 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ["Reem Kufi", ...defaultTheme.fontFamily.sans],
+				sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
 			},
 			colors: {
 				"neo-red": "#ff7a64",

@@ -1,19 +1,39 @@
 ---
+import ArticleCard from "@components/ArticleCard.astro";
 import { getAllBlogPosts } from "@utils/article";
 
 const blogPosts = await getAllBlogPosts();
 ---
 
 <section>
-	<h2 class="pb-2 font-bold underline">Blog</h2>
+	<h2 class="pb-2 text-lg font-bold before:pr-1 before:content-['#']">Blog</h2>
 
 	<ul>
 		{
-			blogPosts.map((post) => (
-				<li>
-					<p>{post.slug}</p>
-				</li>
-			))
+			blogPosts.map((post) => {
+				const { title, publishDate } = post.data;
+				return (
+					<li class="text-sm">
+						<a
+							href={`/${post.slug}`}
+							class="flex justify-between gap-x-4"
+						>
+							<h3 class="underline">{title}</h3>
+							<time
+								datetime=""
+								class="text-nowrap"
+							>
+								{publishDate.toLocaleString("en-AU", {
+									timeZone: "UTC",
+									month: "short",
+									day: "numeric",
+									year: "numeric",
+								})}
+							</time>
+						</a>
+					</li>
+				);
+			})
 		}
 	</ul>
 </section>

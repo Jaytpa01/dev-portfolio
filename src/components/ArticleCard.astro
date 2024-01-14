@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Card from "./Card.astro";
+
+interface Props {
+	article: CollectionEntry<"article">;
+}
+
+const { article } = Astro.props;
+const { title, description, tags } = article.data;
+---
+
+<Card>
+	<a
+		href="#"
+		class="underline"
+		>{title}</a
+	>: {description}
+
+	{
+		tags && (
+			<ul>
+				{tags.map((tag) => (
+					<span class="mb-2 mr-2 inline-block rounded-md border border-b-4 border-r-4 border-black px-5 text-center">
+						{tag}
+					</span>
+				))}
+			</ul>
+		)
+	}
+</Card>
