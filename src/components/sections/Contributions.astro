@@ -9,7 +9,9 @@ contributions.sort(
 ---
 
 <section>
-	<h2 class="pb-2 font-bold underline">Open Source Contributions</h2>
+	<h2 class="pb-2 text-lg font-bold before:pr-1 before:content-['#']">
+		Open Source Contributions
+	</h2>
 
 	<ul>
 		{
@@ -19,7 +21,7 @@ contributions.sort(
 				return (
 					<li>
 						<Card>
-							<div class="flex justify-between">
+							<div class="flex justify-between gap-x-4">
 								<div>
 									<a href={projectUrl}>
 										<h3 class="tex font-bold underline">{projectName}</h3>
@@ -31,7 +33,7 @@ contributions.sort(
 									href={url}
 									class="flex align-middle"
 								>
-									<button class="my-auto min-w-0 text-nowrap rounded-full border-2 border-b-4 border-r-4 border-black bg-red-400 px-2 active:border-b-2 active:border-r-2">
+									<button class="my-auto text-nowrap rounded-full border-2 border-b-4 border-r-4 border-black bg-red-400 px-2 hover:bg-red-500 active:border-b-2 active:border-r-2">
 										goto pr
 									</button>
 								</a>
