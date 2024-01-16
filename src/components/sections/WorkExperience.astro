@@ -1,5 +1,7 @@
 ---
 import Card from "@components/Card.astro";
+import SectionHeading from "./SectionHeading.astro";
+import NeoCard from "@components/NeoCard.astro";
 
 interface Job {
 	employer: string;
@@ -24,24 +26,24 @@ const jobs: Job[] = [
 ---
 
 <section>
-	<h2 class="pb-2 text-lg font-bold before:pr-1 before:content-['#']">
-		Work Experience
-	</h2>
+	<SectionHeading id="work">Work Experience</SectionHeading>
 
-	<ul class="space-y-3">
+	<ul class="space-y-5">
 		{
 			jobs.map((job) => (
 				<li>
-					<Card>
-						<a
-							href={job.companySite}
-							class="underline"
-							rel="noreferrer noopener"
-						>
-							{job.employer}
-						</a>{" "}
-						(<time>{job.period}</time>): {job.role}
-					</Card>
+					<NeoCard variant="danger">
+						<h3 class="font-semibold underline">
+							<a
+								href={job.companySite}
+								class="underline"
+								rel="noreferrer noopener"
+							>
+								{job.employer} (<time>{job.period}</time>)
+							</a>
+						</h3>
+						<p>{job.role}</p>
+					</NeoCard>
 				</li>
 			))
 		}
