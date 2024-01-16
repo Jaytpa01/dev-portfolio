@@ -1,19 +1,20 @@
 ---
 import ArticleCard from "@components/ArticleCard.astro";
-import { getAllBlogPosts } from "@utils/article";
+import { getAllBlogPosts } from "@lib/article";
+import SectionHeading from "./SectionHeading.astro";
 
 const blogPosts = await getAllBlogPosts();
 ---
 
 <section>
-	<h2 class="pb-2 text-lg font-bold before:pr-1 before:content-['#']">Blog</h2>
+	<SectionHeading id="blog">Blog</SectionHeading>
 
 	<ul>
 		{
 			blogPosts.map((post) => {
 				const { title, publishDate } = post.data;
 				return (
-					<li class="text-sm">
+					<li class="text-base">
 						<a
 							href={`/${post.slug}`}
 							class="flex justify-between gap-x-4"

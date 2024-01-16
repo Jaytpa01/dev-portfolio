@@ -1,14 +1,13 @@
 ---
 import ArticleCard from "@components/ArticleCard.astro";
-import { getAllProjects } from "src/utils/article";
+import { getAllProjects } from "@lib/article";
+import SectionHeading from "./SectionHeading.astro";
 
 const projects = await getAllProjects();
 ---
 
 <section>
-	<h2 class="pb-2 text-lg font-bold before:pr-1 before:content-['#']">
-		Projects
-	</h2>
+	<SectionHeading id="projects">Projects</SectionHeading>
 
 	<ul>
 		{

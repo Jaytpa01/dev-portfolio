@@ -7,7 +7,7 @@
 			"@layouts/*": ["src/layouts/*"],
 			"@content/*": ["src/content/*"],
 			"@assets/*": ["src/assets/*"],
-			"@utils/*": ["src/utils/*"]
+			"@lib/*": ["src/lib/*"]
 		},
 		"allowJs": true
 	}

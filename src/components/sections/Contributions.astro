@@ -1,6 +1,8 @@
 ---
 import Card from "@components/Card.astro";
 import { getCollection } from "astro:content";
+import SectionHeading from "./SectionHeading.astro";
+import NeoCard from "@components/NeoCard.astro";
 
 type ContributionURLDestination = "pull-request" | "issue" | "other";
 
@@ -11,9 +13,7 @@ contributions.sort(
 ---
 
 <section>
-	<h2 class="pb-2 text-lg font-bold before:pr-1 before:content-['#']">
-		Open Source Contributions
-	</h2>
+	<SectionHeading id="contributions">Open Source Contributions</SectionHeading>
 
 	<ul>
 		{
@@ -29,11 +29,11 @@ contributions.sort(
 
 				return (
 					<li>
-						<Card>
+						<NeoCard variant="warning">
 							<div class="flex justify-between gap-x-4">
 								<div>
 									<a href={projectUrl}>
-										<h3 class="tex font-bold underline">{projectName}</h3>
+										<h3 class="font-bold underline">{projectName}</h3>
 									</a>
 									<p>{description}</p>
 								</div>
@@ -47,7 +47,7 @@ contributions.sort(
 									</button>
 								</a>
 							</div>
-						</Card>
+						</NeoCard>
 					</li>
 				);
 			})

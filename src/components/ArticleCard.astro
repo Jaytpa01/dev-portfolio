@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import Card from "./Card.astro";
+import NeoCard from "./NeoCard.astro";
 
 interface Props {
 	article: CollectionEntry<"article">;
@@ -10,12 +11,18 @@ const { article } = Astro.props;
 const { title, description, tags } = article.data;
 ---
 
-<Card>
-	<a
-		href={`/${article.slug}`}
-		class="underline"
-		>{title}</a
-	>: {description}
+<NeoCard variant="project">
+	<a href={`/${article.slug}`}>
+		<h3 class="font-semibold underline">
+			{title}
+		</h3>
+	</a>
+
+	<p>
+		{description}
+	</p>
+
+	<div class="pt-4"></div>
 
 	{
 		tags && (
@@ -28,4 +35,4 @@ const { title, description, tags } = article.data;
 			</ul>
 		)
 	}
-</Card>
+</NeoCard>
