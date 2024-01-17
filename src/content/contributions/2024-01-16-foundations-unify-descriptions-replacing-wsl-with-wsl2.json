@@ -4,5 +4,5 @@
   "projectName": "TheOdinProject / curriculum",
   "projectUrl": "https://github.com/TheOdinProject/curriculum",
   "url": "https://github.com/TheOdinProject/curriculum/pull/27130",
-  "description": "Unifies all descriptions, replacing most occurrences of ‘WSL’ with ‘WSL2’ to avoid confusion as to whether the curriculum is giving instructions for any WSL version or WSL2 (which is usually the case) + Updated lessons in accordance with recent markdown linting requirements"
+  "description": "Update all descriptions to specify the WSL version (WSL2) the curriculum assumes to avoid confusion + Updated lesson files in accordance with recent markdown linting requirements"
 }
