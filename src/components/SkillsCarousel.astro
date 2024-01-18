@@ -41,28 +41,31 @@ const skills = [
 	}
 </style>
 
-<script
-	is:inline
-	src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"
-></script>
+<script>
+	import EmblaCarousel, { type EmblaOptionsType } from "embla-carousel";
+	import Autoplay from "embla-carousel-autoplay";
 
-<script
-	is:inline
-	src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"
-></script>
+	(() => {
+		const emblaNodes = document.querySelectorAll<HTMLElement>(".embla");
 
-<script is:inline>
-	const emblaNode = document.querySelector(".embla");
-	const options = { loop: true, dragFree: true };
-	const emblaApi = EmblaCarousel(emblaNode, options, [
-		EmblaCarouselAutoplay({
-			delay: 2500,
-			stopOnInteraction: false,
-			// containScroll: "trimSnaps",
-		}),
-	]);
+		// make sure we have a node
+		if (!emblaNodes) {
+			return;
+		}
 
-	console.log(emblaApi);
+		const options: EmblaOptionsType = { loop: true, dragFree: true };
 
-	console.log(emblaApi.slideNodes()); // Access API
+		for (const node of emblaNodes) {
+			const emblaApi = EmblaCarousel(node, options, [
+				Autoplay({
+					delay: 2500,
+					stopOnInteraction: false,
+					// containScroll: "trimSnaps",
+				}),
+			]);
+
+			// Access API
+			console.log(emblaApi.slideNodes());
+		}
+	})();
 </script>
