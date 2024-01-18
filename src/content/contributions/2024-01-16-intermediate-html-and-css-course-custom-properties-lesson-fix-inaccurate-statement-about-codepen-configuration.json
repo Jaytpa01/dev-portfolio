@@ -1,8 +1,0 @@
-{
-  "publishDate": "2024-01-16T13:21:15.417Z",
-  "title": "Intermediate HTML and CSS Course - Custom Properties lesson: fix inaccurate statement about codepen configuration",
-  "projectName": "TheOdinProject / curriculum",
-  "projectUrl": "https://github.com/TheOdinProject/curriculum",
-  "url": "https://github.com/TheOdinProject/curriculum/pull/27132",
-  "description": "Fixed an inaccurate statement about the configuration of an embedded codepen, and updated some content and syntax issues to comply with the recently implemented markdown linting"
-}
