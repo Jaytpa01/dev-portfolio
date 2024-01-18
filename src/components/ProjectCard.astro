@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from "astro:content";
+import NeoCard from "./NeoCard.astro";
+
+interface Props {
+	project: CollectionEntry<"article">;
+}
+
+const { project } = Astro.props;
+const { title, description, tags } = project.data;
+---
+
+<NeoCard variant="project">
+	<a href={`/${project.slug}`}>
+		<h3 class="font-semibold underline">
+			{title}
+		</h3>
+	</a>
+</NeoCard>
