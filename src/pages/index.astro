@@ -8,6 +8,7 @@ import Contributions from "@components/sections/Contributions.astro";
 import AllProjects from "@components/sections/AllProjects.astro";
 import Blog from "@components/sections/Blog.astro";
 import NeoCard from "@components/NeoCard.astro";
+import Stuff from "@components/sections/Stuff.astro";
 ---
 
 <BaseLayout>
@@ -43,6 +44,7 @@ import NeoCard from "@components/NeoCard.astro";
 					built with Express.js.
 				</p>
 
+				<div>This is a Sponsored Advertisement.</div>
 				<p>
 					Get to know me a bit better
 					<a
@@ -64,11 +66,7 @@ import NeoCard from "@components/NeoCard.astro";
 		<AllProjects />
 
 		<Blog />
+
+		<Stuff />
 	</div>
-
-	<div class="pt-44"></div>
-
-	<SkillsCarousel />
-
-	<div class="pt-44"></div>
 </BaseLayout>
