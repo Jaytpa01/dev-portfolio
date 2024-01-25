@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from "astro/types";
+interface Props extends HTMLAttributes<"svg"> {
+	icon: string;
+}
+
+const { icon, ...rest } = Astro.props;
+const { default: innerHTML } = await import(`/src/icons/${icon}.svg?raw`);
+
+console.log(innerHTML);
+---
+
+<Fragment set:html={innerHTML} />
