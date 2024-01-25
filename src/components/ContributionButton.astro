@@ -7,7 +7,7 @@ import Icon from "./Icon.astro";
 const buttonVariants = cva("p-2", {
 	variants: {
 		variant: {
-			"git-pull-request": "bg-violet-400 hover:bg-violet-500",
+			"pull-request": "bg-violet-400 hover:bg-violet-500",
 			issue: "bg-lime-400 hover:bg-lime-500",
 			other: "bg-violet-400 hover:bg-violet-500",
 		},
@@ -37,7 +37,7 @@ const { variant, url } = Astro.props;
 		)}
 	>
 		{
-			variant === "git-pull-request" ? (
+			variant === "pull-request" ? (
 				<Icon
 					class="h-6 w-6"
 					icon="git-pull-request"
