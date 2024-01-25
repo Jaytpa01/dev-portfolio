@@ -1,13 +1,44 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import { parse } from "node-html-parser";
+
 interface Props extends HTMLAttributes<"svg"> {
 	icon: string;
 }
 
-const { icon, ...rest } = Astro.props;
-const { default: innerHTML } = await import(`/src/icons/${icon}.svg?raw`);
+async function getIcon(icon: string) {
+	const files = await import.meta.glob("/src/icons/**/*.svg", { as: "raw" });
+	const filepath = `/src/icons/${icon}.svg`;
 
-console.log(innerHTML);
+	// if svg doesn't exist locally, throw error
+	if (!(filepath in files)) {
+		throw new Error(`${filepath} not found`);
+	}
+
+	// svg does exist, get it into a string
+	const svgString = await files[filepath]();
+
+	// parse the svg string so we can extract it's attributes and innerHTML
+	const root = parse(svgString);
+	const svg = root.querySelector("svg");
+	if (!svg) {
+		throw new Error(`couldn't successfully parse ${filepath} into a string`);
+	}
+
+	const { attributes, innerHTML } = svg;
+
+	return {
+		attributes,
+		innerHTML,
+	};
+}
+
+const { icon, ...attributes } = Astro.props;
+const { attributes: baseAttributes, innerHTML } = await getIcon(icon);
+const svgAttributes = { ...baseAttributes, ...attributes };
 ---
 
-<Fragment set:html={innerHTML} />
+<svg
+	{...svgAttributes}
+	set:html={innerHTML}
+/>
