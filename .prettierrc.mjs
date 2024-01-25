@@ -4,6 +4,7 @@ export default {
 	tabWidth: 2,
 	singleAttributePerLine: true,
 	plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+	tailwindFunctions: ["cva"],
 	overrides: [
 		{
 			files: "*.astro",
