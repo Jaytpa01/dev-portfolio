@@ -1,0 +1,42 @@
+---
+import { cn } from "@lib/utils";
+import Icon from "./Icon.astro";
+
+const socialLinks: { icon: string; href: string; class?: string }[] = [
+	{
+		icon: "github",
+		href: "#",
+		class: "p-1",
+	},
+	{
+		icon: "linkedin",
+		href: "#",
+	},
+	{
+		icon: "email",
+		href: "mailto:jaytpa01+dev@gmail.com",
+	},
+];
+---
+
+<div class="flex justify-between">
+	<a
+		href="/"
+		class="hover:translate-y-1"
+	>
+		<h1 class="max-w-fit text-xl font-bold underline">JAY PARRY</h1>
+	</a>
+
+	<div class="flex gap-1">
+		{
+			socialLinks.map((link) => (
+				<a href={link.href}>
+					<Icon
+						icon={link.icon}
+						class={cn("h-7 w-7 fill-green-500", link.class)}
+					/>
+				</a>
+			))
+		}
+	</div>
+</div>
