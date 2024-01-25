@@ -1,5 +1,4 @@
 ---
-import SkillsCarousel from "@components/SkillsCarousel.astro";
 import BaseLayout from "@layouts/Base.astro";
 import Profile from "@assets/profile.jpg";
 
@@ -14,7 +13,7 @@ import Stuff from "@components/sections/Stuff.astro";
 <BaseLayout>
 	<div class="space-y-9">
 		<section class="flex justify-between gap-x-5">
-			<div class="max-w-44">
+			<div class="max-w-96 sm:max-w-44">
 				<NeoCard
 					variant="green"
 					class="p-1 pb-5"
@@ -44,7 +43,6 @@ import Stuff from "@components/sections/Stuff.astro";
 					built with Express.js.
 				</p>
 
-				<div>This is a Sponsored Advertisement.</div>
 				<p>
 					Get to know me a bit better
 					<a
