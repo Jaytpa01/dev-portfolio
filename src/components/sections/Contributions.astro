@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import SectionHeading from "./SectionHeading.astro";
 import NeoCard from "@components/NeoCard.astro";
-import ContributionButton from "./ContributionButton.astro";
+import ContributionButton from "@components//ContributionButton.astro";
 import { getContributionTypeFromURL } from "./contribution";
 
 const contributions = await getCollection("contributions");
