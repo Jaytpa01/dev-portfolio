@@ -1,5 +1,5 @@
 ---
-import ArticleCard from "@components/ArticleCard.astro";
+import ProjectCard from "@components/ProjectCard.astro";
 import { getAllProjects } from "@lib/article";
 import SectionHeading from "./SectionHeading.astro";
 
@@ -9,11 +9,11 @@ const projects = await getAllProjects();
 <section>
 	<SectionHeading id="projects">Projects</SectionHeading>
 
-	<ul>
+	<ul class="space-y-5">
 		{
-			projects.map((proj) => (
+			projects.map((project) => (
 				<li>
-					<ArticleCard article={proj} />
+					<ProjectCard {project} />
 				</li>
 			))
 		}

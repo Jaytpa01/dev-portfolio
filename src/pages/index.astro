@@ -1,5 +1,4 @@
 ---
-import SkillsCarousel from "@components/SkillsCarousel.astro";
 import BaseLayout from "@layouts/Base.astro";
 import Profile from "@assets/profile.jpg";
 
@@ -7,19 +6,24 @@ import WorkExperience from "@components/sections/WorkExperience.astro";
 import Contributions from "@components/sections/Contributions.astro";
 import AllProjects from "@components/sections/AllProjects.astro";
 import Blog from "@components/sections/Blog.astro";
+import NeoCard from "@components/NeoCard.astro";
+import Stuff from "@components/sections/Stuff.astro";
 ---
 
 <BaseLayout>
 	<div class="space-y-9">
-		<section class="flex justify-between gap-x-3">
-			<div class="max-w-44">
-				<div class="rounded-2xl border-2 border-black p-2 pb-6">
+		<section class="flex justify-between gap-x-5">
+			<div class="max-w-96 sm:max-w-44">
+				<NeoCard
+					variant="green"
+					class="p-1 pb-5"
+				>
 					<img
 						src={Profile.src}
-						alt="Cartoon rat quickly typing"
-						class="rounded-2xl border-2 border-black"
+						alt="Me"
+						class="rounded-lg border-2 border-black"
 					/>
-				</div>
+				</NeoCard>
 			</div>
 			<div class="space-y-2">
 				<p>
@@ -60,11 +64,7 @@ import Blog from "@components/sections/Blog.astro";
 		<AllProjects />
 
 		<Blog />
+
+		<Stuff />
 	</div>
-
-	<div class="pt-44"></div>
-
-	<SkillsCarousel />
-
-	<div class="pt-44"></div>
 </BaseLayout>

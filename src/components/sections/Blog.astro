@@ -1,5 +1,4 @@
 ---
-import ArticleCard from "@components/ArticleCard.astro";
 import { getAllBlogPosts } from "@lib/article";
 import SectionHeading from "./SectionHeading.astro";
 
@@ -25,7 +24,7 @@ const blogPosts = await getAllBlogPosts();
 								class="text-nowrap"
 							>
 								{publishDate.toLocaleString("en-AU", {
-									timeZone: "UTC",
+									timeZone: "Australia/Sydney",
 									month: "short",
 									day: "numeric",
 									year: "numeric",
