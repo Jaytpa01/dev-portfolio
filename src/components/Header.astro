@@ -18,11 +18,13 @@ const socialLinks: {
 		title: "LinkedIn",
 		icon: "linkedin",
 		href: "https://www.linkedin.com/in/jay-parry42/",
+		class: "bg-blue-400",
 	},
 	{
 		title: "Email",
 		icon: "email",
 		href: "mailto:jaytpa01+dev@gmail.com",
+		class: "bg-yellow-400",
 	},
 ];
 ---
@@ -37,19 +39,37 @@ const socialLinks: {
 
 	<div class="flex gap-2">
 		{
-			socialLinks.map((link) => (
-				<a
-					href={link.href}
-					rel="noopener noreferrer"
-				>
-					<Icon
-						icon={link.icon}
-						class={cn("h-8 w-8 fill-current text-zinc-700 ", link.class)}
-						focusable="false"
-					/>
-					<span class="sr-only">{link.title}</span>
-				</a>
-			))
+			socialLinks.map((link, index) => {
+				const rotageDegree =
+					index % 2 === 0 ? "group-hover:-rotate-6" : "group-hover:rotate-6";
+				return (
+					<a
+						href={link.href}
+						rel="noopener noreferrer"
+					>
+						<div class="group relative">
+							<div class={cn("relative z-20", rotageDegree)}>
+								<Icon
+									icon={link.icon}
+									class={cn(
+										"h-7 w-7 border-2 border-black bg-neo-red fill-current text-black sm:h-8 sm:w-8",
+										link.class,
+									)}
+									focusable="false"
+								/>
+								<span class="sr-only">{link.title}</span>
+							</div>
+
+							<div
+								class={cn(
+									"absolute left-1 top-1 h-7 w-7 bg-black sm:h-8 sm:w-8",
+									rotageDegree,
+								)}
+							/>
+						</div>
+					</a>
+				);
+			})
 		}
 	</div>
 </header>
