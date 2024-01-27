@@ -2,24 +2,32 @@
 import { cn } from "@lib/utils";
 import Icon from "./Icon.astro";
 
-const socialLinks: { icon: string; href: string; class?: string }[] = [
+const socialLinks: {
+	title: string;
+	icon: string;
+	href: string;
+	class?: string;
+}[] = [
 	{
+		title: "GitHub",
 		icon: "github",
-		href: "#",
+		href: "https://github.com/Jaytpa01",
 		class: "p-1",
 	},
 	{
+		title: "LinkedIn",
 		icon: "linkedin",
-		href: "#",
+		href: "https://www.linkedin.com/in/jay-parry42/",
 	},
 	{
+		title: "Email",
 		icon: "email",
 		href: "mailto:jaytpa01+dev@gmail.com",
 	},
 ];
 ---
 
-<div class="flex justify-between">
+<header class="flex justify-between">
 	<a
 		href="/"
 		class="hover:translate-y-1"
@@ -27,16 +35,21 @@ const socialLinks: { icon: string; href: string; class?: string }[] = [
 		<h1 class="max-w-fit text-xl font-bold underline">JAY PARRY</h1>
 	</a>
 
-	<div class="flex gap-1">
+	<div class="flex gap-2">
 		{
 			socialLinks.map((link) => (
-				<a href={link.href}>
+				<a
+					href={link.href}
+					rel="noopener noreferrer"
+				>
 					<Icon
 						icon={link.icon}
-						class={cn("h-7 w-7 fill-green-500", link.class)}
+						class={cn("h-8 w-8 fill-current text-zinc-700 ", link.class)}
+						focusable="false"
 					/>
+					<span class="sr-only">{link.title}</span>
 				</a>
 			))
 		}
 	</div>
-</div>
+</header>
