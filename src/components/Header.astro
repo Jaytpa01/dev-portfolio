@@ -40,15 +40,17 @@ const socialLinks: {
 	<div class="flex gap-2">
 		{
 			socialLinks.map((link, index) => {
+				// rotate alternating icons in a different direction
 				const rotageDegree =
-					index % 2 === 0 ? "group-hover:-rotate-6" : "group-hover:rotate-6";
+					index % 2 === 0 ? "hover:-rotate-6" : "hover:rotate-6";
+
 				return (
 					<a
 						href={link.href}
 						rel="noopener noreferrer"
 					>
-						<div class="group relative">
-							<div class={cn("relative z-20", rotageDegree)}>
+						<div class={cn("group relative hover:scale-105", rotageDegree)}>
+							<div class="relative z-20">
 								<Icon
 									icon={link.icon}
 									class={cn(
@@ -59,13 +61,7 @@ const socialLinks: {
 								/>
 								<span class="sr-only">{link.title}</span>
 							</div>
-
-							<div
-								class={cn(
-									"absolute left-1 top-1 h-7 w-7 bg-black sm:h-8 sm:w-8",
-									rotageDegree,
-								)}
-							/>
+							<div class="absolute left-1 top-1 h-7 w-7 bg-black sm:h-8 sm:w-8" />
 						</div>
 					</a>
 				);
