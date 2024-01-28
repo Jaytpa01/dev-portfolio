@@ -19,8 +19,10 @@ const { Content } = await article.render();
 ---
 
 <BaseLayout>
-	<article>
-		<h1>{article.data.title}</h1>
+	<article
+		class="prose prose-a:underline prose-a:font-bold max-w-none space-x-2"
+	>
+		<h2>{article.data.title}</h2>
 
 		<Content />
 	</article>
