@@ -8,6 +8,7 @@ import AllProjects from "@components/sections/AllProjects.astro";
 import Blog from "@components/sections/Blog.astro";
 import NeoCard from "@components/NeoCard.astro";
 import Stuff from "@components/sections/Stuff.astro";
+import { Image } from "astro:assets";
 ---
 
 <BaseLayout>
@@ -18,8 +19,8 @@ import Stuff from "@components/sections/Stuff.astro";
 					variant="green"
 					class="p-1 pb-5"
 				>
-					<img
-						src={Profile.src}
+					<Image
+						src={Profile}
 						alt="Me"
 						class="rounded-lg border-2 border-black"
 					/>
