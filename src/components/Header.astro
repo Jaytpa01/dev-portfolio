@@ -1,10 +1,10 @@
 ---
 import { cn } from "@lib/utils";
-import Icon from "./Icon.astro";
+import Icon, { type IconName } from "./Icon.astro";
 
 const socialLinks: {
 	title: string;
-	icon: string;
+	icon: IconName;
 	href: string;
 	class?: string;
 }[] = [

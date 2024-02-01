@@ -2,13 +2,28 @@
 import type { HTMLAttributes } from "astro/types";
 import { parse } from "node-html-parser";
 
+// these icons map to the svg file names in /src/assets/icons.
+// I would like a more dynamic solution to for this - but it provides some type safety for now
+const iconList = [
+	"email",
+	"external-link",
+	"git-bug",
+	"git-pull-request",
+	"github",
+	"linkedin",
+] as const;
+
+export type IconName = (typeof iconList)[number];
+
 interface Props extends HTMLAttributes<"svg"> {
-	icon: string;
+	icon: IconName;
 }
 
-async function getIcon(icon: string) {
-	const files = await import.meta.glob("/src/icons/**/*.svg", { as: "raw" });
-	const filepath = `/src/icons/${icon}.svg`;
+async function getIcon(icon: IconName) {
+	const files = await import.meta.glob("/src/assets/icons/**/*.svg", {
+		as: "raw",
+	});
+	const filepath = `/src/assets/icons/${icon}.svg`;
 
 	// if svg doesn't exist locally, throw error
 	if (!(filepath in files)) {
