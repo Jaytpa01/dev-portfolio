@@ -5,6 +5,6 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://neo.jayparry.dev",
+	site: "https://jayparry.dev",
 	integrations: [tailwind(), sitemap()],
 });
