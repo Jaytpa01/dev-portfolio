@@ -1,7 +1,34 @@
 ---
+import {
+	ResourceList,
+	type Resource,
+	type Folder,
+} from "@components/ResourceList";
 import BaseLayout from "@layouts/Base.astro";
+
+const folders: Folder[] = [
+	{
+		id: "root",
+		name: "root",
+	},
+	{
+		id: "articles",
+		name: "Articles",
+		parentFolder: "root",
+	},
+];
+
+const resources: Resource[] = [
+	{
+		name: "That XOR Trick",
+		href: "https://florian.github.io//xor-trick/",
+		folderId: "articles",
+	},
+];
 ---
 
 <BaseLayout>
 	<h1>cool resources i gone and found</h1>
+
+	<ResourceList client:load />
 </BaseLayout>
