@@ -17,8 +17,10 @@ export const getAllBlogPosts = async () => {
 };
 
 // sort articles by their publish date - newer articles will be towards the beginning of the array
-const sortArticleByPublishDate = (articles: CollectionEntry<"article">[]) => {
+export const sortArticleByPublishDate = (
+	articles: CollectionEntry<"article">[],
+) => {
 	return articles.sort(
-		(a, b) => a.data.publishDate.getTime() - b.data.publishDate.getTime(),
+		(a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
 	);
 };
