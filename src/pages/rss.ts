@@ -3,14 +3,14 @@ import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { sortArticleByPublishDate } from "@lib/article";
 
-export const GET: APIRoute = async ({ site }) => {
+export const GET: APIRoute = async () => {
 	const articles = await getCollection("article");
 	const sortedArticles = sortArticleByPublishDate(articles);
 
 	return rss({
 		title: "Jay Parry",
 		description: "Jay Parry's developer portfolio and personal website.",
-		site: site!,
+		site: import.meta.env.SITE,
 		items: sortedArticles.map((article) => ({
 			title: article.data.title,
 			description: article.data.description,
@@ -18,6 +18,6 @@ export const GET: APIRoute = async ({ site }) => {
 			link: `/${article.slug}`,
 		})),
 		customData: `<language>en-AU</language>`,
-		stylesheet: "/rss/pretty-feed-v3.xsl",
+		stylesheet: "/styles/pretty-feed-v3.xsl",
 	});
 };
