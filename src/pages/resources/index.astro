@@ -25,10 +25,50 @@ const resources: Resource[] = [
 		folderId: "articles",
 	},
 ];
+
+// foldersMap is used to map a folder id to it's contents
+const folderMap: Record<string, Folder> = {};
+
+// subfoldersMap is to map a folder id to an array of ids, representing its subfolders
+const subfoldersMap: Record<string, string[]> = {};
+
+for (const folder of folders) {
+	folderMap[folder.id] = folder;
+
+	if (!folder.parentFolder) {
+		continue;
+	}
+
+	// if the parent folder has no mapped subfolders yet, create and map it here and move onto next folder
+	if (!subfoldersMap[folder.parentFolder]) {
+		subfoldersMap[folder.parentFolder] = [folder.id];
+		continue;
+	}
+
+	// if parent folder already has some mappings, we just add this one to it
+	subfoldersMap[folder.parentFolder].push(folder.id);
+}
+
+// folderResourceMap is used to map a resource to its folder
+const folderResourceMap: Record<string, Resource[]> = {};
+for (const resource of resources) {
+	// if folder has no mapped resources, create a mapping and add this resource, then continue to next resource
+	if (!folderResourceMap[resource.folderId]) {
+		folderResourceMap[resource.folderId] = [resource];
+		continue;
+	}
+
+	// if folder mapping already created, add this resource to it
+	folderResourceMap[resource.folderId].push(resource);
+}
+
+console.dir({ folderMap, folderResourceMap }, { depth: null });
 ---
 
 <BaseLayout>
 	<h1>cool resources i gone and found</h1>
+
+	<pre>{JSON.stringify(folderResourceMap, null, '\t')}</pre>
 
 	<ResourceList client:load />
 </BaseLayout>
