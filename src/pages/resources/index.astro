@@ -16,6 +16,21 @@ const folders: Folder[] = [
 		name: "Articles",
 		parentFolder: "root",
 	},
+	{
+		id: "nested1",
+		name: "Nested 1",
+		parentFolder: "articles",
+	},
+	{
+		id: "nested2",
+		name: "Nested 2",
+		parentFolder: "articles",
+	},
+	{
+		id: "nested3",
+		name: "Nested 3",
+		parentFolder: "nested1",
+	},
 ];
 
 const resources: Resource[] = [
@@ -62,13 +77,17 @@ for (const resource of resources) {
 	folderResourceMap[resource.folderId].push(resource);
 }
 
-console.dir({ folderMap, folderResourceMap }, { depth: null });
+// console.dir({ folderMap, folderResourceMap }, { depth: null });
 ---
 
 <BaseLayout>
 	<h1>cool resources i gone and found</h1>
 
-	<pre>{JSON.stringify(folderResourceMap, null, '\t')}</pre>
-
-	<ResourceList client:load />
+	<ResourceList
+		rootFolderId="root"
+		{folderMap}
+		{subfoldersMap}
+		{folderResourceMap}
+		client:load
+	/>
 </BaseLayout>
