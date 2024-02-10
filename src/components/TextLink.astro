@@ -1,0 +1,17 @@
+---
+import { cn } from "@lib/utils";
+import type { HTMLAttributes } from "astro/types";
+interface Props extends HTMLAttributes<"a"> {}
+
+const { href, class: classFromProps } = Astro.props;
+---
+
+<a
+	{href}
+	class={cn(
+		"font-bold underline decoration-transparent underline-offset-2 transition duration-150 ease-in hover:decoration-inherit",
+		classFromProps,
+	)}
+>
+	<slot />
+</a>

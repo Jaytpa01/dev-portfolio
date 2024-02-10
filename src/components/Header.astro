@@ -12,7 +12,7 @@ const socialLinks: {
 		title: "GitHub",
 		icon: "github",
 		href: "https://github.com/Jaytpa01",
-		class: "p-1",
+		class: "bg-neo-red p-1",
 	},
 	{
 		title: "LinkedIn",
@@ -26,13 +26,19 @@ const socialLinks: {
 		href: "mailto:jaytpa01+dev@gmail.com",
 		class: "bg-yellow-400",
 	},
+	{
+		title: "RSS Feed",
+		icon: "rss",
+		href: "/rss",
+		class: "bg-orange-400",
+	},
 ];
 ---
 
 <header class="flex justify-between">
 	<a
 		href="/"
-		class="hover:translate-y-1"
+		class="transition duration-150 ease-in hover:translate-y-1"
 	>
 		<h1 class="max-w-fit text-xl font-bold underline">JAY PARRY</h1>
 	</a>
@@ -49,12 +55,18 @@ const socialLinks: {
 						href={link.href}
 						rel="noopener noreferrer"
 					>
-						<div class={cn("group relative hover:scale-105", rotageDegree)}>
+						<div
+							class={cn(
+								"group relative hover:scale-105",
+								"transition duration-200 ease-in-out",
+								rotageDegree,
+							)}
+						>
 							<div class="relative z-20">
 								<Icon
 									icon={link.icon}
 									class={cn(
-										"h-7 w-7 border-2 border-black bg-neo-red fill-current text-black sm:h-8 sm:w-8",
+										"h-7 w-7 border-2 border-black fill-current text-black sm:h-8 sm:w-8",
 										link.class,
 									)}
 									focusable="false"

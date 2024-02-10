@@ -11,6 +11,7 @@ const iconList = [
 	"git-pull-request",
 	"github",
 	"linkedin",
+	"rss",
 ] as const;
 
 export type IconName = (typeof iconList)[number];
@@ -20,7 +21,7 @@ interface Props extends HTMLAttributes<"svg"> {
 }
 
 async function getIcon(icon: IconName) {
-	const files = await import.meta.glob("/src/assets/icons/**/*.svg", {
+	const files = import.meta.glob("/src/assets/icons/**/*.svg", {
 		as: "raw",
 	});
 	const filepath = `/src/assets/icons/${icon}.svg`;

@@ -1,13 +1,14 @@
 ---
+import TextLink from "./TextLink.astro";
+
 const now = new Date();
 ---
 
 <footer class="border-t-2 border-black pt-8 text-sm">
 	<span class="italic">jayparry.dev</span> — last updated
 
-	<a
+	<TextLink
 		href="https://github.com/Jaytpa01/jay-neobrutalism-dev-portfolio/commit"
-		class="font-bold underline"
 	>
 		<time
 			id="last-update"
@@ -22,7 +23,7 @@ const now = new Date();
 				})
 			}
 		</time>
-	</a>
+	</TextLink>
 </footer>
 
 <script>
