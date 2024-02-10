@@ -44,7 +44,7 @@ export function Resources({
 	const breadcrumbs = calculateBreadcrumbs();
 	console.log({ breadcrumbs });
 
-	const subfolder = subfolderMap[currentFolder.id]?.map(
+	const subfolders = subfolderMap[currentFolder.id]?.map(
 		(subfolderId) => folderMap[subfolderId],
 	);
 
@@ -60,7 +60,7 @@ export function Resources({
 
 			<SubfolderList
 				onSubfolderClick={setCurrentFolderId}
-				subfolder={subfolder}
+				subfolders={subfolders}
 			/>
 			<ResourceList resources={resources} />
 		</>
@@ -94,18 +94,18 @@ function Breadcrumbs({
 }
 
 interface SubfolderListProps {
-	subfolder: Folder[];
+	subfolders: Folder[];
 	onSubfolderClick: (subfolderId: string) => void;
 }
 
-function SubfolderList({ subfolder, onSubfolderClick }: SubfolderListProps) {
-	if (!subfolder) {
+function SubfolderList({ subfolders, onSubfolderClick }: SubfolderListProps) {
+	if (!subfolders) {
 		return null;
 	}
 
 	return (
 		<ul class="space-y-2">
-			{subfolder.map((folder) => (
+			{subfolders.map((folder) => (
 				<li>
 					<button
 						class="before:pr-1 before:content-['📦']"
