@@ -13,7 +13,7 @@ const folders: Folder[] = [
 	},
 	{
 		id: "articles",
-		name: "Articles",
+		name: "Articles / Blogs",
 		parentFolder: "root",
 	},
 	{
@@ -21,12 +21,62 @@ const folders: Folder[] = [
 		name: "Tools",
 		parentFolder: "root",
 	},
+	{
+		id: "security",
+		name: "Security",
+		parentFolder: "root",
+	},
+	{
+		id: "git",
+		name: "Git",
+		parentFolder: "root",
+	},
+	{
+		id: "learning",
+		name: "Learning",
+		parentFolder: "root",
+	},
+	{
+		id: "hosting",
+		name: "Hosting",
+		parentFolder: "root",
+	},
+	{
+		id: "libraries",
+		name: "Libraries",
+		parentFolder: "root",
+	},
+	{
+		id: "ui",
+		name: "UI",
+		parentFolder: "libraries",
+	},
+	{
+		id: "people",
+		name: "People",
+		parentFolder: "root",
+	},
+	{
+		id: "frameworks",
+		name: "Frameworks",
+		parentFolder: "root",
+	},
+	{
+		id: "sanitisation",
+		name: "Sanitisation",
+		parentFolder: "libraries",
+	},
 ];
 
 const resources: Resource[] = [
 	{
 		name: "That XOR Trick",
 		href: "https://florian.github.io//xor-trick/",
+		folderId: "articles",
+	},
+	{
+		name: "The Twelve Factor App",
+		href: "https://12factor.net/",
 		folderId: "articles",
 	},
 	{
@@ -39,7 +89,125 @@ const resources: Resource[] = [
 		href: "https://pomofocus.io/",
 		folderId: "tools",
 	},
+	{
+		name: "ntfy",
+		href: "https://ntfy.sh/",
+		folderId: "tools",
+	},
+	{
+		name: "Fork",
+		href: "https://fork.dev/",
+		folderId: "git",
+	},
+	{
+		name: "GitKraken",
+		href: "https://www.gitkraken.com/",
+		folderId: "git",
+	},
+	{
+		name: "The Odin Project",
+		href: "https://www.theodinproject.com/",
+		folderId: "learning",
+	},
+	{
+		name: "Fly.io",
+		href: "https://fly.io/",
+		folderId: "hosting",
+	},
+	{
+		name: "netlify",
+		href: "https://www.netlify.com/",
+		folderId: "hosting",
+	},
+	{
+		name: "DigitalOcean",
+		href: "https://www.digitalocean.com/",
+		folderId: "hosting",
+	},
+	{
+		name: "shadcn/ui",
+		href: "https://ui.shadcn.com/",
+		folderId: "ui",
+	},
+	{
+		name: "Mantine",
+		href: "https://mantine.dev/",
+		folderId: "ui",
+	},
+	{
+		name: "OWASP Cheat Sheet",
+		href: "https://cheatsheetseries.owasp.org/index.html",
+		folderId: "security",
+	},
+	{
+		name: "OWASP",
+		href: "https://owasp.org/",
+		folderId: "security",
+	},
+	{
+		name: "RabbitMQ",
+		href: "https://www.rabbitmq.com/",
+		folderId: "tools",
+	},
+	{
+		name: "GitHub Pages",
+		href: "https://pages.github.com/",
+		folderId: "hosting",
+	},
+	{
+		name: "commitlint",
+		href: "https://github.com/conventional-changelog/commitlint",
+		folderId: "git",
+	},
+	{
+		name: "RSS",
+		href: "https://en.wikipedia.org/wiki/RSS",
+		folderId: "articles",
+	},
+	{
+		name: "It's Time for an RSS Revival",
+		href: "https://www.wired.com/story/rss-readers-feedly-inoreader-old-reader/",
+		folderId: "articles",
+	},
+	{
+		name: "Inoreader",
+		href: "https://www.inoreader.com/",
+		folderId: "tools",
+	},
+	{
+		name: "Aaron Swartz",
+		href: "https://en.wikipedia.org/wiki/Aaron_Swartz",
+		folderId: "people",
+	},
+	{
+		name: "Astro",
+		href: "https://astro.build/",
+		folderId: "frameworks",
+	},
+	{
+		name: "Remix",
+		href: "https://remix.run/",
+		folderId: "frameworks",
+	},
+	{
+		name: "bluemonday",
+		href: "https://github.com/microcosm-cc/bluemonday",
+		folderId: "sanitisation",
+	},
+	{
+		name: "DOMPurify",
+		href: "https://github.com/cure53/DOMPurify",
+		folderId: "sanitisation",
+	},
+	{
+		name: "NordPass",
+		href: "https://nordpass.com/",
+		folderId: "security",
+	},
 ];
+
+folders.sort((a, b) => a.name.localeCompare(b.name));
+resources.sort((a, b) => a.name.localeCompare(b.name));
 
 // foldersMap is used to map a folder id to it's contents
 const folderMap: Record<string, Folder> = {};

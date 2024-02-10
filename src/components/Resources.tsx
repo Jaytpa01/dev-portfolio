@@ -50,7 +50,7 @@ export function ResourceDisplay({
 	const resources = folderResourceMap[currentFolder.id];
 
 	return (
-		<div class="space-y-2 text-base sm:text-sm">
+		<div class="space-y-2 text-base ">
 			<Breadcrumbs
 				breadcrumbs={breadcrumbs}
 				currentFolder={currentFolder}
@@ -82,7 +82,12 @@ function Breadcrumbs({
 			<ol class="flex space-x-2 font-bold">
 				{breadcrumbs?.map((crumb) => (
 					<li class="space-x-2">
-						<button onClick={() => onCrumbClick(crumb.id)}>{crumb.name}</button>
+						<button
+							onClick={() => onCrumbClick(crumb.id)}
+							class="underline decoration-transparent underline-offset-2 transition duration-150 ease-in hover:decoration-inherit"
+						>
+							{crumb.name}
+						</button>
 
 						<span>{">"}</span>
 					</li>
@@ -107,8 +112,15 @@ function SubfolderList({ subfolders, onSubfolderClick }: SubfolderListProps) {
 	return (
 		<ul class="space-y-2">
 			{subfolders.map((folder) => (
-				<li class="space-x-1">
-					<span>📦</span>
+				<li class="flex items-center space-x-1">
+					<div class="h-4 w-4">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+						>
+							<path d="M2 4.75C2 3.784 2.784 3 3.75 3h4.971c.58 0 1.12.286 1.447.765l1.404 2.063c.046.069.124.11.207.11h8.471c.966 0 1.75.783 1.75 1.75V19.25A1.75 1.75 0 0 1 20.25 21H3.75A1.75 1.75 0 0 1 2 19.25Zm1.75-.25a.25.25 0 0 0-.25.25v14.5c0 .138.112.25.25.25h16.5a.25.25 0 0 0 .25-.25V7.687a.25.25 0 0 0-.25-.25h-8.471a1.75 1.75 0 0 1-1.447-.765L8.928 4.61a.252.252 0 0 0-.208-.11Z"></path>
+						</svg>
+					</div>
 					<button
 						class="underline decoration-transparent underline-offset-2 transition duration-100 ease-in hover:decoration-inherit"
 						onClick={() => onSubfolderClick(folder.id)}
