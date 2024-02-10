@@ -10,7 +10,7 @@ const { id } = Astro.props;
 
 <TextLink href={id ? `#${id}` : undefined}>
 	<h2
-		class="pb-2 text-lg font-bold before:pr-1 before:content-['#']"
+		class="pb-2 text-lg font-bold before:content-['#']"
 		{id}
 	>
 		<slot />
