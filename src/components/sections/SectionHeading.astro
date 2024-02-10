@@ -1,4 +1,6 @@
 ---
+import TextLink from "@components/TextLink.astro";
+
 interface Props {
 	id?: string;
 }
@@ -6,11 +8,11 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<a href={id ? `#${id}` : undefined}>
+<TextLink href={id ? `#${id}` : undefined}>
 	<h2
 		class="pb-2 text-lg font-bold before:pr-1 before:content-['#']"
 		{id}
 	>
 		<slot />
 	</h2>
-</a>
+</TextLink>

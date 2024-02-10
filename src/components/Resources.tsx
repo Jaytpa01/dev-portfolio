@@ -1,4 +1,5 @@
 import { useState } from "preact/hooks";
+import TextLink from "./TextLink.astro";
 
 export interface Folder {
 	id: string;
@@ -132,12 +133,7 @@ function ResourceList({ resources }: ResourceListProps) {
 		<ul class="space-y-2">
 			{resources.map((resource) => (
 				<li>
-					<a
-						class="underline"
-						href={resource.href}
-					>
-						{resource.name}
-					</a>
+					<TextLink href={resource.href}>{resource.name}</TextLink>
 				</li>
 			))}
 		</ul>

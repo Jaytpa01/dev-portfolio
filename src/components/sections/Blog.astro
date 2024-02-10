@@ -1,6 +1,7 @@
 ---
 import { getAllBlogPosts } from "@lib/article";
 import SectionHeading from "./SectionHeading.astro";
+import TextLink from "@components/TextLink.astro";
 
 const blogPosts = await getAllBlogPosts();
 ---
@@ -14,11 +15,11 @@ const blogPosts = await getAllBlogPosts();
 				const { title, publishDate } = post.data;
 				return (
 					<li class="text-base">
-						<a
+						<TextLink
 							href={`/${post.slug}`}
-							class="flex justify-between gap-x-4"
+							class="flex justify-between gap-x-4 font-normal"
 						>
-							<h3 class="underline">{title}</h3>
+							<h3>{title}</h3>
 							<time
 								datetime=""
 								class="text-nowrap"
@@ -30,7 +31,7 @@ const blogPosts = await getAllBlogPosts();
 									year: "numeric",
 								})}
 							</time>
-						</a>
+						</TextLink>
 					</li>
 				);
 			})
