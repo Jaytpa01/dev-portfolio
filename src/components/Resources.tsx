@@ -50,7 +50,7 @@ export function ResourceDisplay({
 	const resources = folderResourceMap[currentFolder.id];
 
 	return (
-		<div class="space-y-2">
+		<div class="space-y-2 text-base sm:text-sm">
 			<Breadcrumbs
 				breadcrumbs={breadcrumbs}
 				currentFolder={currentFolder}
