@@ -38,7 +38,7 @@ const socialLinks: {
 <header class="flex justify-between">
 	<a
 		href="/"
-		class="hover:translate-y-1"
+		class="transition duration-150 ease-in hover:translate-y-1"
 	>
 		<h1 class="max-w-fit text-xl font-bold underline">JAY PARRY</h1>
 	</a>
@@ -55,7 +55,13 @@ const socialLinks: {
 						href={link.href}
 						rel="noopener noreferrer"
 					>
-						<div class={cn("group relative hover:scale-105", rotageDegree)}>
+						<div
+							class={cn(
+								"group relative hover:scale-105",
+								"transition duration-200 ease-in-out",
+								rotageDegree,
+							)}
+						>
 							<div class="relative z-20">
 								<Icon
 									icon={link.icon}

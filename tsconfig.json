@@ -9,6 +9,8 @@
 			"@assets/*": ["src/assets/*"],
 			"@lib/*": ["src/lib/*"]
 		},
-		"allowJs": true
+		"allowJs": true,
+		"jsx": "react-jsx",
+		"jsxImportSource": "preact"
 	}
 }
