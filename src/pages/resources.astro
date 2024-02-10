@@ -1,11 +1,15 @@
 ---
-import { Resources, type Resource, type Folder } from "@components/Resources";
+import {
+	ResourceDisplay,
+	type Resource,
+	type Folder,
+} from "@components/Resources";
 import BaseLayout from "@layouts/Base.astro";
 
 const folders: Folder[] = [
 	{
 		id: "root",
-		name: "root",
+		name: "Resources",
 	},
 	{
 		id: "articles",
@@ -16,21 +20,6 @@ const folders: Folder[] = [
 		id: "tools",
 		name: "Tools",
 		parentFolder: "root",
-	},
-	{
-		id: "nested1",
-		name: "Nested 1",
-		parentFolder: "articles",
-	},
-	{
-		id: "nested2",
-		name: "Nested 2",
-		parentFolder: "articles",
-	},
-	{
-		id: "nested3",
-		name: "Nested 3",
-		parentFolder: "nested1",
 	},
 ];
 
@@ -43,6 +32,11 @@ const resources: Resource[] = [
 	{
 		name: "Obsidian",
 		href: "https://obsidian.md/",
+		folderId: "tools",
+	},
+	{
+		name: "Pomofocus",
+		href: "https://pomofocus.io/",
 		folderId: "tools",
 	},
 ];
@@ -85,9 +79,11 @@ for (const resource of resources) {
 ---
 
 <BaseLayout>
-	<h1>cool resources i gone and found</h1>
+	<h2 class="font-semibold">A series of random resources I've collected.</h2>
 
-	<Resources
+	<div class="py-2"></div>
+
+	<ResourceDisplay
 		rootFolderId="root"
 		{folderMap}
 		{subfolderMap}

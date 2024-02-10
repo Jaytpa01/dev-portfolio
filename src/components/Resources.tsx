@@ -1,5 +1,4 @@
 import { useState } from "preact/hooks";
-import TextLink from "./TextLink.astro";
 
 export interface Folder {
 	id: string;
@@ -13,19 +12,19 @@ export interface Resource {
 	folderId: string;
 }
 
-interface ResourcesProps {
+interface ResourceDisplayProps {
 	rootFolderId: string;
 	folderMap: Record<string, Folder>;
 	subfolderMap: Record<string, string[]>;
 	folderResourceMap: Record<string, Resource[]>;
 }
 
-export function Resources({
+export function ResourceDisplay({
 	rootFolderId,
 	folderMap,
 	subfolderMap,
 	folderResourceMap,
-}: ResourcesProps) {
+}: ResourceDisplayProps) {
 	const [currentFolderId, setCurrentFolderId] = useState(rootFolderId);
 
 	const currentFolder = folderMap[currentFolderId];
@@ -43,7 +42,6 @@ export function Resources({
 		return crumbArray.reverse();
 	};
 	const breadcrumbs = calculateBreadcrumbs();
-	console.log({ breadcrumbs });
 
 	const subfolders = subfolderMap[currentFolder.id]?.map(
 		(subfolderId) => folderMap[subfolderId],
@@ -52,7 +50,7 @@ export function Resources({
 	const resources = folderResourceMap[currentFolder.id];
 
 	return (
-		<>
+		<div class="space-y-2">
 			<Breadcrumbs
 				breadcrumbs={breadcrumbs}
 				currentFolder={currentFolder}
@@ -64,7 +62,7 @@ export function Resources({
 				subfolders={subfolders}
 			/>
 			<ResourceList resources={resources} />
-		</>
+		</div>
 	);
 }
 
@@ -80,17 +78,19 @@ function Breadcrumbs({
 	onCrumbClick,
 }: BreadcrumbProps) {
 	return (
-		<ol class="flex space-x-2 font-bold">
-			{breadcrumbs?.map((crumb) => (
-				<li class="space-x-2">
-					<button onClick={() => onCrumbClick(crumb.id)}>{crumb.name}</button>
+		<nav>
+			<ol class="flex space-x-2 font-bold">
+				{breadcrumbs?.map((crumb) => (
+					<li class="space-x-2">
+						<button onClick={() => onCrumbClick(crumb.id)}>{crumb.name}</button>
 
-					<span>{">"}</span>
-				</li>
-			))}
+						<span>{">"}</span>
+					</li>
+				))}
 
-			<li>{currentFolder.name}</li>
-		</ol>
+				<li>{currentFolder.name}</li>
+			</ol>
+		</nav>
 	);
 }
 
@@ -107,9 +107,10 @@ function SubfolderList({ subfolders, onSubfolderClick }: SubfolderListProps) {
 	return (
 		<ul class="space-y-2">
 			{subfolders.map((folder) => (
-				<li>
+				<li class="space-x-1">
+					<span>📦</span>
 					<button
-						class="before:pr-1 before:content-['📦']"
+						class="underline decoration-transparent underline-offset-2 transition duration-100 ease-in hover:decoration-inherit"
 						onClick={() => onSubfolderClick(folder.id)}
 					>
 						{folder.name}
@@ -130,10 +131,16 @@ function ResourceList({ resources }: ResourceListProps) {
 	}
 
 	return (
-		<ul class="space-y-2">
+		<ul class="space-y-1">
 			{resources.map((resource) => (
-				<li>
-					<TextLink href={resource.href}>{resource.name}</TextLink>
+				<li class="space-x-1">
+					<span>↗</span>
+					<a
+						href={resource.href}
+						class="underline decoration-transparent underline-offset-2 transition duration-100 ease-in hover:decoration-inherit"
+					>
+						{resource.name}
+					</a>
 				</li>
 			))}
 		</ul>
