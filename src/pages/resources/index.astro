@@ -1,6 +1,6 @@
 ---
 import {
-	ResourceList,
+	Resources,
 	type Resource,
 	type Folder,
 } from "@components/ResourceList";
@@ -44,8 +44,8 @@ const resources: Resource[] = [
 // foldersMap is used to map a folder id to it's contents
 const folderMap: Record<string, Folder> = {};
 
-// subfoldersMap is to map a folder id to an array of ids, representing its subfolders
-const subfoldersMap: Record<string, string[]> = {};
+// subfolderMap is to map a folder id to an array of ids, representing its subfolder
+const subfolderMap: Record<string, string[]> = {};
 
 for (const folder of folders) {
 	folderMap[folder.id] = folder;
@@ -55,13 +55,13 @@ for (const folder of folders) {
 	}
 
 	// if the parent folder has no mapped subfolders yet, create and map it here and move onto next folder
-	if (!subfoldersMap[folder.parentFolder]) {
-		subfoldersMap[folder.parentFolder] = [folder.id];
+	if (!subfolderMap[folder.parentFolder]) {
+		subfolderMap[folder.parentFolder] = [folder.id];
 		continue;
 	}
 
 	// if parent folder already has some mappings, we just add this one to it
-	subfoldersMap[folder.parentFolder].push(folder.id);
+	subfolderMap[folder.parentFolder].push(folder.id);
 }
 
 // folderResourceMap is used to map a resource to its folder
@@ -76,17 +76,15 @@ for (const resource of resources) {
 	// if folder mapping already created, add this resource to it
 	folderResourceMap[resource.folderId].push(resource);
 }
-
-// console.dir({ folderMap, folderResourceMap }, { depth: null });
 ---
 
 <BaseLayout>
 	<h1>cool resources i gone and found</h1>
 
-	<ResourceList
+	<Resources
 		rootFolderId="root"
 		{folderMap}
-		{subfoldersMap}
+		{subfolderMap}
 		{folderResourceMap}
 		client:load
 	/>
