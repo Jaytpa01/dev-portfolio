@@ -8,11 +8,11 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<TextLink href={id ? `#${id}` : undefined}>
-	<h2
-		class="pb-2 text-lg font-bold before:content-['#']"
-		{id}
-	>
+<h2
+	class="pb-2 text-lg font-bold before:content-['#']"
+	{id}
+>
+	<TextLink href={id ? `#${id}` : undefined}>
 		<slot />
-	</h2>
-</TextLink>
+	</TextLink>
+</h2>
