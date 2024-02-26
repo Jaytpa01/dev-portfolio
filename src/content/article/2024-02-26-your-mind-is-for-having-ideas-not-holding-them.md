@@ -29,5 +29,5 @@ Yeah look, I don't know either. I think the fact that the notebook serves a sing
 
 Sure, my phone a notes app, but it also has access to all of human knowledge in there, and sometimes I find that a little distracting.
 
-TL;DR
+TL;DR  
 I carry a notepad with me to avoid forgetting things and stressing out for weeks on end.
