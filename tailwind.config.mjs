@@ -13,6 +13,14 @@ export default {
 				"neo-yellow": "#ffef6b",
 				"neo-neutral": "#fffeec",
 			},
+			typography: {
+				quoteless: {
+					css: {
+						"blockquote p:first-of-type::before": { content: "none" },
+						"blockquote p:first-of-type::after": { content: "none" },
+					},
+				},
+			},
 		},
 	},
 	plugins: [require("@tailwindcss/typography")],
