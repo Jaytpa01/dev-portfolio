@@ -1,7 +1,8 @@
 ---
-import ProjectCard from "@components/ProjectCard.astro";
 import { getAllProjects } from "@lib/article";
 import SectionHeading from "./SectionHeading.astro";
+import NeoCard from "@components/NeoCard.astro";
+import TextLink from "@components/TextLink.astro";
 
 const projects = await getAllProjects();
 ---
@@ -13,7 +14,13 @@ const projects = await getAllProjects();
 		{
 			projects.map((project) => (
 				<li>
-					<ProjectCard {project} />
+					<NeoCard variant="indigo">
+						<h3>
+							<TextLink href={`/${project.slug}`}>
+								{project.data.title}
+							</TextLink>
+						</h3>
+					</NeoCard>
 				</li>
 			))
 		}
