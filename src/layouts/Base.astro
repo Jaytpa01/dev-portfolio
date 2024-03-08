@@ -111,12 +111,6 @@ const {
 		</main>
 
 		<script>
-			// extend the window object to keep typescript happy
-			declare global {
-				interface Window {
-					netlifyIdentity: any;
-				}
-			}
 			if (window.netlifyIdentity) {
 				window.netlifyIdentity.on("init", (user: any) => {
 					if (!user) {
