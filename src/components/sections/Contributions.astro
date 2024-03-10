@@ -3,8 +3,20 @@ import { getCollection } from "astro:content";
 import SectionHeading from "./SectionHeading.astro";
 import NeoCard from "@components/NeoCard.astro";
 import ContributionButton from "@components//ContributionButton.astro";
-import { getContributionTypeFromURL } from "./contribution";
 import TextLink from "@components/TextLink.astro";
+
+type ContributionType = "pull-request" | "issue" | "other";
+const getContributionTypeFromURL = (url: string): ContributionType => {
+	if (url.includes("/pull/")) {
+		return "pull-request";
+	}
+
+	if (url.includes("/issues/")) {
+		return "issue";
+	}
+
+	return "other";
+};
 
 const contributions = await getCollection("contributions");
 contributions.sort(
@@ -22,22 +34,21 @@ contributions.sort(
 
 				return (
 					<li>
-						<NeoCard variant="yellow">
-							<div class="flex justify-between gap-x-4">
-								<div>
-									<h3>
-										<TextLink href={projectUrl}>{projectName}</TextLink>
-									</h3>
-									<p>{description}</p>
-								</div>
-
-								<ContributionButton
-									{url}
-									{contribution}
-									variant={getContributionTypeFromURL(url)}
-								/>
-							</div>
-						</NeoCard>
+						<h3>
+							<TextLink
+								href={projectUrl}
+								underline="indigo"
+								class="text-lg text-zinc-600"
+							>
+								{projectName}
+							</TextLink>
+						</h3>
+						<TextLink
+							href={url}
+							class="font-normal decoration-1"
+						>
+							{description}
+						</TextLink>
 					</li>
 				);
 			})

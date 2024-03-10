@@ -1,29 +1,39 @@
 ---
+import Socials from "./Socials.astro";
 import TextLink from "./TextLink.astro";
 
 const now = new Date();
 ---
 
-<footer class="border-t-2 border-black pt-8 text-sm">
-	<span class="italic">jayparry.dev</span> — last updated
+<footer
+	class="flex items-center justify-between border-t-2 border-black pt-8 text-sm"
+>
+	<div class="max-w-[50%]">
+		<span class="italic">jayparry.dev</span> — last updated
 
-	<TextLink
-		href="https://github.com/Jaytpa01/jay-neobrutalism-dev-portfolio/commit"
-	>
-		<time
-			id="last-update"
-			datetime={Date.now().toString()}
+		<TextLink
+			href="https://github.com/Jaytpa01/jay-neobrutalism-dev-portfolio/commit"
+			class="font-bold"
 		>
-			{
-				now.toLocaleString("en-AU", {
-					timeZone: "Australia/Sydney",
-					month: "short",
-					day: "numeric",
-					year: "numeric",
-				})
-			}
-		</time>
-	</TextLink>
+			<time
+				id="last-update"
+				datetime={Date.now().toString()}
+			>
+				{
+					now.toLocaleString("en-AU", {
+						timeZone: "Australia/Sydney",
+						month: "short",
+						day: "numeric",
+						year: "numeric",
+					})
+				}
+			</time>
+		</TextLink>
+	</div>
+
+	<div class="-mt-2">
+		<Socials />
+	</div>
 </footer>
 
 <script>

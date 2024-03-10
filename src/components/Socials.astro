@@ -1,0 +1,76 @@
+---
+import Icon, { type IconName } from "./Icon.astro";
+import { cn } from "@lib/utils";
+
+interface SocialLink {
+	title: string;
+	icon: IconName;
+	href: string;
+	class?: string;
+}
+
+const socialLinks: SocialLink[] = [
+	{
+		title: "GitHub",
+		icon: "github",
+		href: "https://github.com/Jaytpa01",
+		class: "bg-neo-red p-1",
+	},
+	{
+		title: "LinkedIn",
+		icon: "linkedin",
+		href: "https://www.linkedin.com/in/jay-parry42/",
+		class: "bg-blue-400",
+	},
+	{
+		title: "Email",
+		icon: "email",
+		href: "mailto:jaytpa01+dev@gmail.com",
+		class: "bg-yellow-400",
+	},
+	{
+		title: "RSS Feed",
+		icon: "rss",
+		href: "/blog/rss",
+		class: "bg-orange-400",
+	},
+];
+---
+
+<div class="flex flex-wrap gap-2 sm:gap-3">
+	{
+		socialLinks.map((link, index) => {
+			// rotate alternating icons in a different direction
+			const rotageDegree =
+				index % 2 === 0 ? "hover:-rotate-6" : "hover:rotate-6";
+
+			return (
+				<a
+					href={link.href}
+					rel="noopener noreferrer"
+				>
+					<div
+						class={cn(
+							"group relative hover:scale-105",
+							"transition duration-200 ease-in-out",
+							rotageDegree,
+						)}
+					>
+						<div class="relative z-20">
+							<Icon
+								icon={link.icon}
+								class={cn(
+									"h-7 w-7 border-2 border-black fill-current text-black sm:h-8 sm:w-8",
+									link.class,
+								)}
+								focusable="false"
+							/>
+							<span class="sr-only">{link.title}</span>
+						</div>
+						<div class="absolute left-1 top-1 h-7 w-7 bg-black sm:h-8 sm:w-8" />
+					</div>
+				</a>
+			);
+		})
+	}
+</div>

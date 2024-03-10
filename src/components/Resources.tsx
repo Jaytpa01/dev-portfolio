@@ -112,7 +112,7 @@ function SubfolderList({ subfolders, onSubfolderClick }: SubfolderListProps) {
 	return (
 		<ul class="space-y-2">
 			{subfolders.map((folder) => (
-				<li class="flex items-center space-x-1">
+				<li class="flex items-center space-x-3">
 					<div class="h-4 w-4">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +145,7 @@ function ResourceList({ resources }: ResourceListProps) {
 	return (
 		<ul class="space-y-1">
 			{resources.map((resource) => (
-				<li class="space-x-1">
+				<li class="space-x-3">
 					<span>↗</span>
 					<a
 						href={resource.href}

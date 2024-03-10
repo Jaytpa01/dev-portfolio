@@ -5,7 +5,6 @@ import Profile from "@assets/profile.jpg";
 import WorkExperience from "@components/sections/WorkExperience.astro";
 import Contributions from "@components/sections/Contributions.astro";
 import AllProjects from "@components/sections/AllProjects.astro";
-import Blog from "@components/sections/Blog.astro";
 import NeoCard from "@components/NeoCard.astro";
 import Stuff from "@components/sections/Stuff.astro";
 import { Image } from "astro:assets";
@@ -13,21 +12,33 @@ import TextLink from "@components/TextLink.astro";
 ---
 
 <BaseLayout>
-	<div class="space-y-12">
-		<section class="flex justify-between gap-x-5">
-			<div class="max-w-96 sm:max-w-44">
-				<NeoCard
-					variant="green"
-					class="p-1 pb-5"
-				>
-					<Image
-						src={Profile}
-						alt="Me"
-						class="rounded-lg border-2 border-black"
-					/>
-				</NeoCard>
-			</div>
-			<div class="space-y-2">
+	<section
+		class="flex flex-col items-center justify-around gap-x-7 gap-y-12 py-8 sm:flex-row"
+	>
+		<div class="flex flex-col justify-center">
+			<h1 class="text-3xl">Jay Parry</h1>
+			<h2 class="text-xl text-zinc-500">Software Engineer in Sydney</h2>
+		</div>
+
+		<div class="max-w-96 px-6 sm:max-w-64">
+			<NeoCard
+				variant="green"
+				class="p-1 pb-5"
+			>
+				<Image
+					src={Profile}
+					alt="Me"
+					class="rounded-lg border-2 border-black"
+				/>
+			</NeoCard>
+		</div>
+	</section>
+
+	<div class="mt-12"></div>
+
+	<div class="space-y-14">
+		<section class="justify-between">
+			<div class="space-y-3">
 				<p>
 					Hello! I'm Jay, a fullstack developer with experience building
 					applications using React, Go, Node.js, and Postgres.
@@ -38,31 +49,39 @@ import TextLink from "@components/TextLink.astro";
 					<TextLink
 						href="https://wearewelcome.com.au/"
 						rel="noreferrer noopener"
+						class="font-bold hover:decoration-[#448c5c]"
 					>
 						welcome.
-					</TextLink> Digital Agency working on a React application and a REST API
-					built with Express.js.
+					</TextLink> Digital Agency working on a React application and a REST
+					API built with Express.js.
 				</p>
 
 				<p>
-					Get to know me a bit better
-					<TextLink href="/about">here,</TextLink> and checkout some resources I've
-					put together
-					<TextLink href="/resources">here.</TextLink>
+					Feel free to look around - checkout my <TextLink
+						href="/resources"
+						underline="indigo"
+						class="font-bold"
+					>
+						blog,
+					</TextLink> or some
+					<TextLink
+						href="/resources"
+						underline="indigo"
+						class="font-bold"
+					>
+						resources
+					</TextLink>
+					 I've put together. Or don't - it's up to you.
 				</p>
 			</div>
 		</section>
 
 		<WorkExperience />
 
-		<Contributions />
-
-		<!-- <PinnedProjects /> -->
-
 		<AllProjects />
 
-		<Blog />
-
 		<Stuff />
+
+		<Contributions />
 	</div>
 </BaseLayout>

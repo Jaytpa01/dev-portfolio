@@ -1,22 +1,27 @@
 ---
+import BaseLayout from "@layouts/Base.astro";
 import { getAllBlogPosts } from "@lib/article";
-import SectionHeading from "./SectionHeading.astro";
 
 const blogPosts = await getAllBlogPosts();
 ---
 
-<section>
-	<SectionHeading id="blog">Blog</SectionHeading>
+<BaseLayout title="Jay's blog">
+	<div class="flex flex-col gap-y-3 py-8 text-center">
+		<h1 class="text-3xl">Jay's blog</h1>
+		<h2 class="text-lg text-zinc-500">
+			a collection of ideas, incoherent ramblings, etc...
+		</h2>
+	</div>
 
 	<ul class="flex flex-col gap-y-2">
 		{
 			blogPosts.map((post) => {
 				const { title, publishDate } = post.data;
 				return (
-					<li class="">
+					<li class="text-sm">
 						<a
-							href={`/${post.slug}`}
-							class="flex justify-between gap-x-5 font-normal"
+							href={`/blog/${post.slug}`}
+							class="flex justify-between gap-x-5"
 						>
 							<h3 class="underline underline-offset-2">{title}</h3>
 
@@ -37,4 +42,4 @@ const blogPosts = await getAllBlogPosts();
 			})
 		}
 	</ul>
-</section>
+</BaseLayout>

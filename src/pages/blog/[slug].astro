@@ -18,9 +18,9 @@ const { article } = Astro.props;
 const { Content } = await article.render();
 ---
 
-<BaseLayout>
+<BaseLayout title={article.data.title}>
 	<article
-		class="prose-quoteless prose max-w-none space-x-2 prose-a:font-bold prose-a:underline"
+		class="prose prose-quoteless max-w-none space-x-2 prose-a:font-bold prose-a:underline"
 	>
 		<h2>{article.data.title}</h2>
 
