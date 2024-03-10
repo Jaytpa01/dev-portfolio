@@ -56,7 +56,7 @@ We started with the SMS payload. Internally, we were using UUIDs to identify uni
 Fields often had generic names which may be repeated across many different sites (e.g. "Field 1"), so we couldn't reasonably abbreviate a field and have it remain unique. Sites, however, were often unique enough that we decided an abbreviation of both a site and field name in conjunction would allow us to target specific fields.
 We also needed to specify what scene we wanted to change to. This was simply an integer.
 
-We decided to use a delimiter to separate the abbreviations of the payload, and arbitrarily chose **\#**.
+We decided to use a delimiter to separate the abbreviations of the payload, and arbitrarily chose to use **\#**.
 
 At this point in time, given an example site "Example Grounds Sports Precinct", and field "Football Field", a reasonable payload could look like:
 
