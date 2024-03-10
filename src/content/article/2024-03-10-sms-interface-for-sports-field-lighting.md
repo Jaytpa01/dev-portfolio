@@ -19,7 +19,9 @@ Conceptually, you can break the platform into 3 levels. Clients, Sites, and Fiel
 
 * A client is generally something like a local council, a business, etc. 
 * A client can have many sites.
-* ***Site:***
+
+***Site:***
+
 * Sites are generally locations separated by a some distance.
 * They are generally areas such as a sporting precinct.
 * Sites can have many fields.
