@@ -1,0 +1,43 @@
+---
+import TextLink from "./TextLink.astro";
+
+interface Link {
+	text: string;
+	href: string;
+}
+
+const links: Link[] = [
+	{
+		text: "home",
+		href: "/",
+	},
+	{
+		text: "blog",
+		href: "/blog",
+	},
+	{
+		text: "resources",
+		href: "/resources",
+	},
+];
+---
+
+<nav
+	class="sticky top-0 z-50 flex max-w-none justify-center bg-zinc-100 bg-opacity-70 backdrop-blur-sm"
+>
+	<ul class="my-5 flex flex-wrap justify-around gap-x-8">
+		{
+			links.map((link) => (
+				<li>
+					<TextLink
+						href={link.href}
+						class="text-sm font-semibold"
+						underline="red"
+					>
+						{link.text}
+					</TextLink>
+				</li>
+			))
+		}
+	</ul>
+</nav>

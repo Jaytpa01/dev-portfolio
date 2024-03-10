@@ -1,7 +1,8 @@
 ---
-import Header from "@components/Header.astro";
 import Fonts from "@components/Fonts.astro";
 import Footer from "@components/Footer.astro";
+import Navigation from "@components/Navigation.astro";
+import "../styles/global.css";
 
 interface Props {
 	title?: string;
@@ -98,12 +99,11 @@ const {
 		/>
 	</head>
 	<body
-		class="mx-auto min-h-screen max-w-3xl bg-zinc-100 px-4 pb-9 selection:bg-red-300/40"
+		class="min-h-screen bg-zinc-100 font-mono leading-6 selection:bg-red-300/40"
 	>
-		<div class="mt-8">{/* spacer element */}</div>
-		<Header />
-		<div class="mt-6">{/* spacer element */}</div>
-		<main class="text-sm sm:text-base">
+		<Navigation />
+
+		<main class="mx-auto max-w-2xl px-4 pb-9">
 			<slot />
 
 			<div class="mt-12">{/* spacer element */}</div>

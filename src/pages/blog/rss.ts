@@ -1,21 +1,20 @@
 import type { APIRoute } from "astro";
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
-import { sortArticleByPublishDate } from "@lib/article";
+import { getAllBlogPosts, sortArticleByPublishDate } from "@lib/article";
 
 export const GET: APIRoute = async () => {
-	const articles = await getCollection("article");
-	const sortedArticles = sortArticleByPublishDate(articles);
+	const blogPosts = await getAllBlogPosts();
 
 	return rss({
 		title: "Jay Parry",
 		description: "Jay Parry's developer portfolio and personal website.",
 		site: import.meta.env.SITE,
-		items: sortedArticles.map((article) => ({
-			title: article.data.title,
-			description: article.data.description,
-			pubDate: article.data.publishDate,
-			link: `/${article.slug}`,
+		items: blogPosts.map((blog) => ({
+			title: blog.data.title,
+			description: blog.data.description,
+			pubDate: blog.data.publishDate,
+			link: `/blog/${blog.slug}`,
 		})),
 		customData: `<language>en-AU</language>`,
 		stylesheet: "/styles/pretty-feed-v3.xsl",

@@ -22,6 +22,11 @@ const folders: Folder[] = [
 		parentFolder: "root",
 	},
 	{
+		id: "graphics",
+		name: "Graphics",
+		parentFolder: "root",
+	},
+	{
 		id: "security",
 		name: "Security",
 		parentFolder: "root",
@@ -204,6 +209,16 @@ const resources: Resource[] = [
 		href: "https://nordpass.com/",
 		folderId: "security",
 	},
+	{
+		name: "Blender - Open Source 3D Creation Software",
+		href: "https://www.blender.org/",
+		folderId: "graphics",
+	},
+	{
+		name: "GIMP",
+		href: "https://www.gimp.org/",
+		folderId: "graphics",
+	},
 ];
 
 folders.sort((a, b) => a.name.localeCompare(b.name));
@@ -247,9 +262,9 @@ for (const resource of resources) {
 ---
 
 <BaseLayout>
-	<h2 class="font-semibold">A series of random resources I've collected.</h2>
-
-	<div class="py-2"></div>
+	<h2 class="py-8 text-center text-lg text-zinc-500">
+		a series of random resources I've collected
+	</h2>
 
 	<ResourceDisplay
 		rootFolderId="root"
