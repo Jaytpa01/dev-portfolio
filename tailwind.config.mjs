@@ -6,7 +6,7 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
+				mono: ["iA Writer Mono", ...defaultTheme.fontFamily.mono],
 			},
 			colors: {
 				"neo-red": "#ff7a64",
