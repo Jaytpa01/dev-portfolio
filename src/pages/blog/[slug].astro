@@ -1,29 +1,21 @@
 ---
-import BaseLayout from "@layouts/Base.astro";
-import { getCollection, type CollectionEntry } from "astro:content";
+import ArticleLayout from "@layouts/Article.astro";
+import { getAllBlogPosts } from "@lib/article";
+import { type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
-	const articles = await getCollection("article");
-	return articles.map((article: CollectionEntry<"article">) => ({
-		params: { slug: article.slug },
-		props: { article },
+	const posts = await getAllBlogPosts();
+	return posts.map((post: CollectionEntry<"article">) => ({
+		params: { slug: post.slug },
+		props: { post },
 	}));
 }
 
 interface Props {
-	article: CollectionEntry<"article">;
+	post: CollectionEntry<"article">;
 }
 
-const { article } = Astro.props;
-const { Content } = await article.render();
+const { post } = Astro.props;
 ---
 
-<BaseLayout title={article.data.title}>
-	<article
-		class="prose prose-quoteless max-w-none space-x-2 prose-a:font-bold prose-a:underline"
-	>
-		<h2>{article.data.title}</h2>
-
-		<Content />
-	</article>
-</BaseLayout>
+<ArticleLayout article={post} />

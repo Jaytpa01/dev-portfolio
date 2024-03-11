@@ -1,0 +1,21 @@
+---
+import ArticleLayout from "@layouts/Article.astro";
+import { getAllProjects } from "@lib/article";
+import { type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+	const projects = await getAllProjects();
+	return projects.map((project: CollectionEntry<"article">) => ({
+		params: { slug: project.slug },
+		props: { project },
+	}));
+}
+
+interface Props {
+	project: CollectionEntry<"article">;
+}
+
+const { project } = Astro.props;
+---
+
+<ArticleLayout article={project} />

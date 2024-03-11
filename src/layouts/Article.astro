@@ -1,0 +1,21 @@
+---
+import BaseLayout from "@layouts/Base.astro";
+import { type CollectionEntry } from "astro:content";
+
+interface Props {
+	article: CollectionEntry<"article">;
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+---
+
+<BaseLayout title={article.data.title}>
+	<article
+		class="prose prose-quoteless max-w-none space-x-2 prose-a:font-bold prose-a:underline prose-code:before:content-none prose-code:after:content-none"
+	>
+		<h2>{article.data.title}</h2>
+
+		<Content />
+	</article>
+</BaseLayout>
