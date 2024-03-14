@@ -6,10 +6,7 @@ description: How I got the TailwindCSS Prettier Plugin setup to work with my
 publishDate: 2023-12-23T03:13:21.812Z
 type: blog
 tags:
-  - astro
-  - vscode
-  - tailwindcss
-  - prettier
+  - technical
 ---
 ## Installation
 
