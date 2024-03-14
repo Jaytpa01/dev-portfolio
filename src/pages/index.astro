@@ -9,6 +9,7 @@ import NeoCard from "@components/NeoCard.astro";
 import Stuff from "@components/sections/Stuff.astro";
 import { Image } from "astro:assets";
 import TextLink from "@components/TextLink.astro";
+import Socials from "@components/Socials.astro";
 ---
 
 <BaseLayout>
@@ -17,7 +18,9 @@ import TextLink from "@components/TextLink.astro";
 	>
 		<div class="flex flex-col justify-center">
 			<h1 class="text-3xl">Jay Parry</h1>
-			<h2 class="text-xl text-zinc-500">Software Engineer in Sydney</h2>
+			<h2 class="text-xl text-zinc-500 sm:text-nowrap">
+				Software Engineer in Sydney
+			</h2>
 		</div>
 
 		<div class="max-w-96 px-6 sm:max-w-64">
@@ -31,6 +34,10 @@ import TextLink from "@components/TextLink.astro";
 					class="rounded-lg border-2 border-black"
 				/>
 			</NeoCard>
+
+			<div class="flex justify-center pt-4">
+				<Socials />
+			</div>
 		</div>
 	</section>
 
@@ -49,7 +56,7 @@ import TextLink from "@components/TextLink.astro";
 					<TextLink
 						href="https://wearewelcome.com.au/"
 						rel="noreferrer noopener"
-						class="font-bold hover:decoration-[#448c5c]"
+						class="font-bold hover:decoration-green-400"
 					>
 						welcome.
 					</TextLink> Digital Agency working on a React application and a REST

@@ -1,0 +1,28 @@
+---
+import TagList from "@components/TagList.astro";
+import BaseLayout from "@layouts/Base.astro";
+import { getAllBlogTags } from "@lib/article";
+
+interface Props {
+	title?: string;
+}
+
+const { title } = Astro.props;
+const allTags = await getAllBlogTags();
+---
+
+<BaseLayout {title}>
+	<div class="space-y-3 py-8 text-center">
+		<h1 class="text-3xl">Jay's blog</h1>
+		<h2 class="text-lg text-zinc-500">
+			a collection of ideas, incoherent ramblings, etc...
+		</h2>
+	</div>
+
+	<slot />
+
+	<div class="flex flex-col items-center pt-8">
+		<p class="text-center">view posts by tag</p>
+		<TagList tags={allTags} />
+	</div>
+</BaseLayout>

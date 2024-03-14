@@ -4,6 +4,8 @@ slug: have-ideas-dont-hold-them
 description: Discussion of a quote I recently stumbled upon, and the impact it's had.
 publishDate: 2024-02-26T10:04:32.856Z
 type: blog
+tags:
+  - rambling
 ---
 > Your mind is for having ideas, not holding them\
 > – David Allen

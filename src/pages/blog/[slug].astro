@@ -1,5 +1,7 @@
 ---
-import ArticleLayout from "@layouts/Article.astro";
+import Article from "@components/Article.astro";
+import TagList from "@components/TagList.astro";
+import BlogLayout from "@layouts/Blog.astro";
 import { getAllBlogPosts } from "@lib/article";
 import { type CollectionEntry } from "astro:content";
 
@@ -18,4 +20,22 @@ interface Props {
 const { post } = Astro.props;
 ---
 
-<ArticleLayout article={post} />
+<BlogLayout title={post.data.title}>
+	<div class="space-y-2">
+		<h2 class="text-4xl font-normal">{post.data.title}</h2>
+		<time class="italic text-zinc-500">
+			{
+				post.data.publishDate.toLocaleString("en-AU", {
+					timeZone: "Australia/Sydney",
+					month: "short",
+					day: "numeric",
+					year: "numeric",
+				})
+			}
+		</time>
+		<TagList tags={post.data.tags} />
+	</div>
+
+	<hr class="my-8 border-zinc-800" />
+	<Article article={post} />
+</BlogLayout>
