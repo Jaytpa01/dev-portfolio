@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from "astro:content";
+import TagList from "./TagList.astro";
+
+interface Props {
+	posts: CollectionEntry<"article">[];
+}
+
+const { posts } = Astro.props;
+---
+
+<ul class="space-y-5">
+	{
+		posts.map((post) => {
+			const { title, description, publishDate, tags } = post.data;
+			return (
+				<li>
+					<h3 class="text-xl underline decoration-zinc-500 underline-offset-2">
+						<a href={`/blog/${post.slug}`}>{title}</a>
+					</h3>
+					<time class="font-bold italic text-zinc-500">
+						{publishDate.toLocaleString("en-AU", {
+							timeZone: "Australia/Sydney",
+							month: "short",
+							day: "numeric",
+							year: "numeric",
+						})}
+					</time>
+
+					<p>{description}</p>
+
+					<TagList {tags} />
+				</li>
+			);
+		})
+	}
+</ul>

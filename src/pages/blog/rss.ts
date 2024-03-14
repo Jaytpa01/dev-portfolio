@@ -1,7 +1,6 @@
 import type { APIRoute } from "astro";
 import rss from "@astrojs/rss";
-import { getCollection } from "astro:content";
-import { getAllBlogPosts, sortArticleByPublishDate } from "@lib/article";
+import { getAllBlogPosts } from "@lib/article";
 
 export const GET: APIRoute = async () => {
 	const blogPosts = await getAllBlogPosts();
