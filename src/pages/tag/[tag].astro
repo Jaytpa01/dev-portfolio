@@ -13,5 +13,8 @@ const posts = await getBlogPostsByTag(tag);
 ---
 
 <BlogLayout>
+	<h2 class="pb-8 text-center text-lg text-zinc-500">
+		all posts tagged with <span class="font-bold">{tag}</span>
+	</h2>
 	<BlogPostList {posts} />
 </BlogLayout>
