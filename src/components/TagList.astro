@@ -12,14 +12,17 @@ const { tags } = Astro.props;
 	tags && (
 		<ul class="flex flex-wrap gap-x-2 text-sm">
 			{tags.map((tag) => (
-				<li
-					class={cn(
-						"before:content-['#']",
-						"underline decoration-2 underline-offset-2",
-						getRandomUnderlineColor(),
-					)}
-				>
-					<a href={`/tag/${tag}`}>{tag}</a>
+				<li>
+					<a
+						href={`/tag/${tag}`}
+						class={cn(
+							"before:content-['#']",
+							"underline decoration-2 underline-offset-2",
+							getRandomUnderlineColor(),
+						)}
+					>
+						{tag}
+					</a>
 				</li>
 			))}
 		</ul>
