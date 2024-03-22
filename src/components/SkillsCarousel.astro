@@ -1,13 +1,14 @@
 ---
+import Icon, { type IconName } from "@components/Icon.astro";
 const skills = [
-	{ name: "Astro", icon: "devicon-astro-plain" },
-	{ name: "Go", icon: "devicon-go-original-wordmark" },
-	{ name: "React", icon: "devicon-react-original" },
-	{ name: "TypeScript", icon: "devicon-typescript-original" },
-	{ name: "JavaScript", icon: "devicon-javascript-plain" },
-	{ name: "Tailwind", icon: "devicon-tailwindcss-plain" },
-	{ name: "Postgres", icon: "devicon-postgresql-plain" },
-	{ name: "Node.js", icon: "devicon-nodejs-plain" },
+	{ name: "Astro", icon: "astro" },
+	{ name: "Go", icon: "go-gopher" },
+	{ name: "React", icon: "react" },
+	{ name: "TypeScript", icon: "typescript" },
+	{ name: "JavaScript", icon: "javascript" },
+	{ name: "Tailwind", icon: "tailwindcss" },
+	{ name: "Postgres", icon: "postgres" },
+	{ name: "Node.js", icon: "nodejs" },
 ];
 ---
 
@@ -15,8 +16,12 @@ const skills = [
 	<div class="flex gap-4">
 		{
 			skills.map((s) => (
-				<div class="min-w-32 flex-[0_0_20%] rounded-lg border border-b-4 border-r-4 border-black p-3 text-center last:mr-[1rem] hover:bg-zinc-200">
-					<i class={`${s.icon} colored text-4xl`} />
+				<div class="min-w-32 flex-[0_0_20%] space-y-2 rounded-lg border border-b-4 border-r-4 border-black p-3 text-center last:mr-[1rem] hover:bg-zinc-200">
+					<Icon
+						icon={s.icon as IconName}
+						class="mx-auto w-5/12"
+					/>
+
 					<p>{s.name}</p>
 				</div>
 			))
