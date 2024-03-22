@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import SectionHeading from "./SectionHeading.astro";
-import TextLink from "@components/TextLink.astro";
+import HoverLink from "@components/HoverLink.astro";
 
 type ContributionType = "pull-request" | "issue" | "other";
 const getContributionTypeFromURL = (url: string): ContributionType => {
@@ -33,12 +33,12 @@ contributions.sort(
 				return (
 					<li>
 						<h3>
-							<TextLink
+							<HoverLink
 								href={url}
 								class="text-lg text-zinc-600"
 							>
 								{projectName}
-							</TextLink>
+							</HoverLink>
 						</h3>
 						<p>{description}</p>
 					</li>

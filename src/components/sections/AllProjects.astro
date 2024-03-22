@@ -2,7 +2,7 @@
 import { getAllProjects } from "@lib/article";
 import SectionHeading from "./SectionHeading.astro";
 import NeoCard from "@components/NeoCard.astro";
-import TextLink from "@components/TextLink.astro";
+import HoverLink from "@components/HoverLink.astro";
 
 const projects = await getAllProjects();
 ---
@@ -16,9 +16,9 @@ const projects = await getAllProjects();
 				<li>
 					<NeoCard variant="indigo">
 						<h3>
-							<TextLink href={`/projects/${project.slug}`}>
+							<HoverLink href={`/projects/${project.slug}`}>
 								{project.data.title}
-							</TextLink>
+							</HoverLink>
 						</h3>
 					</NeoCard>
 				</li>
