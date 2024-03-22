@@ -38,10 +38,6 @@ const {
 			name="generator"
 			content={Astro.generator}
 		/>
-		<script
-			is:inline
-			src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-		></script>
 
 		<!-- Primary Meta Tags -->
 		<title>{title}</title>
@@ -103,24 +99,14 @@ const {
 	>
 		<Navigation />
 
-		<main class="mx-auto max-w-2xl px-6 pb-9">
-			<slot />
+		<div class="mx-auto max-w-2xl px-6 pb-9">
+			<main>
+				<slot />
+			</main>
 
 			<div class="mt-12">{/* spacer element */}</div>
 			<Footer />
-		</main>
-
-		<script>
-			if (window.netlifyIdentity) {
-				window.netlifyIdentity.on("init", (user: any) => {
-					if (!user) {
-						window.netlifyIdentity.on("login", () => {
-							document.location.href = "/admin/";
-						});
-					}
-				});
-			}
-		</script>
+		</div>
 
 		<!-- Cloudflare Web Analytics -->
 		<script
