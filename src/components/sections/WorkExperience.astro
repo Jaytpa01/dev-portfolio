@@ -1,5 +1,5 @@
 ---
-import TextLink from "@components/TextLink.astro";
+import HoverLink from "@components/HoverLink.astro";
 import SectionHeading from "./SectionHeading.astro";
 import NeoCard from "@components/NeoCard.astro";
 
@@ -34,13 +34,13 @@ const jobs: Job[] = [
 				<li>
 					<NeoCard variant="red">
 						<h3>
-							<TextLink
+							<HoverLink
 								href={job.companySite}
 								rel="noreferrer noopener"
 								class="text-lg"
 							>
 								{job.employer} (<time>{job.period}</time>)
-							</TextLink>
+							</HoverLink>
 						</h3>
 						<p>{job.role}</p>
 					</NeoCard>

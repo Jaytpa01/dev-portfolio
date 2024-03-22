@@ -1,5 +1,5 @@
 ---
-import TextLink from "@components/TextLink.astro";
+import HoverLink from "@components/HoverLink.astro";
 
 interface Props {
 	id?: string;
@@ -12,7 +12,7 @@ const { id } = Astro.props;
 	class="pb-3 text-2xl before:content-['#']"
 	{id}
 >
-	<TextLink href={id ? `#${id}` : undefined}>
+	<HoverLink href={id ? `#${id}` : undefined}>
 		<slot />
-	</TextLink>
+	</HoverLink>
 </h2>
