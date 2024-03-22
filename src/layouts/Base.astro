@@ -1,5 +1,5 @@
 ---
-import Fonts from "@components/Fonts.astro";
+import PreloadFonts from "@components/PreloadFonts.astro";
 import Footer from "@components/Footer.astro";
 import Navigation from "@components/Navigation.astro";
 import "../styles/global.css";
@@ -86,13 +86,7 @@ const {
 			content={description}
 		/>
 
-		<!-- Apply fonts -->
-		<Fonts />
-
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css"
-		/>
+		<PreloadFonts />
 	</head>
 	<body
 		class="min-h-screen bg-zinc-100 font-mono leading-6 selection:bg-red-300/40"
