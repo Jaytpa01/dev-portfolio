@@ -1,18 +1,46 @@
 ---
 import BaseLayout from "@layouts/Base.astro";
-import Profile from "@assets/profile.jpg";
+import ProfileImage from "@assets/images/profile.jpg";
 
 import WorkExperience from "@components/sections/WorkExperience.astro";
 import Contributions from "@components/sections/Contributions.astro";
 import AllProjects from "@components/sections/AllProjects.astro";
 import NeoCard from "@components/NeoCard.astro";
 import Stuff from "@components/sections/Stuff.astro";
-import { Image } from "astro:assets";
 import HoverLink from "@components/HoverLink.astro";
 import Socials from "@components/Socials.astro";
+
+import { Image } from "astro:assets";
+import { getArticleCount } from "@lib/article";
+
+const richResultsSchema = {
+	"@context": "https://schema.org",
+	"@type": "ProfilePage",
+	dateCreated: "2023-12-22T15:06:49.000Z",
+	dateModified: new Date().toISOString(),
+	mainEntity: {
+		"@type": "Person",
+		name: "Jay Parry",
+		description: "Jay Parry's software developer portfolio and blog",
+		image: "https://jayparry.dev/images/profile.jpg",
+
+		agentInteractionStatistic: {
+			"@type": "InteractionCounter",
+			interactionType: "https://schema.org/WriteAction",
+			userInteractionCount: await getArticleCount(),
+		},
+	},
+};
 ---
 
 <BaseLayout>
+	<script
+		is:inline
+		slot="rich-results"
+		type="application/ld+json"
+		set:html={JSON.stringify(richResultsSchema, null, "\t")}
+	/>
+
 	<section
 		class="flex flex-col items-center justify-around gap-x-7 gap-y-12 py-8 sm:flex-row"
 	>
@@ -29,7 +57,7 @@ import Socials from "@components/Socials.astro";
 				class="p-1 pb-5"
 			>
 				<Image
-					src={Profile}
+					src={ProfileImage}
 					alt="Jay Parry"
 					class="rounded-lg border-2 border-black"
 					loading="eager"

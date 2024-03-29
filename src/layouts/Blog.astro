@@ -1,17 +1,25 @@
 ---
+import ArticleStructuredData from "@components/ArticleStructuredData.astro";
 import TagList from "@components/TagList.astro";
 import BaseLayout from "@layouts/Base.astro";
 import { getAllBlogTags } from "@lib/article";
+import type { CollectionEntry } from "astro:content";
 
 interface Props {
 	title?: string;
+	post?: CollectionEntry<"article">;
 }
 
-const { title = "Jay's blog" } = Astro.props;
+const { title = "Jay's blog", post } = Astro.props;
 const allTags = await getAllBlogTags();
 ---
 
 <BaseLayout {title}>
+	<ArticleStructuredData
+		slot="rich-results"
+		article={post}
+	/>
+
 	<div class="space-y-3 py-8 text-center">
 		<h1 class="text-3xl">Jay's blog</h1>
 		<h2 class="text-lg text-zinc-500">
