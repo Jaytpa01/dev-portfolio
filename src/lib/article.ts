@@ -39,10 +39,13 @@ export const getAllBlogTags = async () => {
 	return [...new Set(tags.filter(Boolean))].sort();
 };
 
+export const getArticleCount = async () => {
+	const articles = await getCollection("article");
+	return articles.length;
+};
+
 // sort articles by their publish date - newer articles will be towards the beginning of the array
-export const sortArticleByPublishDate = (
-	articles: CollectionEntry<"article">[],
-) => {
+const sortArticleByPublishDate = (articles: CollectionEntry<"article">[]) => {
 	return articles.sort(
 		(a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
 	);

@@ -81,7 +81,10 @@ function Breadcrumbs({
 		<nav>
 			<ol class="flex space-x-2 font-bold">
 				{breadcrumbs?.map((crumb) => (
-					<li class="space-x-2">
+					<li
+						class="space-x-2"
+						key={crumb.id}
+					>
 						<button
 							onClick={() => onCrumbClick(crumb.id)}
 							class="underline decoration-transparent underline-offset-2 transition duration-150 ease-in hover:decoration-inherit"
@@ -112,7 +115,10 @@ function SubfolderList({ subfolders, onSubfolderClick }: SubfolderListProps) {
 	return (
 		<ul class="space-y-2">
 			{subfolders.map((folder) => (
-				<li class="flex items-center space-x-3">
+				<li
+					class="flex items-center space-x-3"
+					key={folder.id}
+				>
 					<div class="h-4 w-4">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +151,10 @@ function ResourceList({ resources }: ResourceListProps) {
 	return (
 		<ul class="space-y-1">
 			{resources.map((resource) => (
-				<li class="space-x-3">
+				<li
+					class="space-x-3"
+					key={resource.name}
+				>
 					<span>↗</span>
 					<a
 						href={resource.href}

@@ -3,19 +3,6 @@ import { getCollection } from "astro:content";
 import SectionHeading from "./SectionHeading.astro";
 import HoverLink from "@components/HoverLink.astro";
 
-type ContributionType = "pull-request" | "issue" | "other";
-const getContributionTypeFromURL = (url: string): ContributionType => {
-	if (url.includes("/pull/")) {
-		return "pull-request";
-	}
-
-	if (url.includes("/issues/")) {
-		return "issue";
-	}
-
-	return "other";
-};
-
 const contributions = await getCollection("contributions");
 contributions.sort(
 	(a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
@@ -28,7 +15,7 @@ contributions.sort(
 	<ul class="space-y-5">
 		{
 			contributions.map((contribution) => {
-				const { projectName, projectUrl, description, url } = contribution.data;
+				const { projectName, description, url } = contribution.data;
 
 				return (
 					<li>
