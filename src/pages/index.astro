@@ -7,11 +7,11 @@ import Contributions from "@components/sections/Contributions.astro";
 import AllProjects from "@components/sections/AllProjects.astro";
 import NeoCard from "@components/NeoCard.astro";
 import Stuff from "@components/sections/Stuff.astro";
-import HoverLink from "@components/HoverLink.astro";
 import Socials from "@components/Socials.astro";
 
 import { Image } from "astro:assets";
 import { getArticleCount } from "@lib/article";
+import TextLink from "@components/TextLink.astro";
 
 const richResultsSchema = {
 	"@context": "https://schema.org",
@@ -82,32 +82,21 @@ const richResultsSchema = {
 
 				<p>
 					I'm currently a dev at
-					<HoverLink
+					<TextLink
 						href="https://wearewelcome.com.au/"
 						rel="noreferrer noopener"
-						class="font-bold hover:decoration-green-400"
 					>
 						welcome.
-					</HoverLink> Digital Agency working on a React application and a REST
+					</TextLink> Digital Agency working on a React application and a REST
 					API built with Express.js.
 				</p>
 
 				<p>
-					Feel free to look around - checkout my <HoverLink
-						href="/resources"
-						underline="indigo"
-						class="font-bold"
-					>
-						blog,
-					</HoverLink> or some
-					<HoverLink
-						href="/resources"
-						underline="indigo"
-						class="font-bold"
-					>
-						resources
-					</HoverLink>
-					 I've put together. Or don't - it's up to you.
+					Feel free to look around - checkout my <TextLink href="/resources">
+						blog
+					</TextLink>or some
+					<TextLink href="/resources">resources</TextLink>
+					 I've put together.
 				</p>
 			</div>
 		</section>

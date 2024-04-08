@@ -1,8 +1,0 @@
-{
-  "publishDate": "2024-01-16T23:21:37.664Z",
-  "title": "Foundations: unify descriptions replacing WSL with WSL2",
-  "projectName": "TheOdinProject / curriculum",
-  "projectUrl": "https://github.com/TheOdinProject/curriculum",
-  "url": "https://github.com/TheOdinProject/curriculum/pull/27130",
-  "description": "Specify WSL version (WSL2) across the curriculum to avoid confusion + minor syntax fixes inline with markdown linting requirements"
-}

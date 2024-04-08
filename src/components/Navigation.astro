@@ -1,5 +1,5 @@
 ---
-import HoverLink from "./HoverLink.astro";
+import TextLink from "./TextLink.astro";
 
 interface Link {
 	text: string;
@@ -29,13 +29,12 @@ const links: Link[] = [
 		{
 			links.map((link) => (
 				<li>
-					<HoverLink
+					<TextLink
 						href={link.href}
 						class="px-6 py-4 text-sm font-semibold"
-						underline="red"
 					>
 						{link.text}
-					</HoverLink>
+					</TextLink>
 				</li>
 			))
 		}

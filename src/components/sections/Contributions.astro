@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import SectionHeading from "./SectionHeading.astro";
-import HoverLink from "@components/HoverLink.astro";
+import TextLink from "@components/TextLink.astro";
 
 const contributions = await getCollection("contributions");
 contributions.sort(
@@ -20,12 +20,12 @@ contributions.sort(
 				return (
 					<li>
 						<h3>
-							<HoverLink
+							<TextLink
 								href={url}
-								class="text-lg text-zinc-600"
+								class="text-lg"
 							>
 								{projectName}
-							</HoverLink>
+							</TextLink>
 						</h3>
 						<p>{description}</p>
 					</li>

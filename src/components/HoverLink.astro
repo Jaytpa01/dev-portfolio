@@ -1,33 +1,16 @@
 ---
 import { cn } from "@lib/utils";
 import type { HTMLAttributes } from "astro/types";
-import { cva, type VariantProps } from "class-variance-authority";
 
-const linkVariants = cva("", {
-	variants: {
-		underline: {
-			red: "hover:decoration-red-400",
-			black: "hover:decoration-black",
-			indigo: "hover:decoration-indigo-400",
-		},
-	},
-	defaultVariants: {
-		underline: "black",
-	},
-});
+type Props = HTMLAttributes<"a">;
 
-interface Props
-	extends HTMLAttributes<"a">,
-		VariantProps<typeof linkVariants> {}
-
-const { href, class: classFromProps, underline } = Astro.props;
+const { href, class: classFromProps } = Astro.props;
 ---
 
 <a
 	{href}
 	class={cn(
-		linkVariants({ underline }),
-		"underline decoration-2 decoration-transparent underline-offset-2 transition duration-150 ease-in",
+		"underline decoration-2 decoration-transparent underline-offset-2 transition duration-150 ease-in hover:decoration-black",
 		classFromProps,
 	)}
 >

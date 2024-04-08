@@ -14,6 +14,11 @@ export default {
 				"neo-neutral": "#fffeec",
 			},
 			typography: {
+				DEFAULT: {
+					css: {
+						color: "black",
+					},
+				},
 				quoteless: {
 					css: {
 						"blockquote p:first-of-type::before": { content: "none" },
