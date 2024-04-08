@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import TagList from "./TagList.astro";
+import TextLink from "./TextLink.astro";
 
 interface Props {
 	posts: CollectionEntry<"article">[];
@@ -9,14 +10,19 @@ interface Props {
 const { posts } = Astro.props;
 ---
 
-<ul class="space-y-5">
+<ul class="space-y-9">
 	{
 		posts.map((post) => {
 			const { title, description, publishDate, tags } = post.data;
 			return (
 				<li>
-					<h3 class="text-xl underline decoration-zinc-500 underline-offset-2">
-						<a href={`/blog/${post.slug}`}>{title}</a>
+					<h3>
+						<TextLink
+							href={`/blog/${post.slug}`}
+							class="text-xl"
+						>
+							{title}
+						</TextLink>
 					</h3>
 					<time class="italic text-zinc-500">
 						{publishDate.toLocaleString("en-AU", {

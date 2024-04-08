@@ -33,7 +33,9 @@ const { variant, class: neoCardClass } = Astro.props;
 			"relative z-20 w-full rounded-lg border-2 border-black bg-zinc-100",
 		)}
 	>
-		<slot />
+		<div class="py-1">
+			<slot />
+		</div>
 	</div>
 
 	<div
