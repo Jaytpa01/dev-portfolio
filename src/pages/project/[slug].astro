@@ -1,7 +1,5 @@
 ---
 import Article from "@components/Article.astro";
-import ArticleStructuredData from "@components/ArticleStructuredData.astro";
-import BaseLayout from "@layouts/Base.astro";
 import { getAllProjects } from "@lib/article";
 import { type CollectionEntry } from "astro:content";
 
@@ -20,11 +18,4 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<BaseLayout title={project.data.title}>
-	<ArticleStructuredData
-		slot="rich-results"
-		article={project}
-	/>
-
-	<Article article={project} />
-</BaseLayout>
+<Article article={project} />

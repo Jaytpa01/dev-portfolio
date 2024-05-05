@@ -10,8 +10,10 @@ const articleSchema = () =>
 		title: z.string(),
 		description: z.string(),
 		publishDate: z.coerce.date().default(new Date()),
+		liveSite: z.string().url().optional(),
 		type: z.enum(articleTypes),
 		tags: z.array(z.string().toLowerCase()).optional(),
+		tldr: z.string().optional(),
 	});
 
 const articleCollection = defineCollection({
@@ -19,22 +21,6 @@ const articleCollection = defineCollection({
 	schema: articleSchema,
 });
 
-/** defining an open source contribution */
-const contributionSchema = () =>
-	z.object({
-		projectName: z.string(),
-		projectUrl: z.string().url(),
-		publishDate: z.coerce.date().default(new Date()),
-		description: z.string(),
-		url: z.string().url(),
-	});
-
-const contributionCollection = defineCollection({
-	type: "data",
-	schema: contributionSchema,
-});
-
 export const collections = {
 	article: articleCollection,
-	contributions: contributionCollection,
 };

@@ -1,0 +1,64 @@
+---
+import Icon from "./Icon.astro";
+import TextLink from "./TextLink.astro";
+
+interface Link {
+	text: string;
+	href: string;
+}
+
+const links: Link[] = [
+	{
+		text: "blog",
+		href: "/blog",
+	},
+	{
+		text: "resources",
+		href: "/resources",
+	},
+	{
+		text: "github",
+		href: "https://github.com/Jaytpa01",
+	},
+	{
+		text: "rss",
+		href: "/blog/rss",
+	},
+];
+---
+
+<header
+	class="sticky top-0 z-50 flex justify-center bg-opacity-70 py-5 backdrop-blur-md"
+>
+	<div
+		class="flex w-full max-w-3xl items-center justify-between px-6 font-bold"
+	>
+		<TextLink
+			href="/"
+			class="flex items-center gap-x-2"
+		>
+			<Icon
+				icon="floppy-disk"
+				class="h-8"
+			/>
+			<h1 class="text-nowrap">Jay Parry</h1>
+		</TextLink>
+
+		<nav class="pl-10">
+			<ul class="flex flex-wrap place-content-end gap-x-2 gap-y-2">
+				{
+					links.map((link) => (
+						<li>
+							<TextLink
+								href={link.href}
+								class="text-sm"
+							>
+								{link.text}
+							</TextLink>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+	</div>
+</header>

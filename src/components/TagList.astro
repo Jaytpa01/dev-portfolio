@@ -1,5 +1,4 @@
 ---
-import { cn, getRandomUnderlineColor } from "@lib/utils";
 import TextLink from "./TextLink.astro";
 
 interface Props {
@@ -11,12 +10,13 @@ const { tags } = Astro.props;
 
 {
 	tags && (
-		<ul class="flex flex-wrap gap-x-2 text-sm">
+		<ul class="flex flex-wrap gap-x-2">
 			{tags.map((tag) => (
-				<li>
+				<li class="before:text-red-500 before:content-['#']">
 					<TextLink
 						href={`/tag/${tag}`}
-						class={cn("before:content-['#']", getRandomUnderlineColor())}
+						class="text-sm"
+						underlined={false}
 					>
 						{tag}
 					</TextLink>

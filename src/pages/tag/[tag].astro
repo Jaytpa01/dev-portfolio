@@ -1,7 +1,8 @@
 ---
 import { getAllBlogTags, getBlogPostsByTag } from "@lib/article";
-import BlogLayout from "@layouts/Blog.astro";
-import BlogPostList from "@components/BlogPostList.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import ArticleList from "@components/ArticleList.astro";
+import TagList from "@components/TagList.astro";
 
 export async function getStaticPaths() {
 	const tags = await getAllBlogTags();
@@ -10,11 +11,19 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.params;
 const posts = await getBlogPostsByTag(tag);
+
+const allTags = await getAllBlogTags();
 ---
 
-<BlogLayout>
-	<h2 class="pb-8 text-center text-lg text-zinc-500">
+<BaseLayout title={tag}>
+	<h2 class="py-7 text-center text-lg text-zinc-500">
 		all posts tagged with <span class="font-bold">{tag}</span>
 	</h2>
-	<BlogPostList {posts} />
-</BlogLayout>
+
+	<ArticleList articles={posts} />
+
+	<div class="flex flex-col items-center pt-8">
+		<p class="text-center">view posts by tag</p>
+		<TagList tags={allTags} />
+	</div>
+</BaseLayout>

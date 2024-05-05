@@ -1,11 +1,20 @@
 ---
-import BlogPostList from "@components/BlogPostList.astro";
-import BlogLayout from "@layouts/Blog.astro";
-import { getAllBlogPosts } from "@lib/article";
+import ArticleList from "@components/ArticleList.astro";
+import TagList from "@components/TagList.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { getAllBlogPosts, getAllBlogTags } from "@lib/article";
 
 const blogPosts = await getAllBlogPosts();
+const allTags = await getAllBlogTags();
 ---
 
-<BlogLayout title="Jay's blog">
-	<BlogPostList posts={blogPosts} />
-</BlogLayout>
+<BaseLayout title="Jay's blog">
+	<div class="py-7">{/** spacer */}</div>
+
+	<ArticleList articles={blogPosts} />
+
+	<div class="flex flex-col items-center pt-8">
+		<p class="text-center">view posts by tag</p>
+		<TagList tags={allTags} />
+	</div>
+</BaseLayout>

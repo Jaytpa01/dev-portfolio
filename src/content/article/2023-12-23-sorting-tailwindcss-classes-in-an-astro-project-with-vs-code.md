@@ -1,5 +1,5 @@
 ---
-title: Sorting TailwindCSS Classes In an Astro Project with VS Code
+title: sorting tailwindcss classes in an astro project with vs code
 slug: tailwind-auto-sorting
 description: How I got the TailwindCSS Prettier Plugin setup to work with my
   Astro project in VS Code.
@@ -16,7 +16,9 @@ npm i --save-dev prettier-plugin-astro prettier-plugin-tailwindcss
 
 (or by running the equivalent command for the package manager of your choice).
 
-### My Prettier Config - `.prettierrc.mjs`
+### My Prettier Config
+
+`.prettierrc.mjs`
 
 ```javascript
 /** @type {import("prettier").Config} */
@@ -49,4 +51,4 @@ export default {
   },
 ```
 
-Press `Ctrl + Shift + P` (or `Cmd + Shift + P` on mac), and search for `user settings`, selecting `Preferences: Open User Settings (JSON)`.
+Press `Ctrl + Shift + P` (`Cmd + Shift + P` on mac), and search for `user settings`, selecting `Preferences: Open User Settings (JSON) sodfhsdofhsodfhsodfhoh`.

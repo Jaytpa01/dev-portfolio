@@ -1,14 +1,12 @@
 ---
 title: Discord Bot with OpenAI Text Generation
 slug: igustus
-description: This is a Discord bot I built using Golang, integrating with OpenAI
+description: A Discord bot I built using Golang, integrating with OpenAI
   for my friends and I.
 publishDate: 2023-12-23T03:49:57.665Z
 type: project
-tags:
-  - go
-  - ai
 ---
+
 ### Introduction
 
 ---

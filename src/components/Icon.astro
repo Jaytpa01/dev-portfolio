@@ -13,6 +13,7 @@ const iconList = [
 	"linkedin",
 	"rss",
 	"folder",
+	"floppy-disk",
 
 	// tech icons for carousel
 	"astro",
@@ -33,7 +34,8 @@ interface Props extends HTMLAttributes<"svg"> {
 
 async function getIcon(icon: IconName) {
 	const files = import.meta.glob("/src/assets/icons/**/*.svg", {
-		as: "raw",
+		query: "?raw",
+		import: "default",
 	});
 	const filepath = `/src/assets/icons/${icon}.svg`;
 
@@ -44,6 +46,11 @@ async function getIcon(icon: IconName) {
 
 	// svg does exist, get it into a string
 	const svgString = await files[filepath]();
+	if (typeof svgString !== "string") {
+		throw new Error(
+			`expected svg in string format. received: ${typeof svgString}`,
+		);
+	}
 
 	// parse the svg string so we can extract it's attributes and innerHTML
 	const root = parse(svgString);

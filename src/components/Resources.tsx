@@ -50,7 +50,7 @@ export function ResourceDisplay({
 	const resources = folderResourceMap[currentFolder.id];
 
 	return (
-		<div class="space-y-2 text-base ">
+		<div class="space-y-5 text-base">
 			<Breadcrumbs
 				breadcrumbs={breadcrumbs}
 				currentFolder={currentFolder}
@@ -87,7 +87,7 @@ function Breadcrumbs({
 					>
 						<button
 							onClick={() => onCrumbClick(crumb.id)}
-							class="underline decoration-transparent underline-offset-2 transition duration-150 ease-in hover:decoration-inherit"
+							className="underline decoration-red-500 decoration-2 underline-offset-4 hover:bg-red-500 hover:text-white"
 						>
 							{crumb.name}
 						</button>
@@ -128,8 +128,8 @@ function SubfolderList({ subfolders, onSubfolderClick }: SubfolderListProps) {
 						</svg>
 					</div>
 					<button
-						class="underline decoration-transparent underline-offset-2 transition duration-100 ease-in hover:decoration-inherit"
 						onClick={() => onSubfolderClick(folder.id)}
+						className="hover:bg-red-500 hover:text-white"
 					>
 						{folder.name}
 					</button>
@@ -158,7 +158,7 @@ function ResourceList({ resources }: ResourceListProps) {
 					<span>↗</span>
 					<a
 						href={resource.href}
-						class="underline decoration-transparent underline-offset-2 transition duration-100 ease-in hover:decoration-inherit"
+						class="hover:bg-red-500 hover:text-white"
 					>
 						{resource.name}
 					</a>

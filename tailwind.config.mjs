@@ -13,10 +13,17 @@ export default {
 				"neo-yellow": "#ffef6b",
 				"neo-neutral": "#fffeec",
 			},
-			typography: {
+			typography: (theme) => ({
 				DEFAULT: {
 					css: {
-						color: "black",
+						code: {
+							color: theme("colors.red.500"),
+							backgroundColor: theme("colors.rose.100"),
+							borderRadius: theme("spacing.[1.5]"),
+							paddingLeft: theme("spacing.2"),
+							paddingRight: theme("spacing.2"),
+							whiteSpace: "break-spaces",
+						},
 					},
 				},
 				quoteless: {
@@ -25,7 +32,7 @@ export default {
 						"blockquote p:first-of-type::after": { content: "none" },
 					},
 				},
-			},
+			}),
 		},
 	},
 	plugins: [require("@tailwindcss/typography")],

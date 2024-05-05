@@ -1,17 +1,12 @@
 ---
-import BaseLayout from "@layouts/Base.astro";
-import ProfileImage from "@assets/images/profile.jpg";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
-import WorkExperience from "@components/sections/WorkExperience.astro";
-import Contributions from "@components/sections/Contributions.astro";
-import AllProjects from "@components/sections/AllProjects.astro";
-import NeoCard from "@components/NeoCard.astro";
-import Stuff from "@components/sections/Stuff.astro";
-import Socials from "@components/Socials.astro";
-
-import { Image } from "astro:assets";
-import { getArticleCount } from "@lib/article";
+import WorkExperience from "@sections/WorkExperience.astro";
+import Projects from "@sections/Projects.astro";
+import Stuff from "@sections/Stuff.astro";
 import TextLink from "@components/TextLink.astro";
+
+import { getArticleCount } from "@lib/article";
 
 const richResultsSchema = {
 	"@context": "https://schema.org",
@@ -22,8 +17,6 @@ const richResultsSchema = {
 		"@type": "Person",
 		name: "Jay Parry",
 		description: "Jay Parry's software developer portfolio and blog",
-		image: "https://jayparry.dev/images/profile.jpg",
-
 		agentInteractionStatistic: {
 			"@type": "InteractionCounter",
 			interactionType: "https://schema.org/WriteAction",
@@ -41,43 +34,14 @@ const richResultsSchema = {
 		set:html={JSON.stringify(richResultsSchema, null, "\t")}
 	/>
 
-	<section
-		class="flex flex-col items-center justify-around gap-x-7 gap-y-12 py-8 sm:flex-row"
-	>
-		<div class="flex flex-col justify-center">
-			<h1 class="text-3xl">Jay Parry</h1>
-			<h2 class="text-xl text-zinc-500 sm:text-nowrap">
-				Software Engineer in Sydney
-			</h2>
-		</div>
+	<h1 class="py-2 text-lg font-bold">Software Engineer in Sydney</h1>
 
-		<div class="max-w-96 px-6 sm:max-w-64">
-			<NeoCard
-				variant="green"
-				class="p-1 pb-5"
-			>
-				<Image
-					src={ProfileImage}
-					alt="Jay Parry"
-					class="rounded-lg border-2 border-black"
-					loading="eager"
-				/>
-			</NeoCard>
-
-			<div class="flex justify-center pt-4">
-				<Socials />
-			</div>
-		</div>
-	</section>
-
-	<div class="mt-12"></div>
-
-	<div class="space-y-14">
-		<section class="justify-between">
-			<div class="space-y-3">
+	<div class="space-y-12">
+		<section>
+			<div class="space-y-2">
 				<p>
-					Hello! I'm Jay, a fullstack developer with experience building
-					applications using React, Go, Node.js, and Postgres.
+					Hello! I'm Jay, a fullstack developer with experience building and
+					breaking software.
 				</p>
 
 				<p>
@@ -87,26 +51,16 @@ const richResultsSchema = {
 						rel="noreferrer noopener"
 					>
 						welcome.
-					</TextLink> Digital Agency working on a React application and a REST
+					</TextLink> Digital Agency, working on a React application and a REST
 					API built with Express.js.
-				</p>
-
-				<p>
-					Feel free to look around - checkout my <TextLink href="/resources">
-						blog
-					</TextLink>or some
-					<TextLink href="/resources">resources</TextLink>
-					 I've put together.
 				</p>
 			</div>
 		</section>
 
 		<WorkExperience />
 
-		<AllProjects />
+		<Projects />
 
 		<Stuff />
-
-		<Contributions />
 	</div>
 </BaseLayout>
