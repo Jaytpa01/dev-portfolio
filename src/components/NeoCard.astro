@@ -3,10 +3,10 @@ import type { HTMLAttributes } from "astro/types";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@lib/utils";
 
-const cardVariants = cva("p-4", {
+const cardVariants = cva("", {
 	variants: {
 		variant: {
-			default: "bg-zinc-100",
+			default: "",
 			red: "bg-red-400",
 			yellow: "bg-yellow-400",
 			indigo: "bg-indigo-400",
@@ -26,16 +26,14 @@ interface Props
 const { variant, class: neoCardClass } = Astro.props;
 ---
 
-<div class="relative">
+<div class="relative mx-3">
 	<div
 		class={cn(
 			cardVariants({ class: neoCardClass }),
-			"relative z-20 w-full rounded-lg border-2 border-black bg-zinc-100",
+			"relative z-20 w-full rounded-lg border-2 border-black bg-white",
 		)}
 	>
-		<div class="py-1">
-			<slot />
-		</div>
+		<slot />
 	</div>
 
 	<div

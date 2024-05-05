@@ -1,0 +1,22 @@
+---
+import TextLink from "@components/TextLink.astro";
+
+interface Props {
+	id?: string;
+}
+
+const { id } = Astro.props;
+---
+
+<h2
+	class="pb-3 before:text-2xl before:font-bold before:text-red-500 before:content-['#']"
+	{id}
+>
+	<TextLink
+		underlined={false}
+		href={id ? `#${id}` : undefined}
+		class="text-xl font-bold"
+	>
+		<slot />
+	</TextLink>
+</h2>

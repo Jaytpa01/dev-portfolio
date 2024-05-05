@@ -1,8 +1,9 @@
 ---
 import PreloadFonts from "@components/PreloadFonts.astro";
 import Footer from "@components/Footer.astro";
-import Navigation from "@components/Navigation.astro";
+import Header from "@components/Header.astro";
 import SEO from "@components/SEO.astro";
+import floppydisk from "@assets/icons/floppy-disk.svg";
 import "../styles/global.css";
 
 interface Props {
@@ -17,10 +18,25 @@ const { title, description } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
+
+		<link
+			rel="icon"
+			href="/favicon.ico"
+			sizes="48x48"
+		/>
 		<link
 			rel="icon"
 			type="image/svg+xml"
-			href="/favicon.svg"
+			href={floppydisk.src}
+			sizes="any"
+		/>
+		<link
+			rel="apple-touch-icon"
+			href="/apple-touch-icon.png"
+		/>
+		<link
+			rel="manifest"
+			href="/site.webmanifest"
 		/>
 
 		<link
@@ -46,17 +62,13 @@ const { title, description } = Astro.props;
 
 		<slot name="rich-results" />
 	</head>
-	<body
-		class="min-h-screen bg-zinc-100 font-mono leading-6 selection:bg-red-300/40"
-	>
-		<Navigation />
-
-		<div class="mx-auto max-w-2xl px-6 pb-9">
+	<body class="min-h-screen font-mono leading-6 selection:bg-red-300/40">
+		<Header />
+		<div class="mx-auto max-w-3xl space-y-10 px-6 pb-9">
 			<main>
 				<slot />
 			</main>
 
-			<div class="mt-12">{/* spacer element */}</div>
 			<Footer />
 		</div>
 

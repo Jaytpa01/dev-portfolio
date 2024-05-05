@@ -1,12 +1,14 @@
 ---
-title: Your mind is for having ideas, not holding them
+title: your mind is for having ideas, not holding them
 slug: have-ideas-dont-hold-them
-description: Discussion of a quote I recently stumbled upon, and the impact it's had.
+description: Discussion of a quote I recently read, and the impact it's had.
 publishDate: 2024-02-26T10:04:32.856Z
 type: blog
 tags:
   - rambling
+tldr: I carry a notepad with me to avoid forgetting things and stressing out for weeks on end.
 ---
+
 > Your mind is for having ideas, not holding them\
 > – David Allen
 
@@ -26,10 +28,7 @@ The annoyingly simple solution that works for me? Carrying a notepad and pen aro
 
 The act of scrawling a few words, barely legible to anyone but me, works perfectly for my brain. It allows me to offload my thoughts without sliding down slippery slope of "can this be better?" and veering towards over-engineering another system, ultimately just wasting time.
 
-I can hear you asking, *"What about the notes app on your phone?"*  
+I can hear you asking, _"What about the notes app on your phone?"_  
 Yeah look, I don't know either. I think the fact that the notebook serves a single purpose – scrawling something down and immediately moving on – offers a better experience than the one given to me by my phone.
 
-Sure, my phone a notes app, but it also has access to all of human knowledge in there, and sometimes I find that a little distracting.
-
-TL;DR  
-I carry a notepad with me to avoid forgetting things and stressing out for weeks on end.
+Sure, my phone has a notes app, but it also has access to all of human knowledge in there, and sometimes I find that a little distracting.

@@ -1,6 +1,6 @@
 ---
-import SectionHeading from "./SectionHeading.astro";
 import NeoCard from "@components/NeoCard.astro";
+import SectionHeading from "./SectionHeading.astro";
 import TextLink from "@components/TextLink.astro";
 
 interface Job {
@@ -28,21 +28,28 @@ const jobs: Job[] = [
 <section>
 	<SectionHeading id="work">Work Experience</SectionHeading>
 
-	<ul class="space-y-5">
+	<ul class="space-y-7">
 		{
 			jobs.map((job) => (
 				<li>
-					<NeoCard variant="red">
-						<h3>
+					<NeoCard
+						variant="red"
+						class="p-3"
+					>
+						<h3 class="before:text-xl before:font-bold before:text-red-500 before:content-['##']">
 							<TextLink
 								href={job.companySite}
 								rel="noreferrer noopener"
-								class="text-lg"
+								class="font-bold"
+								underlined={false}
 							>
-								{job.employer} (<time>{job.period}</time>)
+								{job.employer}
 							</TextLink>
 						</h3>
-						<p>{job.role}</p>
+						<section class="pl-8">
+							<time class="text-sm text-zinc-600 ">{job.period}</time>
+							<p>{job.role}</p>
+						</section>
 					</NeoCard>
 				</li>
 			))

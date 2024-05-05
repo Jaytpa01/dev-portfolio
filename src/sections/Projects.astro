@@ -1,0 +1,48 @@
+---
+import { getAllProjects } from "@lib/article";
+import SectionHeading from "./SectionHeading.astro";
+import TextLink from "@components/TextLink.astro";
+import NeoCard from "@components/NeoCard.astro";
+
+const projects = await getAllProjects();
+---
+
+<section>
+	<SectionHeading id="projects">Projects</SectionHeading>
+
+	<ul class="space-y-7">
+		{
+			projects.map((project) => (
+				<li>
+					<NeoCard
+						variant="indigo"
+						class="p-3"
+					>
+						<div class="flex items-center justify-between font-bold">
+							<h3 class="before:text-xl before:font-bold before:text-red-500 before:content-['##']">
+								<TextLink
+									href={`/project/${project.slug}`}
+									class="font-bold"
+									underlined={false}
+								>
+									{project.data.title}
+								</TextLink>
+							</h3>
+
+							{project.data.liveSite && (
+								<TextLink
+									href={project.data.liveSite}
+									class="text-sm"
+								>
+									live site ⟶
+								</TextLink>
+							)}
+						</div>
+
+						<p class="pl-8 pt-2"> {project.data.description}</p>
+					</NeoCard>
+				</li>
+			))
+		}
+	</ul>
+</section>

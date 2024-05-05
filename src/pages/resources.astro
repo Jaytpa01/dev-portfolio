@@ -4,72 +4,97 @@ import {
 	type Resource,
 	type Folder,
 } from "@components/Resources";
-import BaseLayout from "@layouts/Base.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
 
 const folders: Folder[] = [
 	{
 		id: "root",
-		name: "Resources",
+		name: "root",
 	},
 	{
 		id: "articles",
-		name: "Articles / Blogs",
+		name: "articles",
 		parentFolder: "root",
 	},
 	{
 		id: "tools",
-		name: "Tools",
+		name: "tools",
 		parentFolder: "root",
 	},
 	{
 		id: "graphics",
-		name: "Graphics",
+		name: "graphics & design",
 		parentFolder: "root",
 	},
 	{
 		id: "security",
-		name: "Security",
+		name: "security",
 		parentFolder: "root",
 	},
 	{
 		id: "git",
-		name: "Git",
+		name: "git",
 		parentFolder: "root",
 	},
 	{
 		id: "learning",
-		name: "Learning",
+		name: "learning",
 		parentFolder: "root",
 	},
 	{
 		id: "hosting",
-		name: "Hosting",
+		name: "hosting",
 		parentFolder: "root",
 	},
 	{
 		id: "libraries",
-		name: "Libraries",
+		name: "libraries",
 		parentFolder: "root",
 	},
 	{
 		id: "ui",
-		name: "UI",
+		name: "ui",
 		parentFolder: "libraries",
 	},
 	{
 		id: "people",
-		name: "People",
+		name: "people",
 		parentFolder: "root",
 	},
 	{
 		id: "frameworks",
-		name: "Frameworks",
+		name: "frameworks",
 		parentFolder: "root",
 	},
 	{
 		id: "sanitisation",
-		name: "Sanitisation",
+		name: "sanitisation",
 		parentFolder: "libraries",
+	},
+	{
+		id: "frontend",
+		name: "tools (frontend)",
+		parentFolder: "root",
+	},
+	{
+		id: "backend",
+		name: "tools (backend)",
+		parentFolder: "root",
+	},
+	{
+		id: "infrastructure",
+		name: "infrastructure",
+		parentFolder: "root",
+	},
+	{
+		id: "testing",
+		name: "testing",
+		parentFolder: "root",
+	},
+	{
+		id: "iot",
+		name: "iot",
+		parentFolder: "root",
 	},
 ];
 
@@ -100,6 +125,56 @@ const resources: Resource[] = [
 		folderId: "tools",
 	},
 	{
+		name: "Caddy",
+		href: "https://caddyserver.com/",
+		folderId: "infrastructure",
+	},
+	{
+		name: "Docker",
+		href: "https://www.docker.com/",
+		folderId: "infrastructure",
+	},
+	{
+		name: "Docker Compose",
+		href: "https://docs.docker.com/compose/",
+		folderId: "infrastructure",
+	},
+	{
+		name: "Redis",
+		href: "https://redis.io/",
+		folderId: "infrastructure",
+	},
+	{
+		name: "Valkey",
+		href: "https://github.com/valkey-io/valkey",
+		folderId: "infrastructure",
+	},
+	{
+		name: "Cloudflare Tunnel",
+		href: "https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/",
+		folderId: "infrastructure",
+	},
+	{
+		name: "bruno",
+		href: "https://www.usebruno.com/",
+		folderId: "backend",
+	},
+	{
+		name: "Swagger",
+		href: "https://swagger.io/",
+		folderId: "backend",
+	},
+	{
+		name: "dbdiagram",
+		href: "https://dbdiagram.io/home",
+		folderId: "backend",
+	},
+	{
+		name: "Storybook",
+		href: "https://storybook.js.org/",
+		folderId: "frontend",
+	},
+	{
 		name: "Fork",
 		href: "https://fork.dev/",
 		folderId: "git",
@@ -110,8 +185,23 @@ const resources: Resource[] = [
 		folderId: "git",
 	},
 	{
+		name: "Husky",
+		href: "https://typicode.github.io/husky/",
+		folderId: "git",
+	},
+	{
 		name: "The Odin Project",
 		href: "https://www.theodinproject.com/",
+		folderId: "learning",
+	},
+	{
+		name: "Developer Roadmaps",
+		href: "https://roadmap.sh/",
+		folderId: "learning",
+	},
+	{
+		name: "Refactoring Guru",
+		href: "https://refactoring.guru/",
 		folderId: "learning",
 	},
 	{
@@ -130,6 +220,11 @@ const resources: Resource[] = [
 		folderId: "hosting",
 	},
 	{
+		name: "Cloudflare Pages",
+		href: "https://developers.cloudflare.com/pages",
+		folderId: "hosting",
+	},
+	{
 		name: "shadcn/ui",
 		href: "https://ui.shadcn.com/",
 		folderId: "ui",
@@ -145,6 +240,16 @@ const resources: Resource[] = [
 		folderId: "security",
 	},
 	{
+		name: "FIDO",
+		href: "https://fidoalliance.org/what-is-fido/",
+		folderId: "security",
+	},
+	{
+		name: "tailscale",
+		href: "https://tailscale.com/",
+		folderId: "security",
+	},
+	{
 		name: "OWASP",
 		href: "https://owasp.org/",
 		folderId: "security",
@@ -152,7 +257,7 @@ const resources: Resource[] = [
 	{
 		name: "RabbitMQ",
 		href: "https://www.rabbitmq.com/",
-		folderId: "tools",
+		folderId: "infrastructure",
 	},
 	{
 		name: "GitHub Pages",
@@ -162,6 +267,16 @@ const resources: Resource[] = [
 	{
 		name: "commitlint",
 		href: "https://github.com/conventional-changelog/commitlint",
+		folderId: "git",
+	},
+	{
+		name: "commitizen",
+		href: "https://commitizen.github.io/cz-cli/",
+		folderId: "git",
+	},
+	{
+		name: "@commitlint/cz-commitlint",
+		href: "https://www.npmjs.com/package/@commitlint/cz-commitlint",
 		folderId: "git",
 	},
 	{
@@ -210,7 +325,7 @@ const resources: Resource[] = [
 		folderId: "security",
 	},
 	{
-		name: "Blender - Open Source 3D Creation Software",
+		name: "Blender",
 		href: "https://www.blender.org/",
 		folderId: "graphics",
 	},
@@ -218,6 +333,66 @@ const resources: Resource[] = [
 		name: "GIMP",
 		href: "https://www.gimp.org/",
 		folderId: "graphics",
+	},
+	{
+		name: "Krita",
+		href: "https://krita.org/en/",
+		folderId: "graphics",
+	},
+	{
+		name: "WebDevCody",
+		href: "https://webdevcody.com/",
+		folderId: "people",
+	},
+	{
+		name: "Christian Lempa",
+		href: "https://www.youtube.com/@christianlempa/featured",
+		folderId: "people",
+	},
+	{
+		name: "Jeff Delaney",
+		href: "https://fireship.io/contributors/jeff-delaney/",
+		folderId: "people",
+	},
+	{
+		name: "Nikita Prokopov (tonsky)",
+		href: "https://tonsky.me/",
+		folderId: "people",
+	},
+	{
+		name: "Playwright",
+		href: "https://playwright.dev/",
+		folderId: "testing",
+	},
+	{
+		name: "React Testing Library",
+		href: "https://testing-library.com/docs/react-testing-library/intro/",
+		folderId: "testing",
+	},
+	{
+		name: "Testify",
+		href: "https://github.com/stretchr/testify",
+		folderId: "testing",
+	},
+	{
+		name: "Testcontainers",
+		href: "https://testcontainers.com/",
+		folderId: "testing",
+	},
+	{
+		name: "Raspberry Pi",
+		href: "https://www.raspberrypi.com/",
+		folderId: "iot",
+	},
+	{
+		name: "Pi-hole",
+		href: "https://pi-hole.net/",
+		folderId: "iot",
+	},
+	{
+		name: "Home Assistant",
+		href: "https://www.home-assistant.io/",
+		folderId: "iot",
 	},
 ];
 
@@ -261,14 +436,7 @@ for (const resource of resources) {
 }
 ---
 
-<BaseLayout>
-	<div class="space-y-3 py-8 text-center">
-		<h1 class="text-3xl">Jay's resources</h1>
-		<h2 class="text-lg text-zinc-500">
-			a series of random resources I've collected
-		</h2>
-	</div>
-
+<BaseLayout title="Jay's resources">
 	<ResourceDisplay
 		rootFolderId="root"
 		{folderMap}

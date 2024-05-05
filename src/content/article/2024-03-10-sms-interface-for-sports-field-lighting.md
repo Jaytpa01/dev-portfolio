@@ -1,35 +1,36 @@
 ---
 title: SMS Interface for Sports Field Lighting
 slug: perfectplay-sms-interface
-description: A high level overview of the SMS interface I built while working at Automated
+description: A high level overview of the SMS interface I built while working at Automated.
 publishDate: 2024-03-10T04:44:25.578Z
 type: project
 tags:
   - technical
 ---
+
 When I was working at [Automated](https://automated.net.au/), a major project I designed and built from the ground up was an SMS interface for [PerfectPlay](https://automated.net.au/product-category/automated-perfectplay/) - their IoT platform for managing sports field lighting systems.
 
 This project was built for users and sites that are located in areas with poor cellular service.
 
 ## Context
 
-Conceptually, you can break the platform into 3 levels. Clients, Sites, and Fields. 
+Conceptually, you can break the platform into 3 levels. Clients, Sites, and Fields.
 
-***Client:***  
+**_Client:_**
 
-* A client is generally something like a local council, a business, etc. 
-* A client can have many sites.
+- A client is generally something like a local council, a business, etc.
+- A client can have many sites.
 
-***Site:***
+**_Site:_**
 
-* Sites are generally locations separated by a some distance.
-* They are generally areas such as a sporting precinct.
-* Sites can have many fields.
+- Sites are generally locations separated by a some distance.
+- They are generally areas such as a sporting precinct.
+- Sites can have many fields.
 
-***Fields:***
+**_Fields:_**
 
-* A field is the lowest level, and is the physical area being lit.
-* This is generally something like a cricket pitch, football field, etc.
+- A field is the lowest level, and is the physical area being lit.
+- This is generally something like a cricket pitch, football field, etc.
 
 A user can be given access to individual fields, individual sites (which also means access to all fields of that site), and individual clients (which means access to all sites of that client, and all fields of those sites).
 
@@ -37,10 +38,10 @@ Within PerfectPlay, there's also the concept of a `scene`. A `scene` is a lighti
 
 ## Requirements for the SMS Interface
 
-* Users must be able to authenticate themselves, and must be authorised to control the lights at the field they're attempting to change.
-* The SMS payload must be kept short and reasonably simple, as we want to minimise user input errors.
-* Users should be able to request a list of valid scenes for a specific field.
-* There should be plenty of clear feedback to the user, whether or not their request was valid, and whether or not it was successful.
+- Users must be able to authenticate themselves, and must be authorised to control the lights at the field they're attempting to change.
+- The SMS payload must be kept short and reasonably simple, as we want to minimise user input errors.
+- Users should be able to request a list of valid scenes for a specific field.
+- There should be plenty of clear feedback to the user, whether or not their request was valid, and whether or not it was successful.
 
 ## Designing the Interface
 
@@ -52,7 +53,7 @@ The SMS service was designed to be relatively quite simple. In short, all it had
 
 ### The Payload
 
-We started with the SMS payload. Internally, we were using UUIDs to identify unique clients, sites, and fields. We needed a way to target specific fields, but didn't want users having to enter a UUID, so we decided on an abbreviation scheme. 
+We started with the SMS payload. Internally, we were using UUIDs to identify unique clients, sites, and fields. We needed a way to target specific fields, but didn't want users having to enter a UUID, so we decided on an abbreviation scheme.
 Fields often had generic names which may be repeated across many different sites (e.g. "Field 1"), so we couldn't reasonably abbreviate a field and have it remain unique. Sites, however, were often unique enough that we decided an abbreviation of both a site and field name in conjunction would allow us to target specific fields.
 We also needed to specify what scene we wanted to change to. This was simply an integer.
 
@@ -64,13 +65,13 @@ At this point in time, given an example site "Example Grounds Sports Precinct", 
 EGSP#FBF#2
 ```
 
-Where `EGSP` is the abbreviated site name, `FBF` is the abbreviated field name, and `2` is the scene we’d like to set it to. 
+Where `EGSP` is the abbreviated site name, `FBF` is the abbreviated field name, and `2` is the scene we’d like to set it to.
 
 ### Authentication
 
 Now, we didn't want just anyone being able to send a text to control the lights. So, we opted to allow users to verify through 2 methods.
 
-The first was simply to add a PIN number to the payload. 
+The first was simply to add a PIN number to the payload.
 
 A reasonable payload could now look like:
 
@@ -80,10 +81,10 @@ ABC123#EGSP#FBF#2
 
 Where `ABC123` is a users PIN.
 
-The second method was to allow users to associate their phone number to their account, verifying it with a one time passcode. Any messages coming from this phone were then implicitly authenticated. 
+The second method was to allow users to associate their phone number to their account, verifying it with a one time passcode. Any messages coming from this phone were then implicitly authenticated.
 
-*An edge case:*
-Some clients preferred to simply use one ‘master’ account to access the platform, and would give the credentials to many different people. For this reason, the PIN number takes precedence over the implicit authentication, as it was a possibility that a user's number wouldn't be associated to a field they were granted access to. 
+_An edge case:_
+Some clients preferred to simply use one ‘master’ account to access the platform, and would give the credentials to many different people. For this reason, the PIN number takes precedence over the implicit authentication, as it was a possibility that a user's number wouldn't be associated to a field they were granted access to.
 
 ## Implementing the SMS Service
 
