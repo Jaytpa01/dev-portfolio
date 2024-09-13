@@ -31,6 +31,7 @@ const { variant, class: neoCardClass } = Astro.props;
     class={cn(
       cardVariants({ class: neoCardClass }),
       "relative z-20 w-full rounded-lg border-2 border-black bg-white",
+      "dark:bg-zinc-900 dark:border-zinc-300",
     )}
   >
     <slot />
@@ -40,6 +41,7 @@ const { variant, class: neoCardClass } = Astro.props;
     class={cn(
       cardVariants({ variant, class: neoCardClass }),
       "absolute left-2 top-2 h-full w-full rounded-lg border-2 border-black",
+      "dark:border-zinc-300",
     )}
   >
   </div>
