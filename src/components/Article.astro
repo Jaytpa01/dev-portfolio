@@ -25,7 +25,7 @@ const { Content } = await article.render();
       {article.data.title}
     </h1>
 
-    <time class="text-zinc-500">
+    <time class="text-zinc-600 dark:text-zinc-300">
       {
         article.data.publishDate.toLocaleString("en-AU", {
           timeZone: "Australia/Sydney",
@@ -60,7 +60,7 @@ const { Content } = await article.render();
 
   <article
     class={cn(
-      "prose prose-quoteless max-w-none",
+      "prose prose-quoteless max-w-none dark:prose-invert",
       "prose-code:before:content-none prose-code:after:content-none",
       "prose-headings:before:text-red-500 prose-h2:before:content-['##_'] prose-h3:before:content-['###_'] prose-h4:before:content-['####_']",
       "hover:prose-a:text-white hover:prose-a:bg-red-500 prose-a:underline prose-a:decoration-2 prose-a:underline-offset-4 prose-a:decoration-red-500",

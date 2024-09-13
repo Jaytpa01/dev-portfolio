@@ -119,7 +119,7 @@ function SubfolderList({ subfolders, onSubfolderClick }: SubfolderListProps) {
           class="flex items-center space-x-3"
           key={folder.id}
         >
-          <div class="h-4 w-4">
+          <div class="h-4 w-4 dark:fill-zinc-300">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
