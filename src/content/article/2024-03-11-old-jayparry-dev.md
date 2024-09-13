@@ -8,16 +8,17 @@ type: blog
 tags:
   - rambling
 ---
+
 I don’t know what exactly it is about it, but I don’t like my [old portfolio website](https://old.jayparry.dev/).
 
 Don’t get me wrong, I’m proud of what I was able to build, especially while learning to build with [Astro](https://astro.build/).
 
- Maybe it’s just some lingering imposter syndrome, but I don’t know - something about it feels off to me. The best way I can describe it is that it feels like something that’s pretending to be a website.
+Maybe it’s just some lingering imposter syndrome, but I don’t know - something about it feels off to me. The best way I can describe it is that it feels like something that’s pretending to be a website.
 
 Maybe it’s the design / the colour palette?  
 Maybe it’s that one obscure bug with the header I could never really resolve (the one that forces my code snippets to have a max line width otherwise the header unexpectedly stretches horizontally and squashes vertically).
 
-The only thing I really like about it is the blog post tagging / filtering system I built (which I should definitely rebuild for this version – unless you’re reading this in the future and I’ve already done it, then you can just ignore this paragraph). 
+The only thing I really like about it is the blog post tagging / filtering system I built (which I should definitely rebuild for this version – unless you’re reading this in the future and I’ve already done it, then you can just ignore this paragraph).
 
 Either way, I rebuilt it, and that’s why this website now exists.
 

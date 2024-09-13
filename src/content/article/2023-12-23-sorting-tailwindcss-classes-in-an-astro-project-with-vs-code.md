@@ -8,6 +8,7 @@ type: blog
 tags:
   - technical
 ---
+
 ## Installation
 
 ```bash
@@ -23,24 +24,21 @@ npm i --save-dev prettier-plugin-astro prettier-plugin-tailwindcss
 ```javascript
 /** @type {import("prettier").Config} */
 export default {
-    useTabs: true,
-    singleAttributePerLine: true,
-    plugins: [
-        "prettier-plugin-astro",
-        "prettier-plugin-tailwindcss"
-    ],
-    overrides: [
-        {
-            files: "*.astro",
-            options: {
-                parser: "astro",
-            },
-        },
-    ],
+  useTabs: true,
+  singleAttributePerLine: true,
+  plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+  overrides: [
+    {
+      files: "*.astro",
+      options: {
+        parser: "astro",
+      },
+    },
+  ],
 };
 ```
 
-**NOTE:** The plugin order matters. Ensure that the `prettier-plugin-tailwindcss` is loaded *after* the `prettier-plugin-astro`.
+**NOTE:** The plugin order matters. Ensure that the `prettier-plugin-tailwindcss` is loaded _after_ the `prettier-plugin-astro`.
 
 ### VS Code Settings
 

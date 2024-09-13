@@ -6,70 +6,70 @@ const now = new Date();
 ---
 
 <footer class="space-y-7 border-t-2 border-black pt-8 text-sm">
-	<div class="flex items-center justify-between">
-		<div class="max-w-[50%]">
-			<span class="italic">jayparry.dev</span> —
+  <div class="flex items-center justify-between">
+    <div class="max-w-[50%]">
+      <span class="italic">jayparry.dev</span> —
 
-			<TextLink href="https://github.com/Jaytpa01/dev-portfolio/commit">
-				<span>last updated</span>
-				<time
-					id="last-update"
-					datetime={Date.now().toString()}
-					class="font-bold"
-				>
-					{
-						now.toLocaleString("en-AU", {
-							timeZone: "Australia/Sydney",
-							month: "short",
-							day: "numeric",
-							year: "numeric",
-						})
-					}
-				</time>
-			</TextLink>
-		</div>
+      <TextLink href="https://github.com/Jaytpa01/dev-portfolio/commit">
+        <span>last updated</span>
+        <time
+          id="last-update"
+          datetime={Date.now().toString()}
+          class="font-bold"
+        >
+          {
+            now.toLocaleString("en-AU", {
+              timeZone: "Australia/Sydney",
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            })
+          }
+        </time>
+      </TextLink>
+    </div>
 
-		<div class="-mt-2">
-			<Socials />
-		</div>
-	</div>
+    <div class="-mt-2">
+      <Socials />
+    </div>
+  </div>
 
-	<div class="space-y-1 text-xs">
-		<p>
-			Logo sourced from
-			<TextLink href="https://openmoji.org/library/emoji-1F4BE/">
-				OpenMoji
-			</TextLink>
-		</p>
-		<p>
-			License:
-			<TextLink href="https://creativecommons.org/licenses/by-sa/4.0/">
-				CC BY-SA 4.0
-			</TextLink>
-		</p>
-	</div>
+  <div class="space-y-1 text-xs">
+    <p>
+      Logo sourced from
+      <TextLink href="https://openmoji.org/library/emoji-1F4BE/">
+        OpenMoji
+      </TextLink>
+    </p>
+    <p>
+      License:
+      <TextLink href="https://creativecommons.org/licenses/by-sa/4.0/">
+        CC BY-SA 4.0
+      </TextLink>
+    </p>
+  </div>
 </footer>
 
 <script>
-	const time = document.querySelector("#last-update")!;
-	const now = new Date();
-	const lastUpdated = new Date(parseInt(time.getAttribute("datetime")!));
+  const time = document.querySelector("#last-update")!;
+  const now = new Date();
+  const lastUpdated = new Date(parseInt(time.getAttribute("datetime")!));
 
-	const diff = now.getTime() - lastUpdated.getTime();
-	const diffInMinutes = Math.floor(diff / 1000 / 60);
-	const diffInHours = Math.floor(diff / 1000 / 60 / 60);
-	const diffInDays = Math.floor(diff / 1000 / 60 / 60 / 24);
+  const diff = now.getTime() - lastUpdated.getTime();
+  const diffInMinutes = Math.floor(diff / 1000 / 60);
+  const diffInHours = Math.floor(diff / 1000 / 60 / 60);
+  const diffInDays = Math.floor(diff / 1000 / 60 / 60 / 24);
 
-	const pluralise = (num: number, word: string) =>
-		`${num} ${word}${num === 1 ? "" : "s"}`;
+  const pluralise = (num: number, word: string) =>
+    `${num} ${word}${num === 1 ? "" : "s"}`;
 
-	if (diffInMinutes < 1) {
-		time.textContent = "just now";
-	} else if (diffInMinutes < 60) {
-		time.textContent = `${pluralise(diffInMinutes, "minute")} ago`;
-	} else if (diffInHours < 24) {
-		time.textContent = `${pluralise(diffInHours, "hour")} ago`;
-	} else {
-		time.textContent = `${pluralise(diffInDays, "day")} ago`;
-	}
+  if (diffInMinutes < 1) {
+    time.textContent = "just now";
+  } else if (diffInMinutes < 60) {
+    time.textContent = `${pluralise(diffInMinutes, "minute")} ago`;
+  } else if (diffInHours < 24) {
+    time.textContent = `${pluralise(diffInHours, "hour")} ago`;
+  } else {
+    time.textContent = `${pluralise(diffInDays, "day")} ago`;
+  }
 </script>

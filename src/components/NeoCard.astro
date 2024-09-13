@@ -4,43 +4,43 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@lib/utils";
 
 const cardVariants = cva("", {
-	variants: {
-		variant: {
-			default: "",
-			red: "bg-red-400",
-			yellow: "bg-yellow-400",
-			indigo: "bg-indigo-400",
-			green: "bg-green-400",
-			black: "bg-black",
-		},
-	},
-	defaultVariants: {
-		variant: "default",
-	},
+  variants: {
+    variant: {
+      default: "",
+      red: "bg-red-400",
+      yellow: "bg-yellow-400",
+      indigo: "bg-indigo-400",
+      green: "bg-green-400",
+      black: "bg-black",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
 });
 
 interface Props
-	extends HTMLAttributes<"div">,
-		VariantProps<typeof cardVariants> {}
+  extends HTMLAttributes<"div">,
+    VariantProps<typeof cardVariants> {}
 
 const { variant, class: neoCardClass } = Astro.props;
 ---
 
 <div class="relative mx-3">
-	<div
-		class={cn(
-			cardVariants({ class: neoCardClass }),
-			"relative z-20 w-full rounded-lg border-2 border-black bg-white",
-		)}
-	>
-		<slot />
-	</div>
+  <div
+    class={cn(
+      cardVariants({ class: neoCardClass }),
+      "relative z-20 w-full rounded-lg border-2 border-black bg-white",
+    )}
+  >
+    <slot />
+  </div>
 
-	<div
-		class={cn(
-			cardVariants({ variant, class: neoCardClass }),
-			"absolute left-2 top-2 h-full w-full rounded-lg border-2 border-black",
-		)}
-	>
-	</div>
+  <div
+    class={cn(
+      cardVariants({ variant, class: neoCardClass }),
+      "absolute left-2 top-2 h-full w-full rounded-lg border-2 border-black",
+    )}
+  >
+  </div>
 </div>

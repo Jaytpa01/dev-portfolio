@@ -9,58 +9,58 @@ import TextLink from "@components/TextLink.astro";
 import { getArticleCount } from "@lib/article";
 
 const richResultsSchema = {
-	"@context": "https://schema.org",
-	"@type": "ProfilePage",
-	dateCreated: "2023-12-22T15:06:49.000Z",
-	dateModified: new Date().toISOString(),
-	mainEntity: {
-		"@type": "Person",
-		name: "Jay Parry",
-		description: "Jay Parry's software developer portfolio and blog",
-		agentInteractionStatistic: {
-			"@type": "InteractionCounter",
-			interactionType: "https://schema.org/WriteAction",
-			userInteractionCount: await getArticleCount(),
-		},
-	},
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  dateCreated: "2023-12-22T15:06:49.000Z",
+  dateModified: new Date().toISOString(),
+  mainEntity: {
+    "@type": "Person",
+    name: "Jay Parry",
+    description: "Jay Parry's software developer portfolio and blog",
+    agentInteractionStatistic: {
+      "@type": "InteractionCounter",
+      interactionType: "https://schema.org/WriteAction",
+      userInteractionCount: await getArticleCount(),
+    },
+  },
 };
 ---
 
 <BaseLayout>
-	<script
-		is:inline
-		slot="rich-results"
-		type="application/ld+json"
-		set:html={JSON.stringify(richResultsSchema, null, "\t")}
-	/>
+  <script
+    is:inline
+    slot="rich-results"
+    type="application/ld+json"
+    set:html={JSON.stringify(richResultsSchema, null, "\t")}
+  />
 
-	<h1 class="py-2 text-lg font-bold">Software Engineer in Sydney</h1>
+  <h1 class="py-2 text-lg font-bold">Software Engineer in Sydney</h1>
 
-	<div class="space-y-12">
-		<section>
-			<div class="space-y-2">
-				<p>
-					Hello! I'm Jay, a fullstack developer with experience building and
-					breaking software.
-				</p>
+  <div class="space-y-12">
+    <section>
+      <div class="space-y-2">
+        <p>
+          Hello! I'm Jay, a fullstack developer with experience building and
+          breaking software.
+        </p>
 
-				<p>
-					I'm currently a dev at
-					<TextLink
-						href="https://wearewelcome.com.au/"
-						rel="noreferrer noopener"
-					>
-						welcome.
-					</TextLink> Digital Agency, working on a React application and a REST
-					API built with Express.js.
-				</p>
-			</div>
-		</section>
+        <p>
+          I'm currently a dev at
+          <TextLink
+            href="https://wearewelcome.com.au/"
+            rel="noreferrer noopener"
+          >
+            welcome.
+          </TextLink> Digital Agency, working on a React application and a REST API
+          built with Express.js.
+        </p>
+      </div>
+    </section>
 
-		<WorkExperience />
+    <WorkExperience />
 
-		<Projects />
+    <Projects />
 
-		<Stuff />
-	</div>
+    <Stuff />
+  </div>
 </BaseLayout>

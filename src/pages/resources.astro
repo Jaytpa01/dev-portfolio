@@ -1,399 +1,399 @@
 ---
 import {
-	ResourceDisplay,
-	type Resource,
-	type Folder,
+  ResourceDisplay,
+  type Resource,
+  type Folder,
 } from "@components/Resources";
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 const folders: Folder[] = [
-	{
-		id: "root",
-		name: "root",
-	},
-	{
-		id: "articles",
-		name: "articles",
-		parentFolder: "root",
-	},
-	{
-		id: "tools",
-		name: "tools",
-		parentFolder: "root",
-	},
-	{
-		id: "graphics",
-		name: "graphics & design",
-		parentFolder: "root",
-	},
-	{
-		id: "security",
-		name: "security",
-		parentFolder: "root",
-	},
-	{
-		id: "git",
-		name: "git",
-		parentFolder: "root",
-	},
-	{
-		id: "learning",
-		name: "learning",
-		parentFolder: "root",
-	},
-	{
-		id: "hosting",
-		name: "hosting",
-		parentFolder: "root",
-	},
-	{
-		id: "libraries",
-		name: "libraries",
-		parentFolder: "root",
-	},
-	{
-		id: "ui",
-		name: "ui",
-		parentFolder: "libraries",
-	},
-	{
-		id: "people",
-		name: "people",
-		parentFolder: "root",
-	},
-	{
-		id: "frameworks",
-		name: "frameworks",
-		parentFolder: "root",
-	},
-	{
-		id: "sanitisation",
-		name: "sanitisation",
-		parentFolder: "libraries",
-	},
-	{
-		id: "frontend",
-		name: "tools (frontend)",
-		parentFolder: "root",
-	},
-	{
-		id: "backend",
-		name: "tools (backend)",
-		parentFolder: "root",
-	},
-	{
-		id: "infrastructure",
-		name: "infrastructure",
-		parentFolder: "root",
-	},
-	{
-		id: "testing",
-		name: "testing",
-		parentFolder: "root",
-	},
-	{
-		id: "iot",
-		name: "iot",
-		parentFolder: "root",
-	},
+  {
+    id: "root",
+    name: "root",
+  },
+  {
+    id: "articles",
+    name: "articles",
+    parentFolder: "root",
+  },
+  {
+    id: "tools",
+    name: "tools",
+    parentFolder: "root",
+  },
+  {
+    id: "graphics",
+    name: "graphics & design",
+    parentFolder: "root",
+  },
+  {
+    id: "security",
+    name: "security",
+    parentFolder: "root",
+  },
+  {
+    id: "git",
+    name: "git",
+    parentFolder: "root",
+  },
+  {
+    id: "learning",
+    name: "learning",
+    parentFolder: "root",
+  },
+  {
+    id: "hosting",
+    name: "hosting",
+    parentFolder: "root",
+  },
+  {
+    id: "libraries",
+    name: "libraries",
+    parentFolder: "root",
+  },
+  {
+    id: "ui",
+    name: "ui",
+    parentFolder: "libraries",
+  },
+  {
+    id: "people",
+    name: "people",
+    parentFolder: "root",
+  },
+  {
+    id: "frameworks",
+    name: "frameworks",
+    parentFolder: "root",
+  },
+  {
+    id: "sanitisation",
+    name: "sanitisation",
+    parentFolder: "libraries",
+  },
+  {
+    id: "frontend",
+    name: "tools (frontend)",
+    parentFolder: "root",
+  },
+  {
+    id: "backend",
+    name: "tools (backend)",
+    parentFolder: "root",
+  },
+  {
+    id: "infrastructure",
+    name: "infrastructure",
+    parentFolder: "root",
+  },
+  {
+    id: "testing",
+    name: "testing",
+    parentFolder: "root",
+  },
+  {
+    id: "iot",
+    name: "iot",
+    parentFolder: "root",
+  },
 ];
 
 const resources: Resource[] = [
-	{
-		name: "That XOR Trick",
-		href: "https://florian.github.io//xor-trick/",
-		folderId: "articles",
-	},
-	{
-		name: "The Twelve Factor App",
-		href: "https://12factor.net/",
-		folderId: "articles",
-	},
-	{
-		name: "Obsidian",
-		href: "https://obsidian.md/",
-		folderId: "tools",
-	},
-	{
-		name: "Pomofocus",
-		href: "https://pomofocus.io/",
-		folderId: "tools",
-	},
-	{
-		name: "ntfy",
-		href: "https://ntfy.sh/",
-		folderId: "tools",
-	},
-	{
-		name: "Caddy",
-		href: "https://caddyserver.com/",
-		folderId: "infrastructure",
-	},
-	{
-		name: "Docker",
-		href: "https://www.docker.com/",
-		folderId: "infrastructure",
-	},
-	{
-		name: "Docker Compose",
-		href: "https://docs.docker.com/compose/",
-		folderId: "infrastructure",
-	},
-	{
-		name: "Redis",
-		href: "https://redis.io/",
-		folderId: "infrastructure",
-	},
-	{
-		name: "Valkey",
-		href: "https://github.com/valkey-io/valkey",
-		folderId: "infrastructure",
-	},
-	{
-		name: "Cloudflare Tunnel",
-		href: "https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/",
-		folderId: "infrastructure",
-	},
-	{
-		name: "bruno",
-		href: "https://www.usebruno.com/",
-		folderId: "backend",
-	},
-	{
-		name: "Swagger",
-		href: "https://swagger.io/",
-		folderId: "backend",
-	},
-	{
-		name: "dbdiagram",
-		href: "https://dbdiagram.io/home",
-		folderId: "backend",
-	},
-	{
-		name: "Storybook",
-		href: "https://storybook.js.org/",
-		folderId: "frontend",
-	},
-	{
-		name: "Fork",
-		href: "https://fork.dev/",
-		folderId: "git",
-	},
-	{
-		name: "GitKraken",
-		href: "https://www.gitkraken.com/",
-		folderId: "git",
-	},
-	{
-		name: "Husky",
-		href: "https://typicode.github.io/husky/",
-		folderId: "git",
-	},
-	{
-		name: "The Odin Project",
-		href: "https://www.theodinproject.com/",
-		folderId: "learning",
-	},
-	{
-		name: "Developer Roadmaps",
-		href: "https://roadmap.sh/",
-		folderId: "learning",
-	},
-	{
-		name: "Refactoring Guru",
-		href: "https://refactoring.guru/",
-		folderId: "learning",
-	},
-	{
-		name: "Fly.io",
-		href: "https://fly.io/",
-		folderId: "hosting",
-	},
-	{
-		name: "netlify",
-		href: "https://www.netlify.com/",
-		folderId: "hosting",
-	},
-	{
-		name: "DigitalOcean",
-		href: "https://www.digitalocean.com/",
-		folderId: "hosting",
-	},
-	{
-		name: "Cloudflare Pages",
-		href: "https://developers.cloudflare.com/pages",
-		folderId: "hosting",
-	},
-	{
-		name: "shadcn/ui",
-		href: "https://ui.shadcn.com/",
-		folderId: "ui",
-	},
-	{
-		name: "Mantine",
-		href: "https://mantine.dev/",
-		folderId: "ui",
-	},
-	{
-		name: "OWASP Cheat Sheet",
-		href: "https://cheatsheetseries.owasp.org/index.html",
-		folderId: "security",
-	},
-	{
-		name: "FIDO",
-		href: "https://fidoalliance.org/what-is-fido/",
-		folderId: "security",
-	},
-	{
-		name: "tailscale",
-		href: "https://tailscale.com/",
-		folderId: "security",
-	},
-	{
-		name: "OWASP",
-		href: "https://owasp.org/",
-		folderId: "security",
-	},
-	{
-		name: "RabbitMQ",
-		href: "https://www.rabbitmq.com/",
-		folderId: "infrastructure",
-	},
-	{
-		name: "GitHub Pages",
-		href: "https://pages.github.com/",
-		folderId: "hosting",
-	},
-	{
-		name: "commitlint",
-		href: "https://github.com/conventional-changelog/commitlint",
-		folderId: "git",
-	},
-	{
-		name: "commitizen",
-		href: "https://commitizen.github.io/cz-cli/",
-		folderId: "git",
-	},
-	{
-		name: "@commitlint/cz-commitlint",
-		href: "https://www.npmjs.com/package/@commitlint/cz-commitlint",
-		folderId: "git",
-	},
-	{
-		name: "RSS",
-		href: "https://en.wikipedia.org/wiki/RSS",
-		folderId: "articles",
-	},
-	{
-		name: "It's Time for an RSS Revival",
-		href: "https://www.wired.com/story/rss-readers-feedly-inoreader-old-reader/",
-		folderId: "articles",
-	},
-	{
-		name: "Inoreader",
-		href: "https://www.inoreader.com/",
-		folderId: "tools",
-	},
-	{
-		name: "Aaron Swartz",
-		href: "https://en.wikipedia.org/wiki/Aaron_Swartz",
-		folderId: "people",
-	},
-	{
-		name: "Astro",
-		href: "https://astro.build/",
-		folderId: "frameworks",
-	},
-	{
-		name: "Remix",
-		href: "https://remix.run/",
-		folderId: "frameworks",
-	},
-	{
-		name: "bluemonday",
-		href: "https://github.com/microcosm-cc/bluemonday",
-		folderId: "sanitisation",
-	},
-	{
-		name: "DOMPurify",
-		href: "https://github.com/cure53/DOMPurify",
-		folderId: "sanitisation",
-	},
-	{
-		name: "NordPass",
-		href: "https://nordpass.com/",
-		folderId: "security",
-	},
-	{
-		name: "Blender",
-		href: "https://www.blender.org/",
-		folderId: "graphics",
-	},
-	{
-		name: "GIMP",
-		href: "https://www.gimp.org/",
-		folderId: "graphics",
-	},
-	{
-		name: "Krita",
-		href: "https://krita.org/en/",
-		folderId: "graphics",
-	},
-	{
-		name: "WebDevCody",
-		href: "https://webdevcody.com/",
-		folderId: "people",
-	},
-	{
-		name: "Christian Lempa",
-		href: "https://www.youtube.com/@christianlempa/featured",
-		folderId: "people",
-	},
-	{
-		name: "Jeff Delaney",
-		href: "https://fireship.io/contributors/jeff-delaney/",
-		folderId: "people",
-	},
-	{
-		name: "Nikita Prokopov (tonsky)",
-		href: "https://tonsky.me/",
-		folderId: "people",
-	},
-	{
-		name: "Playwright",
-		href: "https://playwright.dev/",
-		folderId: "testing",
-	},
-	{
-		name: "React Testing Library",
-		href: "https://testing-library.com/docs/react-testing-library/intro/",
-		folderId: "testing",
-	},
-	{
-		name: "Testify",
-		href: "https://github.com/stretchr/testify",
-		folderId: "testing",
-	},
-	{
-		name: "Testcontainers",
-		href: "https://testcontainers.com/",
-		folderId: "testing",
-	},
-	{
-		name: "Raspberry Pi",
-		href: "https://www.raspberrypi.com/",
-		folderId: "iot",
-	},
-	{
-		name: "Pi-hole",
-		href: "https://pi-hole.net/",
-		folderId: "iot",
-	},
-	{
-		name: "Home Assistant",
-		href: "https://www.home-assistant.io/",
-		folderId: "iot",
-	},
+  {
+    name: "That XOR Trick",
+    href: "https://florian.github.io//xor-trick/",
+    folderId: "articles",
+  },
+  {
+    name: "The Twelve Factor App",
+    href: "https://12factor.net/",
+    folderId: "articles",
+  },
+  {
+    name: "Obsidian",
+    href: "https://obsidian.md/",
+    folderId: "tools",
+  },
+  {
+    name: "Pomofocus",
+    href: "https://pomofocus.io/",
+    folderId: "tools",
+  },
+  {
+    name: "ntfy",
+    href: "https://ntfy.sh/",
+    folderId: "tools",
+  },
+  {
+    name: "Caddy",
+    href: "https://caddyserver.com/",
+    folderId: "infrastructure",
+  },
+  {
+    name: "Docker",
+    href: "https://www.docker.com/",
+    folderId: "infrastructure",
+  },
+  {
+    name: "Docker Compose",
+    href: "https://docs.docker.com/compose/",
+    folderId: "infrastructure",
+  },
+  {
+    name: "Redis",
+    href: "https://redis.io/",
+    folderId: "infrastructure",
+  },
+  {
+    name: "Valkey",
+    href: "https://github.com/valkey-io/valkey",
+    folderId: "infrastructure",
+  },
+  {
+    name: "Cloudflare Tunnel",
+    href: "https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/",
+    folderId: "infrastructure",
+  },
+  {
+    name: "bruno",
+    href: "https://www.usebruno.com/",
+    folderId: "backend",
+  },
+  {
+    name: "Swagger",
+    href: "https://swagger.io/",
+    folderId: "backend",
+  },
+  {
+    name: "dbdiagram",
+    href: "https://dbdiagram.io/home",
+    folderId: "backend",
+  },
+  {
+    name: "Storybook",
+    href: "https://storybook.js.org/",
+    folderId: "frontend",
+  },
+  {
+    name: "Fork",
+    href: "https://fork.dev/",
+    folderId: "git",
+  },
+  {
+    name: "GitKraken",
+    href: "https://www.gitkraken.com/",
+    folderId: "git",
+  },
+  {
+    name: "Husky",
+    href: "https://typicode.github.io/husky/",
+    folderId: "git",
+  },
+  {
+    name: "The Odin Project",
+    href: "https://www.theodinproject.com/",
+    folderId: "learning",
+  },
+  {
+    name: "Developer Roadmaps",
+    href: "https://roadmap.sh/",
+    folderId: "learning",
+  },
+  {
+    name: "Refactoring Guru",
+    href: "https://refactoring.guru/",
+    folderId: "learning",
+  },
+  {
+    name: "Fly.io",
+    href: "https://fly.io/",
+    folderId: "hosting",
+  },
+  {
+    name: "netlify",
+    href: "https://www.netlify.com/",
+    folderId: "hosting",
+  },
+  {
+    name: "DigitalOcean",
+    href: "https://www.digitalocean.com/",
+    folderId: "hosting",
+  },
+  {
+    name: "Cloudflare Pages",
+    href: "https://developers.cloudflare.com/pages",
+    folderId: "hosting",
+  },
+  {
+    name: "shadcn/ui",
+    href: "https://ui.shadcn.com/",
+    folderId: "ui",
+  },
+  {
+    name: "Mantine",
+    href: "https://mantine.dev/",
+    folderId: "ui",
+  },
+  {
+    name: "OWASP Cheat Sheet",
+    href: "https://cheatsheetseries.owasp.org/index.html",
+    folderId: "security",
+  },
+  {
+    name: "FIDO",
+    href: "https://fidoalliance.org/what-is-fido/",
+    folderId: "security",
+  },
+  {
+    name: "tailscale",
+    href: "https://tailscale.com/",
+    folderId: "security",
+  },
+  {
+    name: "OWASP",
+    href: "https://owasp.org/",
+    folderId: "security",
+  },
+  {
+    name: "RabbitMQ",
+    href: "https://www.rabbitmq.com/",
+    folderId: "infrastructure",
+  },
+  {
+    name: "GitHub Pages",
+    href: "https://pages.github.com/",
+    folderId: "hosting",
+  },
+  {
+    name: "commitlint",
+    href: "https://github.com/conventional-changelog/commitlint",
+    folderId: "git",
+  },
+  {
+    name: "commitizen",
+    href: "https://commitizen.github.io/cz-cli/",
+    folderId: "git",
+  },
+  {
+    name: "@commitlint/cz-commitlint",
+    href: "https://www.npmjs.com/package/@commitlint/cz-commitlint",
+    folderId: "git",
+  },
+  {
+    name: "RSS",
+    href: "https://en.wikipedia.org/wiki/RSS",
+    folderId: "articles",
+  },
+  {
+    name: "It's Time for an RSS Revival",
+    href: "https://www.wired.com/story/rss-readers-feedly-inoreader-old-reader/",
+    folderId: "articles",
+  },
+  {
+    name: "Inoreader",
+    href: "https://www.inoreader.com/",
+    folderId: "tools",
+  },
+  {
+    name: "Aaron Swartz",
+    href: "https://en.wikipedia.org/wiki/Aaron_Swartz",
+    folderId: "people",
+  },
+  {
+    name: "Astro",
+    href: "https://astro.build/",
+    folderId: "frameworks",
+  },
+  {
+    name: "Remix",
+    href: "https://remix.run/",
+    folderId: "frameworks",
+  },
+  {
+    name: "bluemonday",
+    href: "https://github.com/microcosm-cc/bluemonday",
+    folderId: "sanitisation",
+  },
+  {
+    name: "DOMPurify",
+    href: "https://github.com/cure53/DOMPurify",
+    folderId: "sanitisation",
+  },
+  {
+    name: "NordPass",
+    href: "https://nordpass.com/",
+    folderId: "security",
+  },
+  {
+    name: "Blender",
+    href: "https://www.blender.org/",
+    folderId: "graphics",
+  },
+  {
+    name: "GIMP",
+    href: "https://www.gimp.org/",
+    folderId: "graphics",
+  },
+  {
+    name: "Krita",
+    href: "https://krita.org/en/",
+    folderId: "graphics",
+  },
+  {
+    name: "WebDevCody",
+    href: "https://webdevcody.com/",
+    folderId: "people",
+  },
+  {
+    name: "Christian Lempa",
+    href: "https://www.youtube.com/@christianlempa/featured",
+    folderId: "people",
+  },
+  {
+    name: "Jeff Delaney",
+    href: "https://fireship.io/contributors/jeff-delaney/",
+    folderId: "people",
+  },
+  {
+    name: "Nikita Prokopov (tonsky)",
+    href: "https://tonsky.me/",
+    folderId: "people",
+  },
+  {
+    name: "Playwright",
+    href: "https://playwright.dev/",
+    folderId: "testing",
+  },
+  {
+    name: "React Testing Library",
+    href: "https://testing-library.com/docs/react-testing-library/intro/",
+    folderId: "testing",
+  },
+  {
+    name: "Testify",
+    href: "https://github.com/stretchr/testify",
+    folderId: "testing",
+  },
+  {
+    name: "Testcontainers",
+    href: "https://testcontainers.com/",
+    folderId: "testing",
+  },
+  {
+    name: "Raspberry Pi",
+    href: "https://www.raspberrypi.com/",
+    folderId: "iot",
+  },
+  {
+    name: "Pi-hole",
+    href: "https://pi-hole.net/",
+    folderId: "iot",
+  },
+  {
+    name: "Home Assistant",
+    href: "https://www.home-assistant.io/",
+    folderId: "iot",
+  },
 ];
 
 folders.sort((a, b) => a.name.localeCompare(b.name));
@@ -406,42 +406,42 @@ const folderMap: Record<string, Folder> = {};
 const subfolderMap: Record<string, string[]> = {};
 
 for (const folder of folders) {
-	folderMap[folder.id] = folder;
+  folderMap[folder.id] = folder;
 
-	if (!folder.parentFolder) {
-		continue;
-	}
+  if (!folder.parentFolder) {
+    continue;
+  }
 
-	// if the parent folder has no mapped subfolders yet, create and map it here and move onto next folder
-	if (!subfolderMap[folder.parentFolder]) {
-		subfolderMap[folder.parentFolder] = [folder.id];
-		continue;
-	}
+  // if the parent folder has no mapped subfolders yet, create and map it here and move onto next folder
+  if (!subfolderMap[folder.parentFolder]) {
+    subfolderMap[folder.parentFolder] = [folder.id];
+    continue;
+  }
 
-	// if parent folder already has some mappings, we just add this one to it
-	subfolderMap[folder.parentFolder].push(folder.id);
+  // if parent folder already has some mappings, we just add this one to it
+  subfolderMap[folder.parentFolder].push(folder.id);
 }
 
 // folderResourceMap is used to map a resource to its folder
 const folderResourceMap: Record<string, Resource[]> = {};
 for (const resource of resources) {
-	// if folder has no mapped resources, create a mapping and add this resource, then continue to next resource
-	if (!folderResourceMap[resource.folderId]) {
-		folderResourceMap[resource.folderId] = [resource];
-		continue;
-	}
+  // if folder has no mapped resources, create a mapping and add this resource, then continue to next resource
+  if (!folderResourceMap[resource.folderId]) {
+    folderResourceMap[resource.folderId] = [resource];
+    continue;
+  }
 
-	// if folder mapping already created, add this resource to it
-	folderResourceMap[resource.folderId].push(resource);
+  // if folder mapping already created, add this resource to it
+  folderResourceMap[resource.folderId].push(resource);
 }
 ---
 
 <BaseLayout title="Jay's resources">
-	<ResourceDisplay
-		rootFolderId="root"
-		{folderMap}
-		{subfolderMap}
-		{folderResourceMap}
-		client:load
-	/>
+  <ResourceDisplay
+    rootFolderId="root"
+    {folderMap}
+    {subfolderMap}
+    {folderResourceMap}
+    client:load
+  />
 </BaseLayout>

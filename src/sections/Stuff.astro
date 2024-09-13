@@ -3,31 +3,31 @@ import SectionHeading from "./SectionHeading.astro";
 import TextLink from "@components/TextLink.astro";
 
 const technologies = [
-	{ name: "go", href: "https://go.dev/" },
-	{ name: "astro", href: "https://astro.build/" },
-	{ name: "react", href: "https://react.dev/" },
-	{ name: "docker", href: "https://www.docker.com/" },
-	{ name: "typescript", href: "https://www.typescriptlang.org/" },
-	{
-		name: "javascript",
-		href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-	},
-	{ name: "tailwind", href: "https://tailwindcss.com/" },
-	{ name: "postgres", href: "https://www.postgresql.org/" },
-	{ name: "node.js", href: "https://nodejs.org/en" },
+  { name: "go", href: "https://go.dev/" },
+  { name: "astro", href: "https://astro.build/" },
+  { name: "react", href: "https://react.dev/" },
+  { name: "docker", href: "https://www.docker.com/" },
+  { name: "typescript", href: "https://www.typescriptlang.org/" },
+  {
+    name: "javascript",
+    href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+  },
+  { name: "tailwind", href: "https://tailwindcss.com/" },
+  { name: "postgres", href: "https://www.postgresql.org/" },
+  { name: "node.js", href: "https://nodejs.org/en" },
 ];
 ---
 
 <section>
-	<SectionHeading id="stuff">Stuff I like Building With</SectionHeading>
+  <SectionHeading id="stuff">Stuff I like Building With</SectionHeading>
 
-	<ul class="list-disc space-y-1 pl-10">
-		{
-			technologies.map((tech) => (
-				<li>
-					<TextLink href={tech.href}>{tech.name}</TextLink>
-				</li>
-			))
-		}
-	</ul>
+  <ul class="list-disc space-y-1 pl-10">
+    {
+      technologies.map((tech) => (
+        <li>
+          <TextLink href={tech.href}>{tech.name}</TextLink>
+        </li>
+      ))
+    }
+  </ul>
 </section>

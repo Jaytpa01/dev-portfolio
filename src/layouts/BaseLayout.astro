@@ -7,8 +7,8 @@ import floppydisk from "@assets/icons/floppy-disk.svg";
 import "../styles/global.css";
 
 interface Props {
-	title?: string;
-	description?: string;
+  title?: string;
+  description?: string;
 }
 
 const { title, description } = Astro.props;
@@ -16,70 +16,70 @@ const { title, description } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
+  <head>
+    <meta charset="utf-8" />
 
-		<link
-			rel="icon"
-			href="/favicon.ico"
-			sizes="48x48"
-		/>
-		<link
-			rel="icon"
-			type="image/svg+xml"
-			href={floppydisk.src}
-			sizes="any"
-		/>
-		<link
-			rel="apple-touch-icon"
-			href="/apple-touch-icon.png"
-		/>
-		<link
-			rel="manifest"
-			href="/site.webmanifest"
-		/>
+    <link
+      rel="icon"
+      href="/favicon.ico"
+      sizes="48x48"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={floppydisk.src}
+      sizes="any"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/apple-touch-icon.png"
+    />
+    <link
+      rel="manifest"
+      href="/site.webmanifest"
+    />
 
-		<link
-			rel="sitemap"
-			href="/sitemap-index.xml"
-		/>
+    <link
+      rel="sitemap"
+      href="/sitemap-index.xml"
+    />
 
-		<meta
-			name="viewport"
-			content="width=device-width"
-		/>
-		<meta
-			name="generator"
-			content={Astro.generator}
-		/>
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <meta
+      name="generator"
+      content={Astro.generator}
+    />
 
-		<SEO
-			title={title}
-			description={description}
-		/>
+    <SEO
+      title={title}
+      description={description}
+    />
 
-		<PreloadFonts />
+    <PreloadFonts />
 
-		<slot name="rich-results" />
-	</head>
-	<body class="min-h-screen font-mono leading-6 selection:bg-red-300/40">
-		<Header />
-		<div class="mx-auto max-w-3xl space-y-10 px-6 pb-9">
-			<main>
-				<slot />
-			</main>
+    <slot name="rich-results" />
+  </head>
+  <body class="min-h-screen font-mono leading-6 selection:bg-red-300/40">
+    <Header />
+    <div class="mx-auto max-w-3xl space-y-10 px-6 pb-9">
+      <main>
+        <slot />
+      </main>
 
-			<Footer />
-		</div>
+      <Footer />
+    </div>
 
-		<!-- Cloudflare Web Analytics -->
-		<script
-			is:inline
-			type="text/partytown"
-			defer
-			src="https://static.cloudflareinsights.com/beacon.min.js"
-			data-cf-beacon='{"token": "ddaf038e191e4fa4a9f0fc73af7b1f56"}'
-		></script>
-		<!-- End Cloudflare Web Analytics -->
-	</body>
+    <!-- Cloudflare Web Analytics -->
+    <script
+      is:inline
+      type="text/partytown"
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "ddaf038e191e4fa4a9f0fc73af7b1f56"}'
+    ></script>
+    <!-- End Cloudflare Web Analytics -->
+  </body>
 </html>
