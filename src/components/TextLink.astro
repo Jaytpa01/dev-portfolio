@@ -3,20 +3,20 @@ import { cn } from "@lib/utils";
 import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"a"> {
-	underlined?: boolean;
+  underlined?: boolean;
 }
 
 const { class: className, underlined = true, ...attrs } = Astro.props;
 ---
 
 <a
-	class={cn(
-		className,
-		underlined &&
-			"underline decoration-2 underline-offset-4 decoration-red-500",
-		"hover:text-white hover:bg-red-500",
-	)}
-	{...attrs}
+  class={cn(
+    className,
+    underlined &&
+      "underline decoration-2 underline-offset-4 decoration-red-500",
+    "hover:text-white hover:bg-red-500",
+  )}
+  {...attrs}
 >
-	<slot />
+  <slot />
 </a>

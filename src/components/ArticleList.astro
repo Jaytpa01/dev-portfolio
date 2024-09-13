@@ -3,39 +3,39 @@ import type { CollectionEntry } from "astro:content";
 import TextLink from "./TextLink.astro";
 
 interface Props {
-	articles: CollectionEntry<"article">[];
+  articles: CollectionEntry<"article">[];
 }
 
 const { articles } = Astro.props;
 ---
 
 <ul class="space-y-7">
-	{
-		articles.map((article) => {
-			const { title, description, publishDate } = article.data;
-			return (
-				<li>
-					<h3 class="before:text-xl before:font-bold before:text-red-500 before:content-['##']">
-						<TextLink
-							href={`/${article.data.type}/${article.slug}`}
-							class="font-bold"
-							underlined={false}
-						>
-							{title}
-						</TextLink>
-					</h3>
-					<time class="text-sm text-zinc-600">
-						{publishDate.toLocaleString("en-AU", {
-							timeZone: "Australia/Sydney",
-							month: "short",
-							day: "numeric",
-							year: "numeric",
-						})}
-					</time>
+  {
+    articles.map((article) => {
+      const { title, description, publishDate } = article.data;
+      return (
+        <li>
+          <h3 class="before:text-xl before:font-bold before:text-red-500 before:content-['##']">
+            <TextLink
+              href={`/${article.data.type}/${article.slug}`}
+              class="font-bold"
+              underlined={false}
+            >
+              {title}
+            </TextLink>
+          </h3>
+          <time class="text-sm text-zinc-600">
+            {publishDate.toLocaleString("en-AU", {
+              timeZone: "Australia/Sydney",
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            })}
+          </time>
 
-					<p>{description}</p>
-				</li>
-			);
-		})
-	}
+          <p>{description}</p>
+        </li>
+      );
+    })
+  }
 </ul>

@@ -2,26 +2,26 @@
 import TextLink from "./TextLink.astro";
 
 interface Props {
-	tags?: string[];
+  tags?: string[];
 }
 
 const { tags } = Astro.props;
 ---
 
 {
-	tags && (
-		<ul class="flex flex-wrap gap-x-2">
-			{tags.map((tag) => (
-				<li class="before:text-red-500 before:content-['#']">
-					<TextLink
-						href={`/tag/${tag}`}
-						class="text-sm"
-						underlined={false}
-					>
-						{tag}
-					</TextLink>
-				</li>
-			))}
-		</ul>
-	)
+  tags && (
+    <ul class="flex flex-wrap gap-x-2">
+      {tags.map((tag) => (
+        <li class="before:text-red-500 before:content-['#']">
+          <TextLink
+            href={`/tag/${tag}`}
+            class="text-sm"
+            underlined={false}
+          >
+            {tag}
+          </TextLink>
+        </li>
+      ))}
+    </ul>
+  )
 }

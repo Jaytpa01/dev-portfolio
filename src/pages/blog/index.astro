@@ -9,12 +9,12 @@ const allTags = await getAllBlogTags();
 ---
 
 <BaseLayout title="Jay's blog">
-	<div class="py-7">{/** spacer */}</div>
+  <div class="py-7">{/** spacer */}</div>
 
-	<ArticleList articles={blogPosts} />
+  <ArticleList articles={blogPosts} />
 
-	<div class="flex flex-col items-center pt-8">
-		<p class="text-center">view posts by tag</p>
-		<TagList tags={allTags} />
-	</div>
+  <div class="flex flex-col items-center pt-8">
+    <p class="text-center">view posts by tag</p>
+    <TagList tags={allTags} />
+  </div>
 </BaseLayout>

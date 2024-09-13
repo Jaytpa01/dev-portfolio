@@ -5,66 +5,66 @@ import { parse } from "node-html-parser";
 // these icons map to the svg file names in /src/assets/icons.
 // I would like a more dynamic solution to for this - but it provides some type safety for now
 const iconList = [
-	"email",
-	"external-link",
-	"git-bug",
-	"git-pull-request",
-	"github",
-	"linkedin",
-	"rss",
-	"folder",
-	"floppy-disk",
+  "email",
+  "external-link",
+  "git-bug",
+  "git-pull-request",
+  "github",
+  "linkedin",
+  "rss",
+  "folder",
+  "floppy-disk",
 
-	// tech icons for carousel
-	"astro",
-	"go-gopher",
-	"react",
-	"typescript",
-	"javascript",
-	"tailwind",
-	"postgres",
-	"node",
+  // tech icons for carousel
+  "astro",
+  "go-gopher",
+  "react",
+  "typescript",
+  "javascript",
+  "tailwind",
+  "postgres",
+  "node",
 ] as const;
 
 export type IconName = (typeof iconList)[number];
 
 interface Props extends HTMLAttributes<"svg"> {
-	icon: IconName;
+  icon: IconName;
 }
 
 async function getIcon(icon: IconName) {
-	const files = import.meta.glob("/src/assets/icons/**/*.svg", {
-		query: "?raw",
-		import: "default",
-	});
-	const filepath = `/src/assets/icons/${icon}.svg`;
+  const files = import.meta.glob("/src/assets/icons/**/*.svg", {
+    query: "?raw",
+    import: "default",
+  });
+  const filepath = `/src/assets/icons/${icon}.svg`;
 
-	// if svg doesn't exist locally, throw error
-	if (!(filepath in files)) {
-		throw new Error(`${filepath} not found`);
-	}
+  // if svg doesn't exist locally, throw error
+  if (!(filepath in files)) {
+    throw new Error(`${filepath} not found`);
+  }
 
-	// svg does exist, get it into a string
-	const svgString = await files[filepath]();
-	if (typeof svgString !== "string") {
-		throw new Error(
-			`expected svg in string format. received: ${typeof svgString}`,
-		);
-	}
+  // svg does exist, get it into a string
+  const svgString = await files[filepath]();
+  if (typeof svgString !== "string") {
+    throw new Error(
+      `expected svg in string format. received: ${typeof svgString}`,
+    );
+  }
 
-	// parse the svg string so we can extract it's attributes and innerHTML
-	const root = parse(svgString);
-	const svg = root.querySelector("svg");
-	if (!svg) {
-		throw new Error(`couldn't successfully parse ${filepath} into a string`);
-	}
+  // parse the svg string so we can extract it's attributes and innerHTML
+  const root = parse(svgString);
+  const svg = root.querySelector("svg");
+  if (!svg) {
+    throw new Error(`couldn't successfully parse ${filepath} into a string`);
+  }
 
-	const { attributes, innerHTML } = svg;
+  const { attributes, innerHTML } = svg;
 
-	return {
-		attributes,
-		innerHTML,
-	};
+  return {
+    attributes,
+    innerHTML,
+  };
 }
 
 const { icon, ...attributes } = Astro.props;
@@ -73,6 +73,6 @@ const svgAttributes = { ...baseAttributes, ...attributes };
 ---
 
 <svg
-	{...svgAttributes}
-	set:html={innerHTML}
+  {...svgAttributes}
+  set:html={innerHTML}
 />

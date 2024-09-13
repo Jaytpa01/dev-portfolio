@@ -2,32 +2,32 @@
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
-	article?: CollectionEntry<"article">;
+  article?: CollectionEntry<"article">;
 }
 
 const { article } = Astro.props;
 
 const structuredData = {
-	"@context": "https://schema.org",
-	"@type": "BlogPosting",
-	headline: article?.data.title,
-	datePublished: article?.data.publishDate,
-	author: [
-		{
-			"@type": "Person",
-			name: "Jay Parry",
-			url: "https://jayparry.dev/",
-		},
-	],
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: article?.data.title,
+  datePublished: article?.data.publishDate,
+  author: [
+    {
+      "@type": "Person",
+      name: "Jay Parry",
+      url: "https://jayparry.dev/",
+    },
+  ],
 };
 ---
 
 {
-	article && (
-		<script
-			is:inline
-			type="application/ld+json"
-			set:html={JSON.stringify(structuredData)}
-		/>
-	)
+  article && (
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+  )
 }

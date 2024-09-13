@@ -4,55 +4,55 @@ import SectionHeading from "./SectionHeading.astro";
 import TextLink from "@components/TextLink.astro";
 
 interface Job {
-	employer: string;
-	role: string;
-	companySite: string;
-	period: string;
+  employer: string;
+  role: string;
+  companySite: string;
+  period: string;
 }
 const jobs: Job[] = [
-	{
-		employer: "welcome.",
-		role: "Fullstack Developer",
-		companySite: "https://wearewelcome.com.au/",
-		period: "June 2023 - present",
-	},
-	{
-		employer: "Automated",
-		role: "Software Engineer",
-		companySite: "https://automated.net.au/",
-		period: "March 2021 - May 2023",
-	},
+  {
+    employer: "welcome.",
+    role: "Fullstack Developer",
+    companySite: "https://wearewelcome.com.au/",
+    period: "June 2023 - present",
+  },
+  {
+    employer: "Automated",
+    role: "Software Engineer",
+    companySite: "https://automated.net.au/",
+    period: "March 2021 - May 2023",
+  },
 ];
 ---
 
 <section>
-	<SectionHeading id="work">Work Experience</SectionHeading>
+  <SectionHeading id="work">Work Experience</SectionHeading>
 
-	<ul class="space-y-7">
-		{
-			jobs.map((job) => (
-				<li>
-					<NeoCard
-						variant="red"
-						class="p-3"
-					>
-						<h3 class="before:text-xl before:font-bold before:text-red-500 before:content-['##']">
-							<TextLink
-								href={job.companySite}
-								rel="noreferrer noopener"
-								class="font-bold"
-								underlined={false}
-							>
-								{job.employer}
-							</TextLink>
-						</h3>
-						<section class="pl-8">
-							<time class="text-sm text-zinc-600 ">{job.period}</time>
-							<p>{job.role}</p>
-						</section>
-					</NeoCard>
-				</li>
-			))
-		}
-	</ul>
+  <ul class="space-y-7">
+    {
+      jobs.map((job) => (
+        <li>
+          <NeoCard
+            variant="red"
+            class="p-3"
+          >
+            <h3 class="before:text-xl before:font-bold before:text-red-500 before:content-['##']">
+              <TextLink
+                href={job.companySite}
+                rel="noreferrer noopener"
+                class="font-bold"
+                underlined={false}
+              >
+                {job.employer}
+              </TextLink>
+            </h3>
+            <section class="pl-8">
+              <time class="text-sm text-zinc-600 ">{job.period}</time>
+              <p>{job.role}</p>
+            </section>
+          </NeoCard>
+        </li>
+      ))
+    }
+  </ul>
 </section>

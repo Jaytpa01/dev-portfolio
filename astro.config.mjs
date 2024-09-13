@@ -6,13 +6,13 @@ import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://jayparry.dev",
-	integrations: [tailwind(), sitemap(), preact(), partytown()],
-	markdown: {
-		shikiConfig: {
-			theme: "dracula",
-			// Enable word wrap to prevent horizontal scrolling
-			wrap: true,
-		},
-	},
+  site: "https://jayparry.dev",
+  integrations: [tailwind(), sitemap(), preact(), partytown()],
+  markdown: {
+    shikiConfig: {
+      theme: "dracula",
+      // Enable word wrap to prevent horizontal scrolling
+      wrap: true,
+    },
+  },
 });

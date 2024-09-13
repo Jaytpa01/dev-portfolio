@@ -7,7 +7,7 @@ import TextLink from "./TextLink.astro";
 import { cn } from "@lib/utils";
 
 interface Props {
-	article: CollectionEntry<"article">;
+  article: CollectionEntry<"article">;
 }
 
 const { article } = Astro.props;
@@ -15,57 +15,57 @@ const { Content } = await article.render();
 ---
 
 <BaseLayout title={article.data.title}>
-	<ArticleStructuredData
-		slot="rich-results"
-		article={article}
-	/>
+  <ArticleStructuredData
+    slot="rich-results"
+    article={article}
+  />
 
-	<div class="space-y-2">
-		<h1 class="text-xl font-bold before:text-red-500 before:content-['#']">
-			{article.data.title}
-		</h1>
+  <div class="space-y-2">
+    <h1 class="text-xl font-bold before:text-red-500 before:content-['#']">
+      {article.data.title}
+    </h1>
 
-		<time class="text-zinc-500">
-			{
-				article.data.publishDate.toLocaleString("en-AU", {
-					timeZone: "Australia/Sydney",
-					month: "short",
-					day: "numeric",
-					year: "numeric",
-				})
-			}
-		</time>
-		<p class="text-sm">
-			<span class="font-bold">tl;dr:</span>{" "}
-			{article.data.tldr ?? article.data.description}
-		</p>
+    <time class="text-zinc-500">
+      {
+        article.data.publishDate.toLocaleString("en-AU", {
+          timeZone: "Australia/Sydney",
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        })
+      }
+    </time>
+    <p class="text-sm">
+      <span class="font-bold">tl;dr:</span>{" "}
+      {article.data.tldr ?? article.data.description}
+    </p>
 
-		{
-			article.data.liveSite && (
-				<TextLink
-					href={article.data.liveSite}
-					class="text-sm font-bold"
-				>
-					live site ⟶
-				</TextLink>
-			)
-		}
+    {
+      article.data.liveSite && (
+        <TextLink
+          href={article.data.liveSite}
+          class="text-sm font-bold"
+        >
+          live site ⟶
+        </TextLink>
+      )
+    }
 
-		<div class="flex justify-end">
-			<TagList tags={article.data.tags} />
-		</div>
-	</div>
+    <div class="flex justify-end">
+      <TagList tags={article.data.tags} />
+    </div>
+  </div>
 
-	<hr class="my-8 border-zinc-800" />
+  <hr class="my-8 border-zinc-800" />
 
-	<article
-		class={cn(
-			"prose prose-quoteless max-w-none",
-			"prose-code:before:content-none prose-code:after:content-none",
-			"prose-headings:before:text-red-500 prose-h2:before:content-['##_'] prose-h3:before:content-['###_'] prose-h4:before:content-['####_']",
-			"hover:prose-a:text-white hover:prose-a:bg-red-500 prose-a:underline prose-a:decoration-2 prose-a:underline-offset-4 prose-a:decoration-red-500",
-		)}
-	>
-		<Content />
-	</article>
+  <article
+    class={cn(
+      "prose prose-quoteless max-w-none",
+      "prose-code:before:content-none prose-code:after:content-none",
+      "prose-headings:before:text-red-500 prose-h2:before:content-['##_'] prose-h3:before:content-['###_'] prose-h4:before:content-['####_']",
+      "hover:prose-a:text-white hover:prose-a:bg-red-500 prose-a:underline prose-a:decoration-2 prose-a:underline-offset-4 prose-a:decoration-red-500",
+    )}
+  >
+    <Content />
+  </article>
 </BaseLayout>

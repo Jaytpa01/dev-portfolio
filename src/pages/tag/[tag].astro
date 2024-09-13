@@ -5,8 +5,8 @@ import ArticleList from "@components/ArticleList.astro";
 import TagList from "@components/TagList.astro";
 
 export async function getStaticPaths() {
-	const tags = await getAllBlogTags();
-	return tags.map((tag) => ({ params: { tag } }));
+  const tags = await getAllBlogTags();
+  return tags.map((tag) => ({ params: { tag } }));
 }
 
 const { tag } = Astro.params;
@@ -16,14 +16,14 @@ const allTags = await getAllBlogTags();
 ---
 
 <BaseLayout title={tag}>
-	<h2 class="py-7 text-center text-lg text-zinc-500">
-		all posts tagged with <span class="font-bold">{tag}</span>
-	</h2>
+  <h2 class="py-7 text-center text-lg text-zinc-500">
+    all posts tagged with <span class="font-bold">{tag}</span>
+  </h2>
 
-	<ArticleList articles={posts} />
+  <ArticleList articles={posts} />
 
-	<div class="flex flex-col items-center pt-8">
-		<p class="text-center">view posts by tag</p>
-		<TagList tags={allTags} />
-	</div>
+  <div class="flex flex-col items-center pt-8">
+    <p class="text-center">view posts by tag</p>
+    <TagList tags={allTags} />
+  </div>
 </BaseLayout>
