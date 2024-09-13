@@ -2,6 +2,10 @@
 	"name": "dev-portfolio",
 	"type": "module",
 	"version": "0.0.1",
+	"engines": {
+        "node": "^20.17.0",
+        "pnpm": "^9.9.0"
+    },
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
 		"dev": "astro dev",
