@@ -49,4 +49,4 @@ export default {
   },
 ```
 
-Press `Ctrl + Shift + P` (`Cmd + Shift + P` on mac), and search for `user settings`, selecting `Preferences: Open User Settings (JSON) sodfhsdofhsodfhsodfhoh`.
+Press `Ctrl + Shift + P` (`Cmd + Shift + P` on mac), and search for `user settings`, selecting `Preferences: Open User Settings (JSON)`.
